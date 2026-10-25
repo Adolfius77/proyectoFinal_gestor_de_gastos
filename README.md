@@ -1,5 +1,5 @@
-Proyecto gestor de gastos
-Casos de uso
+#Proyecto gestor de gastos
+#Casos de uso
 
 - Adolfo Ortega - Consultar resumen
 - Andrea Melendrez - Registrar gasto o ingreso
