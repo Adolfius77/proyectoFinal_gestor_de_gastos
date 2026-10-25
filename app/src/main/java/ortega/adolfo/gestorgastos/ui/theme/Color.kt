@@ -9,3 +9,26 @@ val Pink80 = Color(0xFFEFB8C8)
 val Purple40 = Color(0xFF6650a4)
 val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
+
+//colores de la app
+val VerdePrimario = Color(0xFF0E6B4F)
+
+val FondoClaro = Color(0xFFEEF0EC)
+
+val TextoPrincipal   = Color(0xFF14201A)
+
+val TextoSecundario  = Color(0xFF56625B)
+
+val VerdeSuave       = Color(0xFFD4F5E0)
+
+val Azul             = Color(0xFF315E86)
+
+val Naranja          = Color(0xFFDD8B18)
+
+val Rosa             = Color(0xFFB94379)
+
+val Morado           = Color(0xFF7D5BC2)
+
+val GrisPlaceholder  = Color(0xFF8D928E)
+
+val RojoError        = Color(0xFFBF3833)
