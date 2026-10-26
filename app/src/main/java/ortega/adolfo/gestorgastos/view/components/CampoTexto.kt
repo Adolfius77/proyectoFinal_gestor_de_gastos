@@ -20,8 +20,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.Placeholder
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
@@ -81,11 +79,13 @@ fun CampoTexto(
             interactionSource = interaccion,
             shape = RoundedCornerShape(10.dp),
 
+
             colors = OutlinedTextFieldDefaults.colors(
                 focusedContainerColor = FondoClaro,
                 errorContainerColor = FondoClaro,
-                focusedBorderColor = GrisPlaceholder,
-                unfocusedBorderColor = Color.Transparent,
+                unfocusedContainerColor = FondoClaro,
+                focusedBorderColor = VerdePrimario,
+                unfocusedBorderColor = GrisPlaceholder,
                 errorBorderColor = RojoError,
                 cursorColor = VerdePrimario,
                 focusedTrailingIconColor = TextoSecundario,
@@ -104,7 +104,7 @@ fun CampoTexto(
 }
 @Composable
 @Preview(showBackground = true)
-fun campoTextoPreview(){
+fun CampoTextoPreview(){
     Column(Modifier.padding(16.dp)) {
         CampoTexto("Correo electrónico", "", {}, "tucorreo@ejemplo.com")
         Spacer(Modifier.height(12.dp))
