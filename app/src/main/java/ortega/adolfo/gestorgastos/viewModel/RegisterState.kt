@@ -2,7 +2,7 @@ package ortega.adolfo.gestorgastos.viewModel
 
 import java.time.LocalDate
 
-data class RegistroState(
+data class RegisterState(
     val nombre: String = "",
     val correo: String = "",
     val fechaNacimiento: LocalDate? = null,

@@ -9,11 +9,11 @@ import ortega.adolfo.gestorgastos.model.domain.Usuario
 import ortega.adolfo.gestorgastos.model.domain.data.DatosMock
 import java.time.LocalDate
 
-class RegistroViewModel : ViewModel() {
+class RegisterViewModel : ViewModel() {
 
-    private val _estado = MutableStateFlow(RegistroState())
+    private val _estado = MutableStateFlow(RegisterState())
 
-    val estado: StateFlow<RegistroState> = _estado.asStateFlow()
+    val estado: StateFlow<RegisterState> = _estado.asStateFlow()
 
     fun onNombreCambio(valor: String) {
         _estado.update { it.copy(nombre = valor, errorNombre = null, errorGeneral = null) }
