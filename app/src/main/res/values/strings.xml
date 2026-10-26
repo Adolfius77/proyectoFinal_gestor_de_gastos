@@ -15,4 +15,14 @@
     <string name="aceptar">Aceptar</string>
     <string name="cancelar">Cancelar</string>
     <string name="o_entra_m_s_r_pido">o entra más rápido</string>
+    <!--Strings para el register-->
+    <string name="crea_tu_cuenta_titulo">Crea tu cuenta</string>
+    <string name="como_te_llamas">Cómo te llamas</string>
+    <string name="nombre_y_apellido">Nombre y apellido</string>
+    <string name="fecha_de_nacimiento">Fecha de nacimiento</string>
+    <string name="genero">Género</string>
+    <string name="crea_una_contrase_a">Crea una contraseña</string>
+    <string name="confirmar_contrase_a">Confirmar contraseña</string>
+    <string name="repite_tu_contrase_a">Repite tu contraseña</string>
+    <string name="registrarse">Registrarse</string>
 </resources>
