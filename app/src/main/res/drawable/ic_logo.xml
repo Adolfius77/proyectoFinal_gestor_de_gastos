@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+
+    <!-- Tirita morada -->
+    <group
+        android:pivotX="10"
+        android:pivotY="6"
+        android:rotation="-15">
+        <path
+            android:fillColor="#7D5BC2"
+            android:pathData="M7.5,0 H11.5 A1.5,1.5 0 0 1 13,1.5 V12 H6 V1.5 A1.5,1.5 0 0 1 7.5,0 Z" />
+    </group>
+
+    <!-- Cuadro verde -->
+    <path
+        android:fillColor="#0E6B4F"
+        android:pathData="M12,6 H32 A10,10 0 0 1 42,16 V36 A10,10 0 0 1 32,46 H12 A10,10 0 0 1 2,36 V16 A10,10 0 0 1 12,6 Z" />
+
+    <!-- Cuerpo de la cartera -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2.5"
+        android:strokeLineJoin="round"
+        android:pathData="M14,17 H30 A3,3 0 0 1 33,20 V32 A3,3 0 0 1 30,35 H14 A3,3 0 0 1 11,32 V20 A3,3 0 0 1 14,17 Z" />
+
+    <!-- Broche -->
+    <path
+        android:fillColor="#0E6B4F"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2.5"
+        android:strokeLineJoin="round"
+        android:pathData="M26,22 H34.5 V30 H26 A4,4 0 0 1 22,26 A4,4 0 0 1 26,22 Z" />
+
+    <!-- Botoncito -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M26.7,26 a1.3,1.3 0 1,0 2.6,0 a1.3,1.3 0 1,0 -2.6,0 Z" />
+</vector>

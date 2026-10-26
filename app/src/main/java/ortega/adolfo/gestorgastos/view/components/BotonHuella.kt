@@ -1,4 +1,4 @@
-package ortega.adolfo.gestorgastos.components
+package ortega.adolfo.gestorgastos.view.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Spacer
