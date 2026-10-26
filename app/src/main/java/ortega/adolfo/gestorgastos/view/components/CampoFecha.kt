@@ -17,8 +17,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import ortega.adolfo.gestorgastos.R
 import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneOffset
@@ -42,7 +44,7 @@ fun CampoFecha(
         etiqueta = etiqueta,
         valor = fecha?.format(formatoFecha) ?: "",
         onValorCambio = {},
-        placeholder = "dd/mm/aaaa",
+        placeholder = stringResource(R.string.dd_mm_aaaa),
         modifier = modifier,
         error = error,
         soloLectura = true,
@@ -63,14 +65,14 @@ fun CampoFecha(
                         mostrarCalendario = false
                     }
                 ) {
-                    Text("Aceptar")
+                    Text(stringResource(R.string.aceptar))
                 }
             },
             dismissButton = {
                 TextButton(
                     onClick = { mostrarCalendario = false }
                 ) {
-                    Text("Cancelar")
+                    Text(stringResource(R.string.cancelar))
                 }
             }
         ) {

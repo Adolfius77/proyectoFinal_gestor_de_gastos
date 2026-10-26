@@ -24,6 +24,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
@@ -31,6 +32,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import ortega.adolfo.gestorgastos.R
 import ortega.adolfo.gestorgastos.ui.theme.FondoClaro
 import ortega.adolfo.gestorgastos.ui.theme.RojoError
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
@@ -91,7 +93,7 @@ fun LoginContenido(
             Spacer(Modifier.height(20.dp))
 
             Text(
-                text = "¡Hola de nuevo!",
+                text = stringResource(R.string.hola_de_nuevo),
                 style = MaterialTheme.typography.headlineMedium,
                 color = TextoPrincipal,
                 textAlign = TextAlign.Center,
@@ -99,27 +101,27 @@ fun LoginContenido(
             )
             Spacer(Modifier.height(4.dp))
             Text(
-                text = "Entra para ver los gastos de este mes",
+                text = stringResource(R.string.entra_para_ver_los_gastos_de_este_mes),
                 fontSize = 14.sp,
                 color = TextoSecundario
             )
             Spacer(Modifier.height(28.dp))
 
             CampoTexto(
-                etiqueta = "Correo electrónico",
+                etiqueta = stringResource(R.string.correo_electr_nico),
                 valor = estado.correo,
                 onValorCambio = onCorreoCambio,
-                placeholder = "tucorreo@ejemplo.com",
+                placeholder = stringResource(R.string.tucorreo_ejemplo_com),
                 error = estado.errorCorreo,
                 tipoTeclado = KeyboardType.Email
             )
             Spacer(Modifier.height(16.dp))
 
             CampoPassword(
-                etiqueta = "Contraseña",
+                etiqueta = stringResource(R.string.contrase_a),
                 valor = estado.password,
                 onValorCambio = onPasswordCambio,
-                placeholder = "Tu contraseña",
+                placeholder = stringResource(R.string.tu_contrase_a),
                 error = estado.errorPassword
             )
             TextButton(
@@ -127,7 +129,7 @@ fun LoginContenido(
                 modifier = Modifier.align(Alignment.End)
             ) {
                 Text(
-                    "¿Olvidaste tu contraseña?",
+                    stringResource(R.string.olvidaste_tu_contrase_a),
                     color = VerdePrimario,
                     fontSize = 13.sp,
                     fontWeight = FontWeight.SemiBold
@@ -139,27 +141,31 @@ fun LoginContenido(
                     color = RojoError,
                     fontSize = 13.sp,
                     textAlign = TextAlign.Center,
-                    modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 8.dp)
                 )
             }
             Spacer(Modifier.height(8.dp))
-            BotonPrimario("Iniciar sesión", onClick = onIniciarSesion)
+            BotonPrimario(stringResource(R.string.iniciar_sesi_n), onClick = onIniciarSesion)
             Spacer(Modifier.height(24.dp))
             DivisorTexto("o entra más rápido")
             Spacer(Modifier.height(24.dp))
             BotonHuella(
-                "Entrar con mi huella",
-                onClick = { /* TODO: Implementar huella */ },
+                stringResource(R.string.entrar_con_mi_huella),
+                onClick = {  },
                 icono = Icons.Filled.Fingerprint
             )
         }
         Row(
-            modifier = Modifier.fillMaxWidth().padding(vertical = 20.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 20.dp),
             horizontalArrangement = Arrangement.Center
         ) {
-            Text("¿Eres nuevo aquí? ", fontSize = 14.sp, color = TextoPrincipal)
+            Text(stringResource(R.string.eres_nuevo_aqu), fontSize = 14.sp, color = TextoPrincipal)
             Text(
-                "Crea tu cuenta",
+                stringResource(R.string.crea_tu_cuenta),
                 fontSize = 14.sp,
                 fontWeight = FontWeight.Bold,
                 color = VerdePrimario,
