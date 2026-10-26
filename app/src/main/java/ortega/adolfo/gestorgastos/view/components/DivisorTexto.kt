@@ -15,8 +15,9 @@ import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
 
 
+//este componente se puede utilizar para dividir secciones
 @Composable
-fun divisorTexto(texto: String, modifier: Modifier = Modifier){
+fun DivisorTexto(texto: String, modifier: Modifier = Modifier){
     Row(
         modifier = modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically

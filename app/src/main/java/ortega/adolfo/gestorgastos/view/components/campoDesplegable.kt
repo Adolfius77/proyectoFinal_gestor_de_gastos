@@ -21,6 +21,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 
 
+//este componente se usara para las listas desplegables como genero o por si tenemos que seleccionar algo plebes
 @Composable
 fun CampoDesplegable(
     etiqueta: String,

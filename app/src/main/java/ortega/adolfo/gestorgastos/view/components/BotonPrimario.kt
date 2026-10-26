@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 
+//este boton se puede reutilizar en toda la app para acciones
 @Composable
 fun BotonPrimario(texto: String, onClick: () -> Unit, modifier: Modifier = Modifier ){
     Button(

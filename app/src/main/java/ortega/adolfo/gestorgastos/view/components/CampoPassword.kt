@@ -22,6 +22,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.remember
 import androidx.compose.ui.unit.dp
 
+
+//componente para la contrasena del login se puede usar tambien en el registro sin
+//problemas tenganlo en cuenta chavales
 @Composable
 fun CampoPassword(
     etiqueta: String,

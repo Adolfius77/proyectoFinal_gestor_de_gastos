@@ -12,7 +12,7 @@ class LoginViewModel: ViewModel() {
     val estado: StateFlow<LoginState> = _estado.asStateFlow()
 
     fun onCorreoCambio(valor: String){
-        _estado.update { it.copy(password = valor, errorPassword = null, errorGeneral = null, ) }
+        _estado.update { it.copy(correo = valor, errorCorreo = null, errorGeneral = null) }
     }
 
     fun onPasswordCambio(valor: String){

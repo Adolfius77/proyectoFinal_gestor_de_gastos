@@ -34,6 +34,9 @@ import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 
 
+//este componente te da el texto y el label para hacer formularios donde recibe el texto
+//y tu eliges el placeholder que quieras que tenga hasta icono le puedes poner por que en
+//algunos cu vienen unos iconos
 @Composable
 fun CampoTexto(
     etiqueta: String,

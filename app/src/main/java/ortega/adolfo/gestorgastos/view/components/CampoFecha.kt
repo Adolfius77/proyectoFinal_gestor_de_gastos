@@ -26,6 +26,7 @@ import java.time.format.DateTimeFormatter
 
 private val formatoFecha = DateTimeFormatter.ofPattern("dd/MM/yyyy")
 
+//este componente se puede usar para cualquier parte donde se use una fecha
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CampoFecha(
