@@ -149,7 +149,7 @@ fun LoginContenido(
             Spacer(Modifier.height(8.dp))
             BotonPrimario(stringResource(R.string.iniciar_sesi_n), onClick = onIniciarSesion)
             Spacer(Modifier.height(24.dp))
-            DivisorTexto("o entra más rápido")
+            DivisorTexto(stringResource(R.string.o_entra_m_s_r_pido))
             Spacer(Modifier.height(24.dp))
             BotonHuella(
                 stringResource(R.string.entrar_con_mi_huella),
