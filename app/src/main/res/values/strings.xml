@@ -25,4 +25,10 @@
     <string name="confirmar_contrase_a">Confirmar contraseña</string>
     <string name="repite_tu_contrase_a">Repite tu contraseña</string>
     <string name="registrarse">Registrarse</string>
+    <!--String para la barra de navegacion -->
+    <string name="nav_grupos">Grupos</string>
+    <string name="nav_estadisticas">Estadísticas</string>
+    <string name="nav_inicio">Inicio</string>
+    <string name="nav_presupuesto">Presupuesto</string>
+    <string name="nav_perfil">Perfil</string>
 </resources>
