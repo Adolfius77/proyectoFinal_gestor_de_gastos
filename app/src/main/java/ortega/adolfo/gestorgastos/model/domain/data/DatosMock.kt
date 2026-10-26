@@ -12,7 +12,8 @@ object DatosMock {
             "hombre","123456789")
 
     )
+    var usuarioActual: Usuario? = null
+    val generos = listOf("Mujer", "Hombre", "Otro", "Prefiero no decirlo")
 }
-val generos = listOf("Mujer", "Hombre", "Otro", "Prefiero no decirlo")
 
-var usuarioActual: Usuario? = null
+
