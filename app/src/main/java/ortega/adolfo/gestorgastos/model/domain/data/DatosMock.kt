@@ -14,6 +14,12 @@ object DatosMock {
     )
     var usuarioActual: Usuario? = null
     val generos = listOf("Mujer", "Hombre", "Otro", "Prefiero no decirlo")
+
+    // Opciones para filtrar el resumen por categoria
+    val categoriasFiltro = listOf(
+        "Todas", "Vivienda", "Alimentación", "Transporte",
+        "Entretenimiento", "Salud", "Otros"
+    )
 }
 
 

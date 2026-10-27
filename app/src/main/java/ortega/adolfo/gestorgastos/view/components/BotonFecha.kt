@@ -6,6 +6,8 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -60,11 +62,13 @@ fun BotonFecha(
     Box(modifier = modifier) {
         Row(
             modifier = Modifier
+                .fillMaxWidth()
+                .height(40.dp)
                 .clip(RoundedCornerShape(10.dp))
                 .background(Color.White)
                 .border(1.dp, Color(0xFFDADDD9), RoundedCornerShape(10.dp))
                 .clickable { expandido = true }
-                .padding(horizontal = 12.dp, vertical = 8.dp),
+                .padding(horizontal = 12.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Icon(
@@ -73,7 +77,7 @@ fun BotonFecha(
                 tint = TextoPrincipal,
                 modifier = Modifier.size(18.dp)
             )
-            Spacer(Modifier.width(8.dp))
+
             Text(
                 text = mes.aTexto(),
                 style = MaterialTheme.typography.labelLarge,
@@ -92,7 +96,8 @@ fun BotonFecha(
                         Text(
                             text = opcion.aTexto(),
                             color = if (activo) VerdePrimario else TextoPrincipal,
-                            fontWeight = if (activo) FontWeight.Bold else FontWeight.Normal
+                            fontWeight = if (activo) FontWeight.Bold else FontWeight.Normal,
+                            modifier = Modifier.weight(1f),
                         )
                     },
                     onClick = {
