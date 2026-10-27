@@ -24,10 +24,15 @@ import androidx.compose.ui.unit.sp
 import ortega.adolfo.gestorgastos.model.domain.Periodo
 import ortega.adolfo.gestorgastos.ui.theme.Nunito
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
+import java.time.LocalDate
 
 
 @Composable
-fun CabeceraEstadisticas(modifier: Modifier = Modifier, seleccionado: Periodo, onSeleccionar: (Periodo) -> Unit){
+fun CabeceraEstadisticas(
+    modifier: Modifier = Modifier,
+    seleccionado: Periodo,
+    onSeleccionar: (Periodo) -> Unit){
+
     Column(
         modifier = modifier.fillMaxWidth(),
 
@@ -46,6 +51,8 @@ fun CabeceraEstadisticas(modifier: Modifier = Modifier, seleccionado: Periodo, o
             seleccionado = seleccionado,
             onSeleccionar = onSeleccionar
         )
+        Spacer(Modifier.height(10.dp))
+
     }
 
 
