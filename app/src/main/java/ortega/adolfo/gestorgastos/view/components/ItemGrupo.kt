@@ -2,6 +2,7 @@ package ortega.adolfo.gestorgastos.view.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -13,11 +14,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Groups
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -32,6 +35,15 @@ import ortega.adolfo.gestorgastos.model.domain.Grupo
 import ortega.adolfo.gestorgastos.ui.theme.Manrope
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.snap
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsPressedAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.graphics.Color
+import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
+import ortega.adolfo.gestorgastos.ui.theme.VerdeSuave
 
 @Composable
 private fun AvatarGrupo(imagen: Int?, modifier: Modifier = Modifier) {
@@ -67,10 +79,24 @@ fun ItemGrupo(
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val interactionSource = remember { MutableInteractionSource() }
+    val presionado by interactionSource.collectIsPressedAsState()
+    val fondo by animateColorAsState(
+        targetValue = if (presionado) VerdePrimario.copy(alpha = 0.18f) else Color.Transparent,
+        animationSpec = if (presionado) snap() else tween(durationMillis = 350),
+        label = "fondoItemGrupo"
+    )
+
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .clickable(onClick = onClick)
+            .clip(RoundedCornerShape(12.dp))
+            .background(fondo)
+            .clickable(
+                interactionSource = interactionSource,
+                indication = null,
+                onClick = onClick
+            )
             .padding(vertical = 14.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {

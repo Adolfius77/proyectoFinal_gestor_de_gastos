@@ -19,7 +19,9 @@ import androidx.navigation.compose.rememberNavController
 import ortega.adolfo.gestorgastos.ui.theme.FondoClaro
 import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
 import ortega.adolfo.gestorgastos.view.components.BarraNavegacion
+import ortega.adolfo.gestorgastos.view.components.screens.CrearGrupoScreen
 import ortega.adolfo.gestorgastos.view.components.screens.ResumenSreen
+import ortega.adolfo.gestorgastos.view.components.screens.GruposScreen
 
 @Composable
 fun NavegacionApp(
@@ -28,7 +30,7 @@ fun NavegacionApp(
     val entradaActual by navController.currentBackStackEntryAsState()
     val destinoActual = Destino.entries.find { destino ->
         entradaActual?.destination?.hasRoute(destino.ruta::class) == true
-    }
+    } ?: if (entradaActual?.destination?.hasRoute(Ruta.CrearGrupo::class) == true) Destino.GRUPOS else null
 
     Scaffold(
         containerColor = FondoClaro,
@@ -51,10 +53,21 @@ fun NavegacionApp(
             composable<Ruta.Graficas> { ResumenSreen() }
 
 
-            composable<Ruta.Grupos> { PantallaPendiente("Grupos") }
+            composable<Ruta.Grupos> { GruposScreen(
+                onCrearGrupo = { navController.navigate(Ruta.CrearGrupo) }
+            ) }
             composable<Ruta.Inicio> { PantallaPendiente("Inicio") }
             composable<Ruta.Presupuesto> { PantallaPendiente("Presupuesto") }
             composable<Ruta.Perfil> { PantallaPendiente("Perfil") }
+            composable<Ruta.CrearGrupo> {
+                CrearGrupoScreen(
+                    onVolver = { navController.popBackStack() },
+                    onCrear = { nombre, tipo, imagen ->
+                        // TODO: guardar el grupo (ViewModel / DatosMock)
+                        navController.popBackStack()
+                    }
+                )
+            }
         }
     }
 }
