@@ -57,6 +57,22 @@
     <string name="ingreso_guardar">Guardar</string>
     <string name="ingreso_editar">Editar ingreso</string>
     <string name="ingreso_eliminar">Eliminar ingreso</string>
+    <!-- Presupuesto para agregar gasto fijo -->
+    <string name="gasto_titulo">Agregar gasto fijo</string>
+    <string name="gasto_subtitulo">Presupuesto · %1$s</string>
+    <string name="gasto_nombre_label">Nombre del gasto</string>
+    <string name="gasto_nombre_placeholder">Renta</string>
+    <string name="gasto_monto_label">Monto</string>
+    <string name="gasto_monto_placeholder">$5,500</string>
+    <string name="gasto_tipo_label">Tipo de gasto</string>
+    <string name="gasto_dia_pago_label">Día de pago</string>
+    <string name="gasto_dia_pago_valor">Día %1$02d de cada mes</string>
+    <string name="gasto_recordar">Recuérdame 2 días antes</string>
+    <string name="gasto_lista_titulo">Gastos fijos</string>
+    <string name="gasto_restan">Restan %1$s para repartir en categorías</string>
+    <string name="gasto_guardar">Guardar</string>
+    <string name="gasto_editar">Editar gasto</string>
+    <string name="gasto_eliminar">Eliminar gasto</string>
     <!--String para la barra de navegacion -->
     <string name="nav_grupos">Grupos</string>
     <string name="nav_estadisticas">Estadísticas</string>
