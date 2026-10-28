@@ -47,7 +47,6 @@ fun PresupuestoScreen(
 ) {
     val estado by viewModel.estado.collectAsState()
 
-    // Cada vez que la pantalla aparece (tambien al regresar de un formulario) se recargan los datos
     LaunchedEffect(Unit) { viewModel.cargarDatos() }
 
     PresupuestoContenido(
@@ -61,8 +60,6 @@ fun PresupuestoScreen(
     )
 }
 
-// Esta pantalla vive dentro del Scaffold de NavegacionApp, que ya pone los margenes del sistema
-// y la barra de abajo, por eso aqui no se usa systemBarsPadding()
 @Composable
 fun PresupuestoContenido(
     estado: PresupuestoState,
