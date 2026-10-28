@@ -1,5 +1,6 @@
 package ortega.adolfo.gestorgastos.model.domain.data
 
+import ortega.adolfo.gestorgastos.model.domain.Grupo
 import ortega.adolfo.gestorgastos.model.domain.Usuario
 import java.time.LocalDate
 
