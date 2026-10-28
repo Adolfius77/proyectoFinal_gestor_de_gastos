@@ -1,5 +1,6 @@
 package ortega.adolfo.gestorgastos.model.domain.data
 
+import ortega.adolfo.gestorgastos.model.domain.GastoGrupo
 import ortega.adolfo.gestorgastos.model.domain.Grupo
 import ortega.adolfo.gestorgastos.model.domain.Usuario
 import java.time.LocalDate
@@ -31,6 +32,13 @@ object DatosMock {
         Grupo(6, "Titulo Universitario", "Daniela Monclova: Pago \$189.00 MXN"),
         Grupo(7, "Casa Infonavit", "Dylan O'brien: Pago \$1,923,232.00 MXN"),
         Grupo(8, "Arreglar tinaco", "Daniela Monclova: Pago \$323.00 MXN")
+    )
+
+    val gastosGrupo = listOf(
+        GastoGrupo(1, "Boletos de avion", "02 de abril 2026", "transporte", 150000.0, "Dana"),
+        GastoGrupo(2, "Hotel en Tokio", "18 de junio 2025", "hospedaje", 30000.0),
+        GastoGrupo(3, "Comida", "7 de agosto 2025", "comida", 10000.0, "Andrea"),
+        GastoGrupo(4, "Transporte", "22 de noviembre 2025", "transporte", 8500.0)
     )
 }
 

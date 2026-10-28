@@ -42,24 +42,29 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.Dp
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 import ortega.adolfo.gestorgastos.ui.theme.VerdeSuave
 
 @Composable
-private fun AvatarGrupo(imagen: Int?, modifier: Modifier = Modifier) {
+fun AvatarGrupo(
+    imagen: Int?,
+    modifier: Modifier = Modifier,
+    tamano: Dp = 44.dp
+) {
     if (imagen != null) {
         Image(
             painter = painterResource(imagen),
             contentDescription = null,
             contentScale = ContentScale.Crop,
             modifier = modifier
-                .size(44.dp)
+                .size(tamano)
                 .clip(CircleShape)
         )
     } else {
         Box(
             modifier = modifier
-                .size(44.dp)
+                .size(tamano)
                 .border(BorderStroke(1.5.dp, TextoSecundario), CircleShape),
             contentAlignment = Alignment.Center
         ) {
@@ -67,7 +72,7 @@ private fun AvatarGrupo(imagen: Int?, modifier: Modifier = Modifier) {
                 imageVector = Icons.Outlined.Groups,
                 contentDescription = null,
                 tint = TextoSecundario,
-                modifier = Modifier.size(24.dp)
+                modifier = Modifier.size(tamano / 2)
             )
         }
     }
