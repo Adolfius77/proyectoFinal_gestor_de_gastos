@@ -48,7 +48,7 @@ fun SelectorTipoMovimiento(
                     .height(48.dp)
                     .clip(forma)
                     .background(if (activo) VerdePrimario else FondoClaro)
-                    .border(1.dp, if (activo) VerdePrimario else Color(0xFFDADDD9), forma)
+                    .border(2.dp, if (activo) VerdePrimario else Color(0xFFDADDD9), forma)
                     .clickable { onSeleccionar(tipo) },
                 contentAlignment = Alignment.Center
             ) {
