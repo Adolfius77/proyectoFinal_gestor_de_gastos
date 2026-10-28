@@ -30,6 +30,18 @@
     <string name="categoria_quedan">Quedan %1$s</string>
     <string name="categoria_excedido">Excedido %1$s</string>
     <string name="categoria_gastado_de">%1$s de %2$s</string>
+    <!-- Presupuesto -->
+    <string name="presupuesto_titulo">Presupuesto</string>
+    <string name="presupuesto_categorias">Categorías</string>
+    <string name="presupuesto_agregar_categoria">Agregar categoría</string>
+    <string name="presupuesto_alertas_titulo">Alertas</string>
+    <string name="presupuesto_alertas_descripcion">Avísame al superar el 80% de cada categoría</string>
+    <string name="resumen_disponible">Disponible para asignar</string>
+    <string name="resumen_ingresos_fijos">Ingresos fijos</string>
+    <string name="resumen_gastos_fijos">Gastos fijos</string>
+    <string name="boton_ingreso">+ Ingreso</string>
+    <string name="boton_gasto_fijo">+ Gasto fijo</string>
+    <string name="categoria_usado">%1$s usado</string>
     <!--String para la barra de navegacion -->
     <string name="nav_grupos">Grupos</string>
     <string name="nav_estadisticas">Estadísticas</string>
