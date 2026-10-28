@@ -47,6 +47,8 @@ object DatosMock {
         GastoFijo(id = 2, nombre = "Servicios", monto = 1200.0, tipo = TipoGasto.SERVICIOS, diaPago = 1, recordar = true),
         GastoFijo(id = 3, nombre = "Celular", monto = 500.0, tipo = TipoGasto.OTRO, diaPago = 1, recordar = true)
     )
+
+    val meses = listOf("Agosto 2026", "Septiembre 2026", "Octubre 2026")
 }
 
 
