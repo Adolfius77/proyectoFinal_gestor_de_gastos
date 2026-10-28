@@ -32,6 +32,7 @@ import ortega.adolfo.gestorgastos.ui.theme.SpaceGrotesk
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 import ortega.adolfo.gestorgastos.ui.theme.VerdeSuave
 import ortega.adolfo.gestorgastos.utilities.formatoDinero
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 
 
@@ -56,16 +57,15 @@ fun TarjetaBalance(
     ) {
         Text(
             text = stringResource(R.string.te_queda_este_mes),
-            fontFamily = Manrope,
+            fontFamily = SpaceGrotesk,
             fontSize = 14.sp,
-            color = Color.White
+            color = Color.White,
+            fontWeight = FontWeight.ExtraBold
         )
         Text(
             text = formatoDinero(queda),
             style = MaterialTheme.typography.displaySmall,
-            color = Color.White,
-            fontFamily = SpaceGrotesk,
-            fontWeight = FontWeight.ExtraBold
+            color = Color.White
 
 
         )
@@ -183,14 +183,16 @@ private fun MiniTarjeta(
 @Composable
 @Preview(showBackground = true)
 fun TarjetaBalancePreview() {
-    TarjetaBalance(
-        queda = 1500.0,
-        ingresos = 20000.0,
-        gastos = 18500.0,
-        diasRestantes = 14,
-        gastoDiario = 107.0,
-        porcentajeUsado = 0.92f,
-        onVerDetalles = {},
-        modifier = Modifier.padding(16.dp)
-    )
+    GestorGastosTheme {
+        TarjetaBalance(
+            queda = 1500.0,
+            ingresos = 20000.0,
+            gastos = 18500.0,
+            diasRestantes = 14,
+            gastoDiario = 107.0,
+            porcentajeUsado = 0.92f,
+            onVerDetalles = {},
+            modifier = Modifier.padding(16.dp)
+        )
+    }
 }

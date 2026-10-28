@@ -17,6 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ortega.adolfo.gestorgastos.ui.theme.Nunito
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 
 @Composable
@@ -48,5 +49,7 @@ fun CabeceraInicio(
 @Composable
 @Preview(showBackground = true)
 fun CabeceraInicioPreview() {
-    CabeceraInicio(nombre = "Andrea")
+    GestorGastosTheme {
+        CabeceraInicio(nombre = "Andrea")
+    }
 }

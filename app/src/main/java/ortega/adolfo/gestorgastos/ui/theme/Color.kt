@@ -37,3 +37,4 @@ val VerdeWacho = Color(0xFF14241E)
 
 val NaranjaSuave = Color(0xFFFDE4D3)
 
+val BordeGris = Color(0xFFDADDD9)
