@@ -71,7 +71,7 @@ fun Alertas(
 
 @Composable
 @Preview(showBackground = true)
-fun Alertas() {
+fun AlertasPreview() {
     var activo by remember { mutableStateOf(true) }
     Column(Modifier.padding(16.dp)) {
         Alertas(

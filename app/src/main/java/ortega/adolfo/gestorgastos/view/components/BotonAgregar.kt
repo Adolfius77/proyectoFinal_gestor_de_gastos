@@ -33,8 +33,6 @@ import androidx.compose.ui.unit.sp
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 import ortega.adolfo.gestorgastos.ui.theme.VerdeSuave
 
-//boton con borde punteado para agregar cosas a una lista (otra categoria, otro ingreso).
-//el "+" lo pone el componente, tu solo pasas el texto, por ejemplo "Agregar categoría"
 @Composable
 fun BotonAgregar(
     texto: String,

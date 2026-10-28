@@ -12,6 +12,5 @@ data class PresupuestoState(
     val modo: ModoVista = ModoVista.MONTO,
     val alertasActivas: Boolean = true
 ) {
-    // Lo que queda despues de pagar los gastos fijos (asi lo muestra el diseño)
     val disponible: Double get() = ingresosFijos - gastosFijos
 }

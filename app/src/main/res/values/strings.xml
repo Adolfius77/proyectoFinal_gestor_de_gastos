@@ -42,6 +42,21 @@
     <string name="boton_ingreso">+ Ingreso</string>
     <string name="boton_gasto_fijo">+ Gasto fijo</string>
     <string name="categoria_usado">%1$s usado</string>
+    <!-- Presupuesto para agregar ingreso fijo -->
+    <string name="ingreso_titulo">Agregar ingreso fijo</string>
+    <string name="ingreso_subtitulo">Presupuesto · %1$s</string>
+    <string name="ingreso_nombre_label">Nombre del ingreso</string>
+    <string name="ingreso_nombre_placeholder">Sueldo</string>
+    <string name="ingreso_monto_label">Monto</string>
+    <string name="ingreso_monto_placeholder">$18,000</string>
+    <string name="ingreso_frecuencia_label">Frecuencia</string>
+    <string name="ingreso_dia_cobro_label">Día de cobro</string>
+    <string name="ingreso_dia_cobro_valor">Día %1$d de cada mes</string>
+    <string name="ingreso_lista_titulo">Ingresos fijos</string>
+    <string name="ingreso_agregar_otro">Agregar otro ingreso</string>
+    <string name="ingreso_guardar">Guardar</string>
+    <string name="ingreso_editar">Editar ingreso</string>
+    <string name="ingreso_eliminar">Eliminar ingreso</string>
     <!--String para la barra de navegacion -->
     <string name="nav_grupos">Grupos</string>
     <string name="nav_estadisticas">Estadísticas</string>
