@@ -22,6 +22,7 @@ import ortega.adolfo.gestorgastos.ui.theme.RojoError
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
+import ortega.adolfo.gestorgastos.util.comoMoneda
 import kotlin.math.roundToInt
 
 // Es lo que hace que la barra se pinte de color cuando llega el 80%
