@@ -1,4 +1,4 @@
-package ortega.adolfo.gestorgastos.view.components
+package ortega.adolfo.gestorgastos.util
 
 import java.util.Locale
 import kotlin.math.abs
