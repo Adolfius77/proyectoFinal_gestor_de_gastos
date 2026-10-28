@@ -33,20 +33,38 @@ fun TarjetaCategoria(
     nombre: String,
     gastado: Double,
     presupuesto: Double,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    modoPorcentaje: Boolean = false
 ) {
     val progreso = if (presupuesto > 0) (gastado / presupuesto).toFloat() else 0f
     val porcentaje = (progreso * 100).roundToInt()
+    val excedido = gastado > presupuesto
     val color = when {
-        progreso > 1f -> RojoError
+        excedido -> RojoError
         progreso >= UMBRAL_ALERTA -> Naranja
         else -> VerdePrimario
     }
-    val diferencia = presupuesto - gastado
-    val textoRestante = if (diferencia >= 0) {
-        stringResource(R.string.categoria_quedan, diferencia.comoMoneda())
+
+    val textoIzquierda: String
+    val textoDerecha: String
+    if (modoPorcentaje) {
+        textoIzquierda = stringResource(R.string.categoria_usado, "$porcentaje%")
+        textoDerecha = if (excedido) {
+            stringResource(R.string.categoria_excedido, "${porcentaje - 100}%")
+        } else {
+            stringResource(R.string.categoria_quedan, "${100 - porcentaje}%")
+        }
     } else {
-        stringResource(R.string.categoria_excedido, (-diferencia).comoMoneda())
+        textoIzquierda = stringResource(
+            R.string.categoria_gastado_de,
+            gastado.comoMoneda(),
+            presupuesto.comoMoneda()
+        )
+        textoDerecha = if (excedido) {
+            stringResource(R.string.categoria_excedido, (gastado - presupuesto).comoMoneda())
+        } else {
+            stringResource(R.string.categoria_quedan, (presupuesto - gastado).comoMoneda())
+        }
     }
 
     TarjetaBase(modifier = modifier) {
@@ -77,19 +95,15 @@ fun TarjetaCategoria(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = stringResource(
-                    R.string.categoria_gastado_de,
-                    gastado.comoMoneda(),
-                    presupuesto.comoMoneda()
-                ),
+                text = textoIzquierda,
                 fontSize = 12.sp,
                 color = TextoSecundario
             )
             Text(
-                text = textoRestante,
+                text = textoDerecha,
                 fontSize = 12.sp,
                 fontWeight = FontWeight.SemiBold,
-                color = if (diferencia >= 0) VerdePrimario else RojoError
+                color = if (excedido) RojoError else VerdePrimario
             )
         }
     }
@@ -103,6 +117,6 @@ fun TarjetaCategoriaPreview() {
         Spacer(Modifier.height(12.dp))
         TarjetaCategoria("Transporte", gastado = 1100.0, presupuesto = 1800.0)
         Spacer(Modifier.height(12.dp))
-        TarjetaCategoria("Ocio", gastado = 1620.0, presupuesto = 1500.0)
+        TarjetaCategoria("Ocio", gastado = 1620.0, presupuesto = 1500.0, modoPorcentaje = true)
     }
 }
