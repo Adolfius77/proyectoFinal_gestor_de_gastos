@@ -31,4 +31,8 @@
     <string name="nav_inicio">Inicio</string>
     <string name="nav_presupuesto">Presupuesto</string>
     <string name="nav_perfil">Perfil</string>
+    <string name="total_gastado">Total gastado</string>
+    <string name="gr_fica_de_gastos_por_categor_a">Gráfica de gastos por categoría</string>
+    <string name="tu_gasto_m_s_alto_en_este_periodo_es">Tu gasto más alto en este periodo es %1$s.</string>
+    <string name="toca_una_barra_para_ver_el_detalle">Toca una barra para ver el detalle.</string>
 </resources>

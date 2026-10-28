@@ -2,19 +2,21 @@ package ortega.adolfo.gestorgastos.view.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -29,68 +31,72 @@ import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
 @Composable
 fun PanelResumen(
     totalGastado: String,
-    modifier: Modifier = Modifier,
-    categoriaMayor: String = "Vivienda"
-){
+    categoriaMayor: String,
+    precioMayor: String,
+    modifier: Modifier = Modifier
+) {
     Column(
-        modifier = modifier.padding(16.dp)
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(16.dp)
     ) {
         Text(
-            text = "Total gastado",
+            text = stringResource(R.string.total_gastado),
             fontFamily = Manrope,
             color = TextoSecundario,
             fontSize = 13.sp
         )
-        Spacer(modifier = Modifier.height(4.dp))
-        Column {
-            Text(
-                text = totalGastado,
-                fontFamily = SpaceGrotesk,
-                fontSize = 25.sp,
-                fontWeight = FontWeight.ExtraBold,
-                color = TextoPrincipal
-            )
-        }
-        Spacer(modifier = Modifier.height(8.dp))
-        Column {
-            ChipCategoriaPrecio(categoria = categoriaMayor, precio = "$5,550")
-        }
-        Spacer(Modifier.height(10.dp))
+        Spacer(Modifier.height(2.dp))
+        Text(
+            text = totalGastado,
+            fontFamily = SpaceGrotesk,
+            color = TextoPrincipal,
+            fontSize = 25.sp,
+            fontWeight = FontWeight.ExtraBold
+        )
+        Spacer(Modifier.height(8.dp))
+        ChipCategoriaPrecio(categoria = categoriaMayor, precio = precioMayor)
+        Spacer(Modifier.height(12.dp))
+
+
         Image(
             painter = painterResource(id = R.drawable.graficas),
-            contentDescription = "Gráfica de gastos",
-            modifier = Modifier.size(160.dp)
+            contentDescription = stringResource(R.string.gr_fica_de_gastos_por_categor_a),
+            modifier = Modifier.fillMaxWidth(),
+            contentScale = ContentScale.FillWidth
         )
-        Spacer(Modifier.height(10.dp))
-        Box(
+        Spacer(Modifier.height(16.dp))
+
+        Column(
             modifier = Modifier
-                .width(160.dp)
+                .fillMaxWidth()
                 .clip(RoundedCornerShape(16.dp))
                 .background(FondoClaro)
                 .padding(12.dp)
         ) {
-            Column {
-                Text(
-                    text = "Tu gasto más alto en este periodo es $categoriaMayor.",
-                    color = TextoPrincipal,
-                    fontSize = 10.sp,
-                    fontWeight = FontWeight.Medium,
-                    fontFamily = Manrope
-                )
-                Spacer(modifier = Modifier.height(4.dp))
-                Text(
-                    text = "Toca una barra para ver el detalle.",
-                    color = TextoPrincipal,
-                    fontSize = 10.sp,
-                    fontFamily = Manrope
-                )
-            }
+            Text(
+                text = stringResource(R.string.tu_gasto_m_s_alto_en_este_periodo_es, categoriaMayor),
+                color = TextoSecundario,
+                fontSize = 13.sp,
+                fontFamily = Manrope
+            )
+            Text(
+                text = stringResource(R.string.toca_una_barra_para_ver_el_detalle),
+                color = TextoSecundario,
+                fontSize = 13.sp,
+                fontFamily = Manrope
+            )
         }
     }
 }
 
 @Composable
 @Preview(showBackground = true)
-fun PanelResumenPreview(){
-    PanelResumen(totalGastado = "$9,000")
+fun PanelResumenPreview() {
+    PanelResumen(
+        totalGastado = "$9,550",
+        categoriaMayor = "Vivienda",
+        precioMayor = "$4,500",
+        modifier = Modifier.background(Color.White)
+    )
 }
