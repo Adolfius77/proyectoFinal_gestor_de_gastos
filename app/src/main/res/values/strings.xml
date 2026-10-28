@@ -25,6 +25,11 @@
     <string name="confirmar_contrase_a">Confirmar contraseña</string>
     <string name="repite_tu_contrase_a">Repite tu contraseña</string>
     <string name="registrarse">Registrarse</string>
+    <!-- Strings para el Presupuesto mensual-->
+    <string name="volver">Volver</string>
+    <string name="categoria_quedan">Quedan %1$s</string>
+    <string name="categoria_excedido">Excedido %1$s</string>
+    <string name="categoria_gastado_de">%1$s de %2$s</string>
     <!--String para la barra de navegacion -->
     <string name="nav_grupos">Grupos</string>
     <string name="nav_estadisticas">Estadísticas</string>
