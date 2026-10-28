@@ -10,5 +10,7 @@ sealed interface Ruta {
     @Serializable data object Presupuesto : Ruta
     @Serializable data object Perfil : Ruta
 
-    @Serializable data object AgregarIngreso : Ruta
+    @Serializable data object PresupuestoAgregarIngreso : Ruta
+
+    @Serializable data object PresupuestoGastoFijo : Ruta
 }
