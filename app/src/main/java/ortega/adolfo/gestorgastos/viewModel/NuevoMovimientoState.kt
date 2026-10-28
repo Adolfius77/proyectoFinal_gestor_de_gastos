@@ -10,7 +10,7 @@ data class NuevoMovimientoState(val tipo: TipoMovimiento = TipoMovimiento.GASTO,
                                 val categoria: String = "",
                                 val tipoPago: String = DatosMock.PAGO_TARJETA,
                                 val tarjeta: String = DatosMock.tarjetas.firstOrNull() ?: "",
-                                val ubicacion: String = "",
+                                val ubicacion: String = DatosMock.UBICACION_MOCK,
                                 val reciboUri: String? = null,
                                 val fecha: LocalDate? = null,
 
