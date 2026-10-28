@@ -44,6 +44,7 @@ import ortega.adolfo.gestorgastos.view.components.EnlaceTexto
 import ortega.adolfo.gestorgastos.view.components.SelectorTipoMovimiento
 import ortega.adolfo.gestorgastos.viewModel.NuevoMovimientoViewModel
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import ortega.adolfo.gestorgastos.model.domain.TipoMovimiento
 import ortega.adolfo.gestorgastos.navigation.Destino
@@ -76,6 +77,7 @@ fun NewMovementScreen(
         modifier = modifier
             .fillMaxSize()
             .background(FondoClaro)
+            .statusBarsPadding()
     ) {
         Column(
             modifier = Modifier
@@ -83,7 +85,7 @@ fun NewMovementScreen(
                 .verticalScroll(rememberScrollState())
                 .imePadding()
         ) {
-            Spacer(Modifier.height(16.dp))
+            Spacer(Modifier.height(8.dp))
 
             // Boton de regresar
             IconButton(onClick = onRegresar) {
