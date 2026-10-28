@@ -78,3 +78,5 @@ private fun PantallaPendiente(nombre: String) {
         )
     }
 }
+
+
