@@ -73,6 +73,18 @@
     <string name="gasto_guardar">Guardar</string>
     <string name="gasto_editar">Editar gasto</string>
     <string name="gasto_eliminar">Eliminar gasto</string>
+    <!-- Presupuesto para agregar una nueva categoria -->
+    <string name="nueva_categoria_titulo">Nueva categoría</string>
+    <string name="nueva_categoria_subtitulo">Presupuesto · %1$s</string>
+    <string name="nueva_categoria_nombre_label">Nombre de la categoría</string>
+    <string name="nueva_categoria_nombre_placeholder">Mascotas</string>
+    <string name="nueva_categoria_sugeridas">Sugeridas</string>
+    <string name="nueva_categoria_presupuesto_label">Presupuesto mensual</string>
+    <string name="nueva_categoria_presupuesto_placeholder">0</string>
+    <string name="nueva_categoria_presupuesto_sufijo">al mes</string>
+    <string name="nueva_categoria_restan">Te quedan %1$s por repartir en categorías</string>
+    <string name="nueva_categoria_excedido">Te pasas %1$s del dinero disponible</string>
+    <string name="nueva_categoria_guardar">Guardar</string>
     <!--String para la barra de navegacion -->
     <string name="nav_grupos">Grupos</string>
     <string name="nav_estadisticas">Estadísticas</string>
