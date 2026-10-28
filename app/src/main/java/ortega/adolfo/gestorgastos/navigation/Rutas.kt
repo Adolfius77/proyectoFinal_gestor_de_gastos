@@ -11,4 +11,7 @@ sealed interface Ruta {
     @Serializable data object Perfil : Ruta
     @Serializable data object CrearGrupo : Ruta
 
+    @Serializable data class DetalleGrupo(val id: Int) : Ruta
+
+
 }

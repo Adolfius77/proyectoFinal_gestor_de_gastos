@@ -16,21 +16,29 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.toRoute
+import ortega.adolfo.gestorgastos.model.domain.data.DatosMock
 import ortega.adolfo.gestorgastos.ui.theme.FondoClaro
 import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
 import ortega.adolfo.gestorgastos.view.components.BarraNavegacion
 import ortega.adolfo.gestorgastos.view.components.screens.CrearGrupoScreen
-import ortega.adolfo.gestorgastos.view.components.screens.ResumenSreen
+import ortega.adolfo.gestorgastos.view.components.screens.GrupoDetalleScreen
 import ortega.adolfo.gestorgastos.view.components.screens.GruposScreen
+import ortega.adolfo.gestorgastos.view.components.screens.ResumenSreen
 
 @Composable
 fun NavegacionApp(
     navController: NavHostController = rememberNavController()
 ) {
     val entradaActual by navController.currentBackStackEntryAsState()
+
+    val enSubpantallaDeGrupos = entradaActual?.destination?.let {
+        it.hasRoute(Ruta.CrearGrupo::class) || it.hasRoute(Ruta.DetalleGrupo::class)
+    } == true
+
     val destinoActual = Destino.entries.find { destino ->
         entradaActual?.destination?.hasRoute(destino.ruta::class) == true
-    } ?: if (entradaActual?.destination?.hasRoute(Ruta.CrearGrupo::class) == true) Destino.GRUPOS else null
+    } ?: if (enSubpantallaDeGrupos) Destino.GRUPOS else null
 
     Scaffold(
         containerColor = FondoClaro,
@@ -38,35 +46,55 @@ fun NavegacionApp(
             if (destinoActual != null) {
                 BarraNavegacion(
                     actual = destinoActual,
-                    onNavegar = { navController.navegarA(it) }
+                    onNavegar = { destino ->
+                        if (destino == destinoActual) {
+                            navController.popBackStack(destino.ruta, inclusive = false)
+                        } else {
+                            navController.navegarA(destino)
+                        }
+                    }
                 )
             }
         }
     ) { innerPadding ->
         NavHost(
             navController = navController,
-
             startDestination = Ruta.Graficas,
             modifier = Modifier.padding(innerPadding)
         ) {
 
             composable<Ruta.Graficas> { ResumenSreen() }
 
+            composable<Ruta.Grupos> {
+                GruposScreen(
+                    onCrearGrupo = { navController.navigate(Ruta.CrearGrupo) },
+                    onAbrirGrupo = { navController.navigate(Ruta.DetalleGrupo(it.id)) }
+                )
+            }
 
-            composable<Ruta.Grupos> { GruposScreen(
-                onCrearGrupo = { navController.navigate(Ruta.CrearGrupo) }
-            ) }
             composable<Ruta.Inicio> { PantallaPendiente("Inicio") }
             composable<Ruta.Presupuesto> { PantallaPendiente("Presupuesto") }
             composable<Ruta.Perfil> { PantallaPendiente("Perfil") }
+
             composable<Ruta.CrearGrupo> {
                 CrearGrupoScreen(
                     onVolver = { navController.popBackStack() },
                     onCrear = { nombre, tipo, imagen ->
-                        // TODO: guardar el grupo (ViewModel / DatosMock)
                         navController.popBackStack()
                     }
                 )
+            }
+
+            composable<Ruta.DetalleGrupo> { entrada ->
+                val id = entrada.toRoute<Ruta.DetalleGrupo>().id
+                val grupo = DatosMock.grupos.firstOrNull { it.id == id }
+                if (grupo != null) {
+                    GrupoDetalleScreen(
+                        grupo = grupo,
+                        gastos = DatosMock.gastosGrupo,
+                        onVolver = { navController.popBackStack() }
+                    )
+                }
             }
         }
     }
@@ -80,7 +108,6 @@ private fun NavHostController.navegarA(destino: Destino) {
     }
 }
 
-
 @Composable
 private fun PantallaPendiente(nombre: String) {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
@@ -91,5 +118,3 @@ private fun PantallaPendiente(nombre: String) {
         )
     }
 }
-
-
