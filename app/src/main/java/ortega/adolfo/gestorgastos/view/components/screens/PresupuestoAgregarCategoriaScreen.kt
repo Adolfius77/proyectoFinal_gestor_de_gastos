@@ -105,7 +105,7 @@ fun PresupuestoAgregarCategoriaContenido(
 
         EncabezadoPantalla(
             titulo = stringResource(R.string.nueva_categoria_titulo),
-            subtitulo = stringResource(R.string.nueva_categoria_subtitulo, estado.mes)
+           //subtitulo = stringResource(R.string.nueva_categoria_subtitulo, estado.mes)
         )
         Spacer(Modifier.height(20.dp))
 

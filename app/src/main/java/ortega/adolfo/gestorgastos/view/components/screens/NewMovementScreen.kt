@@ -44,7 +44,7 @@ import ortega.adolfo.gestorgastos.view.components.EnlaceTexto
 import ortega.adolfo.gestorgastos.view.components.SelectorTipoMovimiento
 import ortega.adolfo.gestorgastos.viewModel.NuevoMovimientoViewModel
 import androidx.compose.foundation.background
-import androidx.compose.ui.graphics.Color
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import ortega.adolfo.gestorgastos.model.domain.TipoMovimiento
 import ortega.adolfo.gestorgastos.navigation.Destino
 import ortega.adolfo.gestorgastos.ui.theme.FondoClaro
@@ -83,9 +83,19 @@ fun NewMovementScreen(
                 .verticalScroll(rememberScrollState())
                 .imePadding()
         ) {
+            Spacer(Modifier.height(16.dp))
+
+            // Boton de regresar
+            IconButton(onClick = onRegresar) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                    contentDescription = stringResource(R.string.volver),
+                    tint = TextoPrincipal
+                )
+            }
+
             EncabezadoPantalla(
                 titulo = "Nuevo movimiento",
-                onRegresar = onRegresar,
                 modifier = Modifier.padding(horizontal = 8.dp)
             )
 
