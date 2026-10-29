@@ -39,7 +39,8 @@ fun TarjetaMovimientos(
     movimientos: List<Movimiento>,
     onVerTodos: () -> Unit,
     modifier: Modifier = Modifier,
-    limite: Int = 5
+    limite: Int = 5,
+    onMovimientoClick: (Movimiento) -> Unit = {}
 ) {
     Card(
         modifier = modifier.fillMaxWidth(),
@@ -85,7 +86,7 @@ fun TarjetaMovimientos(
                 )
             } else {
                 visibles.forEachIndexed { indice, movimiento ->
-                    ItemMovimiento(movimiento)
+                    ItemMovimiento(movimiento, onClick = { onMovimientoClick(movimiento) })
 
                     if (indice < visibles.lastIndex) {
                         HorizontalDivider(color = FondoClaro)

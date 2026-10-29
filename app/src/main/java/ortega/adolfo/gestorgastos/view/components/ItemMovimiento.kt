@@ -1,6 +1,7 @@
 package ortega.adolfo.gestorgastos.view.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -41,7 +42,7 @@ import java.time.LocalDate
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 
-private fun iconoCategoria(categoria: String): String = when (categoria) {
+fun iconoCategoria(categoria: String): String = when (categoria) {
     "Vivienda" -> "🏠"
     "Alimentación" -> "🛒"
     "Transporte" -> "🚗"
@@ -56,13 +57,16 @@ private fun iconoCategoria(categoria: String): String = when (categoria) {
 @Composable
 fun ItemMovimiento(
     movimiento: Movimiento,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit = {}
 ) {
     val esGasto = movimiento.tipo == TipoMovimiento.GASTO
 
     Row(
         modifier = modifier
             .fillMaxWidth()
+            .clip(RoundedCornerShape(12.dp))
+            .clickable(onClick = onClick)
             .padding(vertical = 12.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {

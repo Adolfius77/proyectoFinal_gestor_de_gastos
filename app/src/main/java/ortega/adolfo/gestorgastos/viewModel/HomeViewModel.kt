@@ -26,6 +26,18 @@ class HomeViewModel : ViewModel() {
         actualizar { it.copy(busqueda = valor) }
     }
 
+    fun recargar() {
+        _estado.update { actual ->
+            conFiltros(
+                estadoInicial().copy(
+                    tipo = actual.tipo,
+                    busqueda = actual.busqueda,
+                    filtroCategoria = actual.filtroCategoria
+                )
+            )
+        }
+    }
+
     fun onFiltroCambio(valor: String) {
         actualizar { it.copy(filtroCategoria = valor) }
     }

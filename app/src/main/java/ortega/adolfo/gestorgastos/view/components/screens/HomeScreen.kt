@@ -14,6 +14,7 @@ import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -23,6 +24,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import ortega.adolfo.gestorgastos.model.domain.Movimiento
 import ortega.adolfo.gestorgastos.model.domain.ResumenCategoria
 import ortega.adolfo.gestorgastos.model.domain.TipoMovimiento
 import ortega.adolfo.gestorgastos.model.domain.data.DatosMock
@@ -47,10 +49,13 @@ import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 fun HomeScreen(
     onVerGraficas: () -> Unit,
     onAgregar: () -> Unit,
+    onVerMovimiento: (Int) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: HomeViewModel = viewModel()
 ) {
     val estado by viewModel.estado.collectAsState()
+
+    LaunchedEffect(Unit) { viewModel.recargar() }
 
     HomeContenido(
         estado = estado,
@@ -61,6 +66,7 @@ fun HomeScreen(
         onAgregar = onAgregar,
         onVerTodos = {},
         onCalendario = {},
+        onMovimientoClick = { onVerMovimiento(it.id) },
         modifier = modifier
     )
 }
@@ -76,7 +82,8 @@ fun HomeContenido(
     onAgregar: () -> Unit,
     onVerTodos: () -> Unit,
     onCalendario: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onMovimientoClick: (Movimiento) -> Unit = {}
 ) {
     Box(
         modifier = modifier
@@ -147,7 +154,8 @@ fun HomeContenido(
             item {
                 TarjetaMovimientos(
                     movimientos = estado.movimientos,
-                    onVerTodos = onVerTodos
+                    onVerTodos = onVerTodos,
+                    onMovimientoClick = onMovimientoClick
                 )
             }
         }
