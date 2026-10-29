@@ -12,23 +12,29 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import ortega.adolfo.gestorgastos.R
+import ortega.adolfo.gestorgastos.model.domain.Categoria
 import ortega.adolfo.gestorgastos.model.domain.ModoVista
 import ortega.adolfo.gestorgastos.model.domain.data.DatosMock
 import ortega.adolfo.gestorgastos.ui.theme.FondoClaro
+import ortega.adolfo.gestorgastos.ui.theme.RojoError
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
+import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
 import ortega.adolfo.gestorgastos.view.components.Alertas
 import ortega.adolfo.gestorgastos.view.components.BotonAgregar
 import ortega.adolfo.gestorgastos.view.components.MontoPorcentaje
@@ -43,11 +49,10 @@ fun PresupuestoScreen(
     onAgregarIngreso: () -> Unit,
     onAgregarGastoFijo: () -> Unit,
     onAgregarCategoria: () -> Unit,
+    onEditarCategoria: (Int) -> Unit = {},
     viewModel: PresupuestoViewModel = viewModel()
 ) {
     val estado by viewModel.estado.collectAsState()
-
-    LaunchedEffect(Unit) { viewModel.cargarDatos() }
 
     PresupuestoContenido(
         estado = estado,
@@ -56,7 +61,11 @@ fun PresupuestoScreen(
         onAlertasCambio = viewModel::onAlertasCambio,
         onAgregarIngreso = onAgregarIngreso,
         onAgregarGastoFijo = onAgregarGastoFijo,
-        onAgregarCategoria = onAgregarCategoria
+        onAgregarCategoria = onAgregarCategoria,
+        onEditarCategoria = { categoria -> onEditarCategoria(categoria.id) },
+        onEliminarCategoria = viewModel::onEliminarCategoria,
+        onEliminarConfirmado = viewModel::onEliminarConfirmado,
+        onEliminarCancelado = viewModel::onEliminarCancelado
     )
 }
 
@@ -68,8 +77,47 @@ fun PresupuestoContenido(
     onAlertasCambio: (Boolean) -> Unit,
     onAgregarIngreso: () -> Unit,
     onAgregarGastoFijo: () -> Unit,
-    onAgregarCategoria: () -> Unit
+    onAgregarCategoria: () -> Unit,
+    onEditarCategoria: (Categoria) -> Unit,
+    onEliminarCategoria: (Categoria) -> Unit,
+    onEliminarConfirmado: () -> Unit,
+    onEliminarCancelado: () -> Unit
 ) {
+
+    estado.categoriaPorEliminar?.let { categoria ->
+        AlertDialog(
+            onDismissRequest = onEliminarCancelado,
+            containerColor = Color.White,
+            title = {
+                Text(
+                    text = stringResource(R.string.categoria_eliminar_titulo),
+                    fontWeight = FontWeight.Bold,
+                    color = TextoPrincipal
+                )
+            },
+            text = {
+                Text(
+                    text = stringResource(R.string.categoria_eliminar_mensaje, categoria.nombre),
+                    color = TextoSecundario
+                )
+            },
+            confirmButton = {
+                TextButton(onClick = onEliminarConfirmado) {
+                    Text(
+                        text = stringResource(R.string.categoria_eliminar_boton),
+                        color = RojoError,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = onEliminarCancelado) {
+                    Text(text = stringResource(R.string.cancelar), color = TextoPrincipal)
+                }
+            }
+        )
+    }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -132,7 +180,9 @@ fun PresupuestoContenido(
                     nombre = categoria.nombre,
                     gastado = categoria.gastado,
                     presupuesto = categoria.presupuesto,
-                    modoPorcentaje = estado.modo == ModoVista.PORCENTAJE
+                    modoPorcentaje = estado.modo == ModoVista.PORCENTAJE,
+                    onEditar = { onEditarCategoria(categoria) },
+                    onEliminar = { onEliminarCategoria(categoria) }
                 )
             }
             BotonAgregar(
@@ -166,6 +216,10 @@ fun PresupuestoScreenPreview() {
         onAlertasCambio = {},
         onAgregarIngreso = {},
         onAgregarGastoFijo = {},
-        onAgregarCategoria = {}
+        onAgregarCategoria = {},
+        onEditarCategoria = {},
+        onEliminarCategoria = {},
+        onEliminarConfirmado = {},
+        onEliminarCancelado = {}
     )
 }

@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -19,6 +20,12 @@ import androidx.navigation.compose.rememberNavController
 import ortega.adolfo.gestorgastos.ui.theme.FondoClaro
 import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
 import ortega.adolfo.gestorgastos.view.components.BarraNavegacion
+import ortega.adolfo.gestorgastos.view.components.screens.DetalleMovimientoScreen
+import ortega.adolfo.gestorgastos.view.components.screens.HomeScreen
+import ortega.adolfo.gestorgastos.view.components.screens.PresupuestoAgregarCategoriaScreen
+import ortega.adolfo.gestorgastos.view.components.screens.PresupuestoGastoFijoScreen
+import ortega.adolfo.gestorgastos.view.components.screens.PresupuestoIngresoFijoScreen
+import ortega.adolfo.gestorgastos.view.components.screens.PresupuestoScreen
 import ortega.adolfo.gestorgastos.view.components.screens.ResumenSreen
 
 @Composable
@@ -26,9 +33,7 @@ fun NavegacionApp(
     navController: NavHostController = rememberNavController()
 ) {
     val entradaActual by navController.currentBackStackEntryAsState()
-    val destinoActual = Destino.entries.find { destino ->
-        entradaActual?.destination?.hasRoute(destino.ruta::class) == true
-    }
+    val destinoActual = seccionDe(entradaActual?.destination)
 
     Scaffold(
         containerColor = FondoClaro,
@@ -43,30 +48,72 @@ fun NavegacionApp(
     ) { innerPadding ->
         NavHost(
             navController = navController,
-
-            startDestination = Ruta.Graficas,
+            startDestination = Ruta.Inicio,
             modifier = Modifier.padding(innerPadding)
         ) {
+            composable<Ruta.Inicio> {
+                HomeScreen(
+                    onVerGraficas = { navController.navegarA(Destino.GRAFICAS) },
+                    onAgregar = {},
+                    onVerMovimiento = { id -> navController.navigate(Ruta.DetalleMovimiento(id)) }
+                )
+            }
+            composable<Ruta.DetalleMovimiento> {
+                DetalleMovimientoScreen(
+                    onRegresar = { navController.popBackStack() },
+                    onEditar = {}
+                )
+            }
 
             composable<Ruta.Graficas> { ResumenSreen() }
 
+            composable<Ruta.Presupuesto> {
+                PresupuestoScreen(
+                    onAgregarIngreso = { navController.navigate(Ruta.PresupuestoAgregarIngreso) },
+                    onAgregarGastoFijo = { navController.navigate(Ruta.PresupuestoGastoFijo) },
+                    onAgregarCategoria = { navController.navigate(Ruta.PresupuestoAgregarCategoria) }
+                )
+            }
+            composable<Ruta.PresupuestoAgregarIngreso> {
+                PresupuestoIngresoFijoScreen(onVolver = { navController.popBackStack() })
+            }
+            composable<Ruta.PresupuestoGastoFijo> {
+                PresupuestoGastoFijoScreen(onVolver = { navController.popBackStack() })
+            }
+            composable<Ruta.PresupuestoAgregarCategoria> {
+                PresupuestoAgregarCategoriaScreen(onVolver = { navController.popBackStack() })
+            }
 
             composable<Ruta.Grupos> { PantallaPendiente("Grupos") }
-            composable<Ruta.Inicio> { PantallaPendiente("Inicio") }
-            composable<Ruta.Presupuesto> { PantallaPendiente("Presupuesto") }
             composable<Ruta.Perfil> { PantallaPendiente("Perfil") }
         }
     }
 }
 
+
+private fun seccionDe(pantalla: NavDestination?): Destino? {
+    if (pantalla == null) return null
+
+    Destino.entries.find { pantalla.hasRoute(it.ruta::class) }?.let { return it }
+
+    return when {
+        pantalla.hasRoute(Ruta.DetalleMovimiento::class) -> Destino.INICIO
+
+        pantalla.hasRoute(Ruta.PresupuestoAgregarIngreso::class) ||
+            pantalla.hasRoute(Ruta.PresupuestoGastoFijo::class) ||
+            pantalla.hasRoute(Ruta.PresupuestoAgregarCategoria::class) -> Destino.PRESUPUESTO
+
+        else -> null
+    }
+}
+
 private fun NavHostController.navegarA(destino: Destino) {
     navigate(destino.ruta) {
-        popUpTo<Ruta.Graficas> { saveState = true }
+        popUpTo<Ruta.Inicio> { saveState = true }
         launchSingleTop = true
         restoreState = true
     }
 }
-
 
 @Composable
 private fun PantallaPendiente(nombre: String) {

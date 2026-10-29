@@ -85,10 +85,40 @@
     <string name="nueva_categoria_restan">Te quedan %1$s por repartir en categorías</string>
     <string name="nueva_categoria_excedido">Te pasas %1$s del dinero disponible</string>
     <string name="nueva_categoria_guardar">Guardar</string>
+    <!-- Presupuesto botonoes de Editar / eliminar categoria -->
+    <string name="categoria_editar">Editar categoría</string>
+    <string name="categoria_eliminar">Eliminar categoría</string>
+    <string name="categoria_eliminar_titulo">Eliminar categoría</string>
+    <string name="categoria_eliminar_mensaje">¿Seguro que quieres eliminar \"%1$s\"? Esta acción no se puede deshacer.</string>
+    <string name="categoria_eliminar_boton">Eliminar</string>
     <!--String para la barra de navegacion -->
     <string name="nav_grupos">Grupos</string>
     <string name="nav_estadisticas">Estadísticas</string>
     <string name="nav_inicio">Inicio</string>
     <string name="nav_presupuesto">Presupuesto</string>
     <string name="nav_perfil">Perfil</string>
+    <string name="total_gastado">Total gastado</string>
+    <string name="gr_fica_de_gastos_por_categor_a">Gráfica de gastos por categoría</string>
+    <string name="tu_gasto_m_s_alto_en_este_periodo_es">Tu gasto más alto en este periodo es %1$s.</string>
+    <string name="toca_una_barra_para_ver_el_detalle">Toca una barra para ver el detalle.</string>
+    <string name="te_queda_este_mes">Te queda este mes</string>
+    <string name="ya_usaste_todo_tu_ingreso_del_mes">Ya usaste todo tu ingreso del mes</string>
+    <string name="ingresos_del_mes">Ingresos del mes</string>
+    <string name="gastos_del_mes">Gastos del mes</string>
+    <string name="ver_detalles">Ver detalles ›</string>
+    <string name="ver_gr_ficas">Ver gráficas ›</string>
+    <string name="gr_fica_de_gastos_por_categoria">Gráfica de gastos por categoría</string>
+    <string name="movimientos_recientes">Movimientos recientes</string>
+    <string name="ver_todos">Ver todos ›</string>
+    <string name="no_hay_movimientos_que_coincidan">No hay movimientos que coincidan</string>
+    <string name="filtrar_por_fecha">Filtrar por fecha</string>
+    <string name="estadisticas">Estadisticas</string>
+    <string name="detalle_del_movimiento">Detalle del movimiento</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="foto_del_recibo">Foto del recibo</string>
+    <string name="ver">Ver ›</string>
+    <string name="sin_foto_del_recibo">Sin foto del recibo</string>
+    <string name="eliminar_movimiento">¿Eliminar movimiento?</string>
+    <string name="regresar">Regresar</string>
+    <string name="este_movimiento_ya_no_existe">Este movimiento ya no existe</string>
 </resources>

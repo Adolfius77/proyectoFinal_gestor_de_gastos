@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ortega.adolfo.gestorgastos.ui.theme.FondoClaro
 import ortega.adolfo.gestorgastos.ui.theme.GrisPlaceholder
+import ortega.adolfo.gestorgastos.ui.theme.Manrope
 import ortega.adolfo.gestorgastos.ui.theme.RojoError
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
@@ -64,7 +65,8 @@ fun CampoTexto(
             text = etiqueta,
             fontWeight = FontWeight.SemiBold,
             fontSize = 15.sp,
-            color = TextoPrincipal
+            color = TextoPrincipal,
+            fontFamily = Manrope
         )
         Spacer(Modifier.size(6.dp))
         OutlinedTextField(
