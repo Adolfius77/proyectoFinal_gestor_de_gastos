@@ -25,22 +25,22 @@ object DatosMock {
     )
 
     val miembros = listOf(
-        Miembro(1, "Angel Servin"),
-        Miembro(2, "Dana Chavez"),
-        Miembro(3, "Andrea Melendrez"),
-        Miembro(4, "Leonel Carballo"),
-        Miembro(5, "Adolfo Ruiz"),
+        Miembro(1, "Dana Chavez Gutierrez"),
+        Miembro(2, "Angel Servin de la Mora"),
+        Miembro(3, "Leonel Alfredo Carballo"),
+        Miembro(4, "Andrea Melendrez Macias"),
+        Miembro(5, "Adolfo Ortega Ruiz"),
     )
 
     val grupos = listOf(
-        Grupo(1, "Japon 2026", "Angel Servin: Pago \$1000.00 MXN", miembros.take(5)),
-        Grupo(2, "Vicam 2026", "Dana Chavez: Pago \$5000.00 MXN", miembros.take(4)),
-        Grupo(3, "Yecorazo 2027", "Leonel Carballo: Pago 4,500.00", miembros.take(3)),
-        Grupo(4, "Carro del año", "Adolfo Ruiz: Abono \$12,426.00 MXN", miembros.take(2)),
-        Grupo(5, "Potro viaje - Mexicali", "Andrea Melendrez: Pago \$4,500.00", miembros.take(5)),
-        Grupo(6, "Titulo Universitario", "Daniela Monclova: Pago \$189.00 MXN", miembros.take(2)),
-        Grupo(7, "Casa Infonavit", "Dylan O'brien: Pago \$1,923,232.00 MXN", miembros.take(2)),
-        Grupo(8, "Arreglar tinaco", "Daniela Monclova: Pago \$323.00 MXN", miembros.take(3))
+        Grupo(1, "Japon 2026", "Angel Servin: Pago \$1000.00 MXN", miembros.take(5), codigo = "34RY6"),
+        Grupo(2, "Vicam 2026", "Dana Chavez: Pago \$5000.00 MXN", miembros.take(4), codigo = "K8M2P"),
+        Grupo(3, "Yecorazo 2027", "Leonel Carballo: Pago 4,500.00", miembros.take(3), codigo = "Q7TX1"),
+        Grupo(4, "Carro del año", "Adolfo Ruiz: Abono \$12,426.00 MXN", miembros.take(2), codigo = "B4N9Z"),
+        Grupo(5, "Potro viaje - Mexicali", "Andrea Melendrez: Pago \$4,500.00", miembros.take(5), codigo = "W3H6D"),
+        Grupo(6, "Titulo Universitario", "Daniela Monclova: Pago \$189.00 MXN", miembros.take(2), codigo = "R2V8C"),
+        Grupo(7, "Casa Infonavit", "Dylan O'brien: Pago \$1,923,232.00 MXN", miembros.take(2), codigo = "L5J7F"),
+        Grupo(8, "Arreglar tinaco", "Daniela Monclova: Pago \$323.00 MXN", miembros.take(3), codigo = "T9Y4A")
     )
 
     val gastosGrupo = listOf(

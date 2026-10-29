@@ -5,5 +5,6 @@ data class Grupo(
     val nombre: String,
     val ultimoMovimiento: String,
     val miembros: List<Miembro> = emptyList(),
-    val imagen: Int? = null
+    val imagen: Int? = null,
+    val codigo: String = ""
 )

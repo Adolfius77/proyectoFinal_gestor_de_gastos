@@ -39,8 +39,7 @@ fun GrupoDetalleScreen(
     modifier: Modifier = Modifier,
     montoPendiente: Double = 750.0,
     onVolver: () -> Unit = {},
-    onEditarGrupo: () -> Unit = {},
-    onSalirGrupo: () -> Unit = {},
+    onAbrirInfo: () -> Unit = {},
     onVerDeuda: () -> Unit = {},
     onAbrirGasto: (GastoGrupo) -> Unit = {},
     onAgregarGasto: () -> Unit = {}
@@ -53,8 +52,7 @@ fun GrupoDetalleScreen(
         CabeceraDetalleGrupo(
             grupo = grupo,
             onVolver = onVolver,
-            onEditarGrupo = onEditarGrupo,
-            onSalirGrupo = onSalirGrupo
+            onAbrirInfo = onAbrirInfo
         )
         HorizontalDivider(color = Color.Black.copy(alpha = 0.08f))
 
