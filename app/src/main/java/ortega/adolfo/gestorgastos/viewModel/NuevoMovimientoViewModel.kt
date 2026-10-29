@@ -6,7 +6,9 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import ortega.adolfo.gestorgastos.model.domain.MetodoPago
 import ortega.adolfo.gestorgastos.model.domain.Movimiento
+import ortega.adolfo.gestorgastos.model.domain.Tarjeta
 import ortega.adolfo.gestorgastos.model.domain.TipoMovimiento
 import ortega.adolfo.gestorgastos.model.domain.data.DatosMock
 import java.math.BigDecimal
