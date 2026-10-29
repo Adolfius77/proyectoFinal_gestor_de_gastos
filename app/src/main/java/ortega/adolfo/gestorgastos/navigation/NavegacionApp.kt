@@ -21,6 +21,7 @@ import ortega.adolfo.gestorgastos.model.domain.data.DatosMock
 import ortega.adolfo.gestorgastos.ui.theme.FondoClaro
 import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
 import ortega.adolfo.gestorgastos.view.components.BarraNavegacion
+import ortega.adolfo.gestorgastos.view.components.screens.AgregarGastoScreen
 import ortega.adolfo.gestorgastos.view.components.screens.CrearGrupoScreen
 import ortega.adolfo.gestorgastos.view.components.screens.GrupoDetalleScreen
 import ortega.adolfo.gestorgastos.view.components.screens.GrupoInfoScreen
@@ -36,7 +37,8 @@ fun NavegacionApp(
     val enSubpantallaDeGrupos = entradaActual?.destination?.let {
         it.hasRoute(Ruta.CrearGrupo::class) ||
                 it.hasRoute(Ruta.DetalleGrupo::class) ||
-                it.hasRoute(Ruta.InfoGrupo::class)
+                it.hasRoute(Ruta.InfoGrupo::class) ||
+                it.hasRoute(Ruta.AgregarGasto::class)
     } == true
 
     val destinoActual = Destino.entries.find { destino ->
@@ -96,7 +98,8 @@ fun NavegacionApp(
                         grupo = grupo,
                         gastos = DatosMock.gastosGrupo,
                         onVolver = { navController.popBackStack() },
-                        onAbrirInfo = { navController.navigate(Ruta.InfoGrupo(grupo.id)) }
+                        onAbrirInfo = { navController.navigate(Ruta.InfoGrupo(grupo.id)) },
+                        onAgregarGasto = { navController.navigate(Ruta.AgregarGasto(grupo.id)) }
                     )
                 }
             }
@@ -110,6 +113,20 @@ fun NavegacionApp(
                         onVolver = { navController.popBackStack() },
                         onAbandonar = {
                             navController.popBackStack(Ruta.Grupos, inclusive = false)
+                        }
+                    )
+                }
+            }
+
+            composable<Ruta.AgregarGasto> { entrada ->
+                val id = entrada.toRoute<Ruta.AgregarGasto>().id
+                val grupo = DatosMock.grupos.firstOrNull { it.id == id }
+                if (grupo != null) {
+                    AgregarGastoScreen(
+                        grupo = grupo,
+                        onVolver = { navController.popBackStack() },
+                        onGuardar = { categoria, monto, pagadoPor, fecha ->
+                            navController.popBackStack()
                         }
                     )
                 }

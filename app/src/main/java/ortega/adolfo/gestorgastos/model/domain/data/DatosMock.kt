@@ -49,6 +49,10 @@ object DatosMock {
         GastoGrupo(3, "Comida", "7 de agosto 2025", "comida", 10000.0, "Andrea"),
         GastoGrupo(4, "Transporte", "22 de noviembre 2025", "transporte", 8500.0)
     )
+
+    val categoriasGasto = listOf(
+        "Transporte", "Hospedaje", "Comida", "Entretenimiento", "Salud", "Otros"
+    )
 }
 
 

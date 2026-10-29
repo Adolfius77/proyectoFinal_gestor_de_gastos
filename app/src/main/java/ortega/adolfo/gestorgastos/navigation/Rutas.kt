@@ -15,4 +15,5 @@ sealed interface Ruta {
 
     @Serializable data class InfoGrupo(val id: Int) : Ruta
 
+    @Serializable data class AgregarGasto(val id: Int) : Ruta
 }
