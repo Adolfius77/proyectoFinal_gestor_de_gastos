@@ -1,3 +1,94 @@
 <resources>
     <string name="app_name">GestorGastos</string>
+    <string name="hola_de_nuevo">¡Hola de nuevo!</string>
+    <string name="entra_para_ver_los_gastos_de_este_mes">Entra para ver los gastos de este mes</string>
+    <string name="correo_electr_nico">Correo electrónico</string>
+    <string name="tucorreo_ejemplo_com">tucorreo@ejemplo.com</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="olvidaste_tu_contrase_a">¿Olvidaste tu contraseña?</string>
+    <string name="tu_contrase_a">Tu contraseña</string>
+    <string name="iniciar_sesi_n">Iniciar sesión</string>
+    <string name="entrar_con_mi_huella">Entrar con mi huella</string>
+    <string name="eres_nuevo_aqu">"¿Eres nuevo aquí? "</string>
+    <string name="crea_tu_cuenta">Crea tu cuenta</string>
+    <string name="dd_mm_aaaa">dd/mm/aaaa</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="o_entra_m_s_r_pido">o entra más rápido</string>
+    <!--Strings para el register-->
+    <string name="crea_tu_cuenta_titulo">Crea tu cuenta</string>
+    <string name="como_te_llamas">Cómo te llamas</string>
+    <string name="nombre_y_apellido">Nombre y apellido</string>
+    <string name="fecha_de_nacimiento">Fecha de nacimiento</string>
+    <string name="genero">Género</string>
+    <string name="crea_una_contrase_a">Crea una contraseña</string>
+    <string name="confirmar_contrase_a">Confirmar contraseña</string>
+    <string name="repite_tu_contrase_a">Repite tu contraseña</string>
+    <string name="registrarse">Registrarse</string>
+    <!-- Strings para el Presupuesto mensual-->
+    <string name="volver">Volver</string>
+    <string name="categoria_quedan">Quedan %1$s</string>
+    <string name="categoria_excedido">Excedido %1$s</string>
+    <string name="categoria_gastado_de">%1$s de %2$s</string>
+    <!-- Presupuesto -->
+    <string name="presupuesto_titulo">Presupuesto</string>
+    <string name="presupuesto_categorias">Categorías</string>
+    <string name="presupuesto_agregar_categoria">Agregar categoría</string>
+    <string name="presupuesto_alertas_titulo">Alertas</string>
+    <string name="presupuesto_alertas_descripcion">Avísame al superar el 80% de cada categoría</string>
+    <string name="resumen_disponible">Disponible para asignar</string>
+    <string name="resumen_ingresos_fijos">Ingresos fijos</string>
+    <string name="resumen_gastos_fijos">Gastos fijos</string>
+    <string name="boton_ingreso">+ Ingreso</string>
+    <string name="boton_gasto_fijo">+ Gasto fijo</string>
+    <string name="categoria_usado">%1$s usado</string>
+    <!-- Presupuesto para agregar ingreso fijo -->
+    <string name="ingreso_titulo">Agregar ingreso fijo</string>
+    <string name="ingreso_subtitulo">Presupuesto · %1$s</string>
+    <string name="ingreso_nombre_label">Nombre del ingreso</string>
+    <string name="ingreso_nombre_placeholder">Sueldo</string>
+    <string name="ingreso_monto_label">Monto</string>
+    <string name="ingreso_monto_placeholder">$18,000</string>
+    <string name="ingreso_frecuencia_label">Frecuencia</string>
+    <string name="ingreso_dia_cobro_label">Día de cobro</string>
+    <string name="ingreso_dia_cobro_valor">Día %1$d de cada mes</string>
+    <string name="ingreso_lista_titulo">Ingresos fijos</string>
+    <string name="ingreso_agregar_otro">Agregar otro ingreso</string>
+    <string name="ingreso_guardar">Guardar</string>
+    <string name="ingreso_editar">Editar ingreso</string>
+    <string name="ingreso_eliminar">Eliminar ingreso</string>
+    <!-- Presupuesto para agregar gasto fijo -->
+    <string name="gasto_titulo">Agregar gasto fijo</string>
+    <string name="gasto_subtitulo">Presupuesto · %1$s</string>
+    <string name="gasto_nombre_label">Nombre del gasto</string>
+    <string name="gasto_nombre_placeholder">Renta</string>
+    <string name="gasto_monto_label">Monto</string>
+    <string name="gasto_monto_placeholder">$5,500</string>
+    <string name="gasto_tipo_label">Tipo de gasto</string>
+    <string name="gasto_dia_pago_label">Día de pago</string>
+    <string name="gasto_dia_pago_valor">Día %1$02d de cada mes</string>
+    <string name="gasto_recordar">Recuérdame 2 días antes</string>
+    <string name="gasto_lista_titulo">Gastos fijos</string>
+    <string name="gasto_restan">Restan %1$s para repartir en categorías</string>
+    <string name="gasto_guardar">Guardar</string>
+    <string name="gasto_editar">Editar gasto</string>
+    <string name="gasto_eliminar">Eliminar gasto</string>
+    <!-- Presupuesto para agregar una nueva categoria -->
+    <string name="nueva_categoria_titulo">Nueva categoría</string>
+    <string name="nueva_categoria_subtitulo">Presupuesto · %1$s</string>
+    <string name="nueva_categoria_nombre_label">Nombre de la categoría</string>
+    <string name="nueva_categoria_nombre_placeholder">Mascotas</string>
+    <string name="nueva_categoria_sugeridas">Sugeridas</string>
+    <string name="nueva_categoria_presupuesto_label">Presupuesto mensual</string>
+    <string name="nueva_categoria_presupuesto_placeholder">0</string>
+    <string name="nueva_categoria_presupuesto_sufijo">al mes</string>
+    <string name="nueva_categoria_restan">Te quedan %1$s por repartir en categorías</string>
+    <string name="nueva_categoria_excedido">Te pasas %1$s del dinero disponible</string>
+    <string name="nueva_categoria_guardar">Guardar</string>
+    <!--String para la barra de navegacion -->
+    <string name="nav_grupos">Grupos</string>
+    <string name="nav_estadisticas">Estadísticas</string>
+    <string name="nav_inicio">Inicio</string>
+    <string name="nav_presupuesto">Presupuesto</string>
+    <string name="nav_perfil">Perfil</string>
 </resources>
