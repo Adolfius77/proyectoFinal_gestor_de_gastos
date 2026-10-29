@@ -120,10 +120,7 @@ fun InformacionPerfilScreen(
                 Spacer(Modifier.height(24.dp))
             }
         }
-        BarraNavegacion(
-            actual = Destino.PERFIL,
-            onNavegar = {}
-        )
+
     }
 }
 
