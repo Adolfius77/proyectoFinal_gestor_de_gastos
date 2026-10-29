@@ -17,5 +17,6 @@ sealed interface Ruta {
     @Serializable data object PresupuestoAgregarCategoria : Ruta
 
 
+    @Serializable data object NuevoMovimiento : Ruta
     @Serializable data class DetalleMovimiento(val id: Int) : Ruta
 }

@@ -11,6 +11,8 @@ import ortega.adolfo.gestorgastos.model.domain.Tarjeta
 import ortega.adolfo.gestorgastos.model.domain.TipoMovimiento
 import ortega.adolfo.gestorgastos.model.domain.Usuario
 import java.time.LocalDate
+import java.time.LocalTime
+import java.time.YearMonth
 
 object DatosMock {
     val usuarios = mutableListOf(
@@ -23,6 +25,20 @@ object DatosMock {
     )
     var usuarioActual: Usuario? = null
     val generos = listOf("Mujer", "Hombre", "Otro", "Prefiero no decirlo")
+
+    // Registro de movimientos (Registrar gasto o ingreso)
+    const val PAGO_TARJETA = "Tarjeta"
+
+    val categoriasGasto = listOf(
+        "Vivienda", "Alimentación", "Transporte",
+        "Entretenimiento", "Salud", "Otros"
+    )
+    val categoriasIngreso = listOf("Salario", "Freelance", "Inversiones", "Otros")
+
+    val tiposPago = listOf("Efectivo", PAGO_TARJETA, "Transferencia")
+    val tarjetas = mutableListOf("Débito 5778", "BBVA 7789")
+
+    const val UBICACION_MOCK = "Villa Fontana 85098"
 
     // Opciones para filtrar el resumen por categoria
     val categoriasFiltro = listOf(
@@ -85,8 +101,8 @@ object DatosMock {
         Movimiento(18, "Regalo", 1400.0, dia(9), "Otros", TipoMovimiento.GASTO, MetodoPago.EFECTIVO),
 
 
-        Movimiento(19, "Sueldo primera quincena", 9000.0, dia(1), "Sueldo", TipoMovimiento.INGRESO, MetodoPago.TARJETA, tarjeta = debito),
-        Movimiento(20, "Sueldo segunda quincena", 9000.0, dia(15), "Sueldo", TipoMovimiento.INGRESO, MetodoPago.TARJETA, tarjeta = debito),
+        Movimiento(19, "Sueldo primera quincena", 9000.0, dia(1), "Salario", TipoMovimiento.INGRESO, MetodoPago.TARJETA, tarjeta = debito),
+        Movimiento(20, "Sueldo segunda quincena", 9000.0, dia(15), "Salario", TipoMovimiento.INGRESO, MetodoPago.TARJETA, tarjeta = debito),
         Movimiento(21, "Proyecto freelance", 2000.0, dia(10), "Freelance", TipoMovimiento.INGRESO, MetodoPago.EFECTIVO)
     )
 }

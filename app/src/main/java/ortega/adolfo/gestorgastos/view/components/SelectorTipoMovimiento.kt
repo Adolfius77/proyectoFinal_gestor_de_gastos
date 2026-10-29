@@ -8,9 +8,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -26,14 +24,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ortega.adolfo.gestorgastos.model.domain.TipoMovimiento
+import ortega.adolfo.gestorgastos.ui.theme.FondoClaro
+import ortega.adolfo.gestorgastos.ui.theme.GrisPlaceholder
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
-import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
-
-private fun TipoMovimiento.etiqueta(): String = when (this) {
-    TipoMovimiento.GASTO -> "Gastos"
-    TipoMovimiento.INGRESO -> "Ingresos"
-}
-
 
 @Composable
 fun SelectorTipoMovimiento(
@@ -49,14 +42,21 @@ fun SelectorTipoMovimiento(
     ) {
         TipoMovimiento.entries.forEach { tipo ->
             val activo = tipo == seleccionado
-            val forma = RoundedCornerShape(12.dp)
             Box(
                 modifier = Modifier
                     .weight(1f)
+                    .height(48.dp)
                     .clip(forma)
+                    .background(if (activo) VerdePrimario else FondoClaro)
+                    .border(2.dp, if (activo) VerdePrimario else Color(0xFFDADDD9), forma)
+                    .clickable { onSeleccionar(tipo) },
                 contentAlignment = Alignment.Center
             ) {
                 Text(
+                    text = tipo.etiqueta,
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.SemiBold,
+                    color = if (activo) Color.White else GrisPlaceholder
                 )
             }
         }
@@ -66,8 +66,6 @@ fun SelectorTipoMovimiento(
 @Composable
 @Preview(showBackground = true)
 fun SelectorTipoMovimientoPreview() {
-    GestorGastosTheme {
-        var tipo by remember { mutableStateOf(TipoMovimiento.GASTO) }
-        SelectorTipoMovimiento(seleccionado = tipo, onSeleccionar = { tipo = it })
-    }
+    var tipo by remember { mutableStateOf(TipoMovimiento.GASTO) }
+    SelectorTipoMovimiento(seleccionado = tipo, onSeleccionar = { tipo = it })
 }

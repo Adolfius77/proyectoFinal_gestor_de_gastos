@@ -35,7 +35,7 @@ import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 import ortega.adolfo.gestorgastos.view.components.BarraBusqueda
 import ortega.adolfo.gestorgastos.view.components.CabeceraInicio
 import ortega.adolfo.gestorgastos.view.components.FiltrosCategoria
-import ortega.adolfo.gestorgastos.view.components.SelectorTipoMovimiento
+import ortega.adolfo.gestorgastos.view.components.SelectorGastosIngresos
 import ortega.adolfo.gestorgastos.view.components.TarjetaBalance
 import ortega.adolfo.gestorgastos.view.components.TarjetaCategorias
 import ortega.adolfo.gestorgastos.view.components.TarjetaMovimientos
@@ -127,7 +127,7 @@ fun HomeContenido(
                         fontWeight = FontWeight.SemiBold
                     )
                     Spacer(Modifier.height(12.dp))
-                    SelectorTipoMovimiento(
+                    SelectorGastosIngresos(
                         seleccionado = estado.tipo,
                         onSeleccionar = onTipoCambio
                     )
