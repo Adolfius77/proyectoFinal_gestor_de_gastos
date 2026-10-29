@@ -23,6 +23,7 @@ class NuevoMovimientoViewModel : ViewModel() {
 
     fun onTipoCambio(valor: TipoMovimiento) {
         if (valor == _estado.value.tipo) return
+        // Las categorias cambian segun el tipo, asi que se limpia la elegida
         _estado.update { it.copy(tipo = valor, categoria = "", errorCategoria = null) }
     }
 
@@ -64,6 +65,8 @@ class NuevoMovimientoViewModel : ViewModel() {
     fun onFechaCambio(valor: LocalDate) {
         _estado.update { it.copy(fecha = valor, errorFecha = null) }
     }
+
+    // ---------- Dialogo para agregar tarjeta ----------
 
     fun abrirDialogoTarjeta() {
         _estado.update { it.copy(mostrarDialogoTarjeta = true, nuevaTarjeta = "", errorNuevaTarjeta = null) }
@@ -130,10 +133,8 @@ class NuevoMovimientoViewModel : ViewModel() {
             }
             return
         }
-        val nuevoId = (DatosMock.movimientos.maxOfOrNull { it.id } ?: 0) + 1
 
         val siguienteId = (DatosMock.movimientos.maxOfOrNull { it.id } ?: 0) + 1
-        val metodo = MetodoPago.desdeEtiqueta(actual.tipoPago)
 
         val movimiento = Movimiento(
             id = siguienteId,
@@ -142,7 +143,7 @@ class NuevoMovimientoViewModel : ViewModel() {
             fecha = requireNotNull(actual.fecha),
             categoria = actual.categoria,
             tipo = actual.tipo,
-            metodoPago = metodo,
+            metodoPago = MetodoPago.desdeEtiqueta(actual.tipoPago),
             tarjeta = if (actual.pagaConTarjeta) Tarjeta.desdeTexto(actual.tarjeta) else null,
             hora = LocalTime.now().withSecond(0).withNano(0),
             ubicacion = actual.ubicacion.trim().ifBlank { null },
@@ -173,10 +174,4 @@ class NuevoMovimientoViewModel : ViewModel() {
         else -> null
     }
 
-    // Convierte "BBVA 7789" en Tarjeta(tipo = "BBVA", terminacion = "7789")
-    private fun aTarjeta(texto: String): Tarjeta {
-        val terminacion = texto.takeLast(4)
-        val tipo = texto.dropLast(4).trim().ifBlank { "Tarjeta" }
-        return Tarjeta(tipo, terminacion)
-    }
 }

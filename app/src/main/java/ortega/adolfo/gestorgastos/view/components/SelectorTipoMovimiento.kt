@@ -22,7 +22,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import ortega.adolfo.gestorgastos.model.domain.TipoMovimiento
+import ortega.adolfo.gestorgastos.ui.theme.FondoClaro
+import ortega.adolfo.gestorgastos.ui.theme.GrisPlaceholder
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 
 @Composable

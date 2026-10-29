@@ -3,6 +3,7 @@ package ortega.adolfo.gestorgastos.model.domain
 import java.time.LocalDate
 import java.time.LocalTime
 
+// TipoMovimiento esta en TipoMovimiento.kt
 
 enum class MetodoPago(val etiqueta: String) {
     EFECTIVO("Efectivo"),
@@ -10,16 +11,19 @@ enum class MetodoPago(val etiqueta: String) {
     TRANSFERENCIA("Transferencia");
 
     companion object {
+        // Convierte el texto del formulario ("Tarjeta") al enum
         fun desdeEtiqueta(texto: String): MetodoPago =
             entries.find { it.etiqueta.equals(texto, ignoreCase = true) } ?: EFECTIVO
     }
 }
 
+// Tarjeta con la que se pago, por ejemplo Debito terminacion 5778
 data class Tarjeta(
     val tipo: String,
     val terminacion: String
 ) {
     companion object {
+        // Convierte "BBVA 7789" en Tarjeta(tipo = "BBVA", terminacion = "7789")
         fun desdeTexto(texto: String): Tarjeta {
             val limpio = texto.trim()
             val ultimo = limpio.substringAfterLast(" ", "")
@@ -31,6 +35,8 @@ data class Tarjeta(
     }
 }
 
+// Un gasto o un ingreso. Lo usan la pantalla principal, el detalle,
+// el resumen y el registro de movimientos.
 data class Movimiento(
     val id: Int,
     val descripcion: String,

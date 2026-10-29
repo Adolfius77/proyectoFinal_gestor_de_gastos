@@ -29,6 +29,7 @@ object DatosMock {
     var usuarioActual: Usuario? = null
     val generos = listOf("Mujer", "Hombre", "Otro", "Prefiero no decirlo")
 
+
     // Registro de movimientos (Registrar gasto o ingreso)
     const val PAGO_TARJETA = "Tarjeta"
 
