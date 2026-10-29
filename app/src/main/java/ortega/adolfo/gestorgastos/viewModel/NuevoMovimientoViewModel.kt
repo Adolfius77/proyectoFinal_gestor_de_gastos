@@ -11,9 +11,7 @@ import ortega.adolfo.gestorgastos.model.domain.TipoMovimiento
 import ortega.adolfo.gestorgastos.model.domain.data.DatosMock
 import java.math.BigDecimal
 import java.time.LocalDate
-import java.time.LocalTime
-import ortega.adolfo.gestorgastos.model.domain.Tarjeta
-import ortega.adolfo.gestorgastos.model.domain.MetodoPago
+import java.util.UUID
 
 class NuevoMovimientoViewModel : ViewModel() {
     private val _estado = MutableStateFlow(NuevoMovimientoState())
@@ -132,21 +130,17 @@ class NuevoMovimientoViewModel : ViewModel() {
             return
         }
 
-        val siguienteId = (DatosMock.movimientos.maxOfOrNull { it.id } ?: 0) + 1
-        val metodo = MetodoPago.desdeEtiqueta(actual.tipoPago)
-
         val movimiento = Movimiento(
-            id = siguienteId,
+            id = UUID.randomUUID().toString(),
+            movimiento = actual.tipo,
+            monto = BigDecimal(actual.monto),
             descripcion = actual.descripcion.trim(),
-            monto = BigDecimal(actual.monto).toDouble(),
-            fecha = requireNotNull(actual.fecha),
             categoria = actual.categoria,
-            tipo = actual.tipo,
-            metodoPago = metodo,
-            tarjeta = if (actual.pagaConTarjeta) Tarjeta.desdeTexto(actual.tarjeta) else null,
-            hora = LocalTime.now().withSecond(0).withNano(0),
+            tipoPago = actual.tipoPago,
+            tarjeta = if (actual.pagaConTarjeta) actual.tarjeta else null,
             ubicacion = actual.ubicacion.trim().ifBlank { null },
-            fotoRecibo = actual.reciboUri
+            reciboUri = actual.reciboUri,
+            fecha = requireNotNull(actual.fecha)
         )
         DatosMock.movimientos.add(movimiento)
 

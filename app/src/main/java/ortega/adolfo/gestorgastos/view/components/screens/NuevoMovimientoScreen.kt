@@ -44,6 +44,7 @@ import ortega.adolfo.gestorgastos.view.components.EnlaceTexto
 import ortega.adolfo.gestorgastos.view.components.SelectorTipoMovimiento
 import ortega.adolfo.gestorgastos.viewModel.NuevoMovimientoViewModel
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import ortega.adolfo.gestorgastos.model.domain.TipoMovimiento
 import ortega.adolfo.gestorgastos.navigation.Destino
@@ -51,7 +52,7 @@ import ortega.adolfo.gestorgastos.ui.theme.FondoClaro
 import ortega.adolfo.gestorgastos.view.components.BarraNavegacion
 
 @Composable
-fun NewMovementScreen(
+fun NuevoMovimientoScreen(
     onRegresar: () -> Unit,
     onGuardado: () -> Unit,
     modifier: Modifier = Modifier,
@@ -76,6 +77,7 @@ fun NewMovementScreen(
         modifier = modifier
             .fillMaxSize()
             .background(FondoClaro)
+            .statusBarsPadding()
     ) {
         Column(
             modifier = Modifier
@@ -83,7 +85,7 @@ fun NewMovementScreen(
                 .verticalScroll(rememberScrollState())
                 .imePadding()
         ) {
-            Spacer(Modifier.height(16.dp))
+            Spacer(Modifier.height(8.dp))
 
             // Boton de regresar
             IconButton(onClick = onRegresar) {
@@ -222,8 +224,6 @@ fun NewMovementScreen(
                 Spacer(Modifier.height(16.dp))
             }
         }
-
-        // Barra de navegacion (solo visual, sin funcionalidad por ahora)
         BarraNavegacion(
             actual = Destino.INICIO,
             onNavegar = {}
@@ -257,6 +257,6 @@ fun NewMovementScreen(
 
 @Composable
 @Preview(showBackground = true, heightDp = 1100)
-fun NewMovementScreenPreview() {
-    NewMovementScreen(onRegresar = {}, onGuardado = {})
+fun NuevoMovimientoScreenPreview() {
+    NuevoMovimientoScreen(onRegresar = {}, onGuardado = {})
 }
