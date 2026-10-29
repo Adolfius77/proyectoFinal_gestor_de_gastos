@@ -44,6 +44,7 @@ object DatosMock {
 
     const val UBICACION_MOCK = "Villa Fontana 85098"
 
+    // Opciones para filtrar el resumen por categoria
     val categoriasFiltro = listOf(
         "Todas", "Vivienda", "Alimentación", "Transporte",
         "Entretenimiento", "Salud", "Otros"

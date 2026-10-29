@@ -15,6 +15,7 @@ import java.math.BigDecimal
 import java.time.LocalDate
 import java.time.LocalTime
 
+
 class NuevoMovimientoViewModel : ViewModel() {
     private val _estado = MutableStateFlow(NuevoMovimientoState())
     val estado: StateFlow<NuevoMovimientoState> = _estado.asStateFlow()
