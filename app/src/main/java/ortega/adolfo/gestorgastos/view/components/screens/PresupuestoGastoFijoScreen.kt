@@ -120,7 +120,7 @@ fun PresupuestoGastoFijoContenido(
 
         EncabezadoPantalla(
             titulo = stringResource(R.string.gasto_titulo),
-            subtitulo = stringResource(R.string.gasto_subtitulo, estado.mes)
+
         )
         Spacer(Modifier.height(20.dp))
 
