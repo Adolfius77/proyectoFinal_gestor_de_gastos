@@ -36,7 +36,8 @@ fun CampoFecha(
     fecha: LocalDate?,
     onFechaSeleccionada: (LocalDate) -> Unit,
     modifier: Modifier = Modifier,
-    error: String? = null
+    error: String? = null,
+    iconoFinal: @Composable (() -> Unit)? = null
 ){
     var mostrarCalendario by rememberSaveable { mutableStateOf(false) }
 
@@ -48,6 +49,7 @@ fun CampoFecha(
         modifier = modifier,
         error = error,
         soloLectura = true,
+        iconoFinal = iconoFinal,
         onClick = { mostrarCalendario = true }
     )
     if (mostrarCalendario) {
