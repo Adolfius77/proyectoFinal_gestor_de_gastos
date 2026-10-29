@@ -19,6 +19,8 @@ import androidx.navigation.compose.rememberNavController
 import ortega.adolfo.gestorgastos.ui.theme.FondoClaro
 import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
 import ortega.adolfo.gestorgastos.view.components.BarraNavegacion
+import ortega.adolfo.gestorgastos.view.components.screens.DetalleMovimientoScreen
+import ortega.adolfo.gestorgastos.view.components.screens.HomeScreen
 import ortega.adolfo.gestorgastos.view.components.screens.ResumenSreen
 
 @Composable
@@ -26,9 +28,14 @@ fun NavegacionApp(
     navController: NavHostController = rememberNavController()
 ) {
     val entradaActual by navController.currentBackStackEntryAsState()
+    val pantallaActual = entradaActual?.destination
     val destinoActual = Destino.entries.find { destino ->
-        entradaActual?.destination?.hasRoute(destino.ruta::class) == true
+        pantallaActual?.hasRoute(destino.ruta::class) == true
     }
+        ?: when {
+            pantallaActual?.hasRoute(Ruta.DetalleMovimiento::class) == true -> Destino.INICIO
+            else -> null
+        }
 
     Scaffold(
         containerColor = FondoClaro,
@@ -44,7 +51,8 @@ fun NavegacionApp(
         NavHost(
             navController = navController,
 
-            startDestination = Ruta.Graficas,
+
+            startDestination = Ruta.Inicio,
             modifier = Modifier.padding(innerPadding)
         ) {
 
@@ -52,7 +60,19 @@ fun NavegacionApp(
 
 
             composable<Ruta.Grupos> { PantallaPendiente("Grupos") }
-            composable<Ruta.Inicio> { PantallaPendiente("Inicio") }
+            composable<Ruta.Inicio> {
+                HomeScreen(
+                    onVerGraficas = { navController.navegarA(Destino.GRAFICAS) },
+                    onAgregar = {},
+                    onVerMovimiento = { id -> navController.navigate(Ruta.DetalleMovimiento(id)) }
+                )
+            }
+            composable<Ruta.DetalleMovimiento> {
+                DetalleMovimientoScreen(
+                    onRegresar = { navController.popBackStack() },
+                    onEditar = {}
+                )
+            }
             composable<Ruta.Presupuesto> { PantallaPendiente("Presupuesto") }
             composable<Ruta.Perfil> { PantallaPendiente("Perfil") }
         }
@@ -61,7 +81,7 @@ fun NavegacionApp(
 
 private fun NavHostController.navegarA(destino: Destino) {
     navigate(destino.ruta) {
-        popUpTo<Ruta.Graficas> { saveState = true }
+        popUpTo<Ruta.Inicio> { saveState = true }
         launchSingleTop = true
         restoreState = true
     }

@@ -107,4 +107,12 @@
     <string name="no_hay_movimientos_que_coincidan">No hay movimientos que coincidan</string>
     <string name="filtrar_por_fecha">Filtrar por fecha</string>
     <string name="estadisticas">Estadisticas</string>
+    <string name="detalle_del_movimiento">Detalle del movimiento</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="foto_del_recibo">Foto del recibo</string>
+    <string name="ver">Ver ›</string>
+    <string name="sin_foto_del_recibo">Sin foto del recibo</string>
+    <string name="eliminar_movimiento">¿Eliminar movimiento?</string>
+    <string name="regresar">Regresar</string>
+    <string name="este_movimiento_ya_no_existe">Este movimiento ya no existe</string>
 </resources>
