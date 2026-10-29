@@ -37,7 +37,8 @@ import ortega.adolfo.gestorgastos.view.components.screens.ResumenSreen
 
 @Composable
 fun NavegacionApp(
-    navController: NavHostController = rememberNavController()
+    navController: NavHostController = rememberNavController(),
+    onCerrarSesion: () -> Unit = {}
 ) {
     val entradaActual by navController.currentBackStackEntryAsState()
     val destinoActual = seccionDe(entradaActual?.destination)
