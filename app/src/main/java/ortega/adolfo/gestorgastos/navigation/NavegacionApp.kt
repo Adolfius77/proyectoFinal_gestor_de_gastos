@@ -19,6 +19,7 @@ import androidx.navigation.compose.rememberNavController
 import ortega.adolfo.gestorgastos.ui.theme.FondoClaro
 import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
 import ortega.adolfo.gestorgastos.view.components.BarraNavegacion
+import ortega.adolfo.gestorgastos.view.components.screens.HomeScreen
 import ortega.adolfo.gestorgastos.view.components.screens.ResumenSreen
 
 @Composable
@@ -44,7 +45,8 @@ fun NavegacionApp(
         NavHost(
             navController = navController,
 
-            startDestination = Ruta.Graficas,
+
+            startDestination = Ruta.Inicio,
             modifier = Modifier.padding(innerPadding)
         ) {
 
@@ -52,7 +54,12 @@ fun NavegacionApp(
 
 
             composable<Ruta.Grupos> { PantallaPendiente("Grupos") }
-            composable<Ruta.Inicio> { PantallaPendiente("Inicio") }
+            composable<Ruta.Inicio> {
+                HomeScreen(
+                    onVerGraficas = { navController.navegarA(Destino.GRAFICAS) },
+                    onAgregar = {}
+                )
+            }
             composable<Ruta.Presupuesto> { PantallaPendiente("Presupuesto") }
             composable<Ruta.Perfil> { PantallaPendiente("Perfil") }
         }
@@ -61,7 +68,7 @@ fun NavegacionApp(
 
 private fun NavHostController.navegarA(destino: Destino) {
     navigate(destino.ruta) {
-        popUpTo<Ruta.Graficas> { saveState = true }
+        popUpTo<Ruta.Inicio> { saveState = true }
         launchSingleTop = true
         restoreState = true
     }
