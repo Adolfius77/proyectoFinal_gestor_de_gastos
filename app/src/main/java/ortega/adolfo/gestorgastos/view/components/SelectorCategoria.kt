@@ -36,8 +36,6 @@ import androidx.compose.ui.unit.dp
 import ortega.adolfo.gestorgastos.model.domain.data.DatosMock
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
-
-
 @Composable
 fun SelectorCategoria(
     seleccion: String,

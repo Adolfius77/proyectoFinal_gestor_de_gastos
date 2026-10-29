@@ -4,6 +4,7 @@ import kotlinx.serialization.Serializable
 
 
 sealed interface Ruta {
+
     @Serializable data object Grupos : Ruta
     @Serializable data object Graficas : Ruta
     @Serializable data object Inicio : Ruta
@@ -16,4 +17,12 @@ sealed interface Ruta {
     @Serializable data class InfoGrupo(val id: Int) : Ruta
 
     @Serializable data class AgregarGasto(val id: Int) : Ruta
+
+
+    @Serializable data object PresupuestoAgregarIngreso : Ruta
+    @Serializable data object PresupuestoGastoFijo : Ruta
+    @Serializable data object PresupuestoAgregarCategoria : Ruta
+
+
+    @Serializable data class DetalleMovimiento(val id: Int) : Ruta
 }

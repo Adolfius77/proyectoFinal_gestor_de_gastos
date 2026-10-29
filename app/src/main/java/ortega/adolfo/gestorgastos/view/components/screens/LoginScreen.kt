@@ -34,6 +34,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import ortega.adolfo.gestorgastos.R
 import ortega.adolfo.gestorgastos.ui.theme.FondoClaro
+import ortega.adolfo.gestorgastos.ui.theme.Manrope
 import ortega.adolfo.gestorgastos.ui.theme.RojoError
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
@@ -97,13 +98,16 @@ fun LoginContenido(
                 style = MaterialTheme.typography.headlineMedium,
                 color = TextoPrincipal,
                 textAlign = TextAlign.Center,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                fontFamily = Manrope,
+                fontWeight = FontWeight.SemiBold
             )
             Spacer(Modifier.height(4.dp))
             Text(
                 text = stringResource(R.string.entra_para_ver_los_gastos_de_este_mes),
                 fontSize = 14.sp,
-                color = TextoSecundario
+                color = TextoSecundario,
+                fontFamily = Manrope
             )
             Spacer(Modifier.height(28.dp))
 
@@ -132,7 +136,8 @@ fun LoginContenido(
                     stringResource(R.string.olvidaste_tu_contrase_a),
                     color = VerdePrimario,
                     fontSize = 13.sp,
-                    fontWeight = FontWeight.SemiBold
+                    fontWeight = FontWeight.SemiBold,
+                    fontFamily = Manrope
                 )
             }
             estado.errorGeneral?.let { mensaje ->
@@ -169,7 +174,8 @@ fun LoginContenido(
                 fontSize = 14.sp,
                 fontWeight = FontWeight.Bold,
                 color = VerdePrimario,
-                modifier = Modifier.clickable(onClick = onIrARegistro)
+                fontFamily = Manrope,
+                modifier = Modifier.clickable(onClick = onIrARegistro),
             )
         }
     }

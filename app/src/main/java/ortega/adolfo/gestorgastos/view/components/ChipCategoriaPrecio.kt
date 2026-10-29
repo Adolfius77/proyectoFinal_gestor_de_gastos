@@ -29,14 +29,14 @@ fun ChipCategoriaPrecio(
     Box(modifier = modifier){
         Row(
             modifier = Modifier
-                .height(40.dp)
-                .clip(RoundedCornerShape(15.dp))
+                .height(28.dp)
+                .clip(RoundedCornerShape(50))
                 .background(VerdeWacho)
                 .padding(horizontal = 12.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Text(
-                text = "$categoria | $precio",
+                text = "$categoria · $precio",
                 style = MaterialTheme.typography.labelLarge,
                 color = Color.White,
                 textAlign = TextAlign.Center,
@@ -49,5 +49,5 @@ fun ChipCategoriaPrecio(
 @Composable
 @Preview
 fun ChipCategoriaPrecioPreview(){
-    ChipCategoriaPrecio(categoria = "Vivienda", precio = "$5,550")
+    ChipCategoriaPrecio(categoria = "Vivienda", precio = "$4,500")
 }

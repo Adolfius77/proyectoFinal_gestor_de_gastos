@@ -19,6 +19,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import ortega.adolfo.gestorgastos.ui.theme.Manrope
 
 @Composable
 fun BotonHuella(
@@ -40,7 +41,11 @@ fun BotonHuella(
             Icon(icono, contentDescription = null)
             Spacer(Modifier.width(8.dp))
         }
-        Text(texto, fontSize = 16.sp)
+        Text(
+            text = texto,
+            fontSize = 16.sp,
+            fontFamily = Manrope
+        )
     }
 }
 
