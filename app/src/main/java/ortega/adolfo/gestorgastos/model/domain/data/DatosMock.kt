@@ -29,6 +29,22 @@ object DatosMock {
     var usuarioActual: Usuario? = null
     val generos = listOf("Mujer", "Hombre", "Otro", "Prefiero no decirlo")
 
+    // Nuevo movimiento
+    const val PAGO_TARJETA = "Tarjeta"
+
+    val categoriasGasto = listOf(
+        "Vivienda", "Alimentación", "Transporte",
+        "Entretenimiento", "Salud", "Otros"
+    )
+    val categoriasIngreso = listOf("Salario", "Freelance", "Inversiones", "Otros")
+
+    val tiposPago = listOf("Efectivo", PAGO_TARJETA, "Transferencia")
+    val tarjetas = mutableListOf("BBVA 7789")
+
+    const val UBICACION_MOCK = "Villa Fontana 85098"
+
+
+    // Opciones para filtrar el resumen por categoria
 
     val categoriasFiltro = listOf(
         "Todas", "Vivienda", "Alimentación", "Transporte",
