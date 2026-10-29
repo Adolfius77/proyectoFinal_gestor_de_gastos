@@ -8,17 +8,22 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import ortega.adolfo.gestorgastos.R
 
+
 val Nunito = FontFamily(
-    Font(R.font.nunito_regular),
-    Font(R.font.nunito_extrabold)
+    Font(R.font.nunito_regular, FontWeight.Normal),
+    Font(R.font.nunito_bold, FontWeight.Bold),
+    Font(R.font.nunito_extrabold, FontWeight.ExtraBold)
 )
 val Manrope = FontFamily(
-    Font(R.font.manrope_regular),
-    Font(R.font.manrope_medium),
-    Font(R.font.manrope_semibold)
+    Font(R.font.manrope_regular, FontWeight.Normal),
+    Font(R.font.manrope_medium, FontWeight.Medium),
+    Font(R.font.manrope_semibold, FontWeight.SemiBold),
+    Font(R.font.manrope_bold, FontWeight.Bold)
 )
 val SpaceGrotesk = FontFamily(
+    Font(R.font.spacegrotesk_regular, FontWeight.Normal),
     Font(R.font.spacegrotesk_medium, FontWeight.Medium),
+    Font(R.font.spacegrotesk_semibold, FontWeight.SemiBold),
     Font(R.font.spacegrotesk_bold, FontWeight.Bold)
 )
 

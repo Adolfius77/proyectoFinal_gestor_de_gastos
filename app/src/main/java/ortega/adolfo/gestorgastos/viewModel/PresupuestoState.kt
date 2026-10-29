@@ -10,7 +10,9 @@ data class PresupuestoState(
     val categorias: List<Categoria> = emptyList(),
 
     val modo: ModoVista = ModoVista.MONTO,
-    val alertasActivas: Boolean = true
+    val alertasActivas: Boolean = true,
+
+    val categoriaPorEliminar: Categoria? = null
 ) {
     val disponible: Double get() = ingresosFijos - gastosFijos
 }

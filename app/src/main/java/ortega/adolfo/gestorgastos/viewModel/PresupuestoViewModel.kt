@@ -5,6 +5,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import ortega.adolfo.gestorgastos.model.domain.Categoria
 import ortega.adolfo.gestorgastos.model.domain.ModoVista
 import ortega.adolfo.gestorgastos.model.domain.data.DatosMock
 
@@ -38,5 +39,23 @@ class PresupuestoViewModel : ViewModel() {
 
     fun onAlertasCambio(valor: Boolean) {
         _estado.update { it.copy(alertasActivas = valor) }
+    }
+
+    fun onEliminarCategoria(categoria: Categoria) {
+        _estado.update { it.copy(categoriaPorEliminar = categoria) }
+    }
+
+    fun onEliminarCancelado() {
+        _estado.update { it.copy(categoriaPorEliminar = null) }
+    }
+
+    fun onEliminarConfirmado() {
+        val porEliminar = _estado.value.categoriaPorEliminar ?: return
+        _estado.update {
+            it.copy(
+                categorias = it.categorias.filter { categoria -> categoria.id != porEliminar.id },
+                categoriaPorEliminar = null
+            )
+        }
     }
 }
