@@ -34,3 +34,7 @@ val GrisPlaceholder  = Color(0xFF8D928E)
 val RojoError        = Color(0xFFBF3833)
 
 val VerdeWacho = Color(0xFF14241E)
+
+val NaranjaSuave = Color(0xFFFDE4D3)
+
+val BordeGris = Color(0xFFDADDD9)

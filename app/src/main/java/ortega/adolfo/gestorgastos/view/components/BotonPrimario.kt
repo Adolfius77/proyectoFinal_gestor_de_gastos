@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import ortega.adolfo.gestorgastos.ui.theme.Manrope
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 
 //este boton se puede reutilizar en toda la app para acciones
@@ -29,7 +30,11 @@ fun BotonPrimario(texto: String, onClick: () -> Unit, modifier: Modifier = Modif
 
 
     ) {
-        Text(texto, fontSize = 16.sp)
+        Text(
+           text =  texto,
+            fontSize = 16.sp,
+            fontFamily = Manrope
+        )
 
     }
 }

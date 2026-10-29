@@ -20,6 +20,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ortega.adolfo.gestorgastos.model.domain.Periodo
+
+
 @Composable
 fun SelectorPeriodo(
     seleccionado: Periodo,

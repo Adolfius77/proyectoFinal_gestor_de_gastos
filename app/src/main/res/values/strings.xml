@@ -91,4 +91,20 @@
     <string name="nav_inicio">Inicio</string>
     <string name="nav_presupuesto">Presupuesto</string>
     <string name="nav_perfil">Perfil</string>
+    <string name="total_gastado">Total gastado</string>
+    <string name="gr_fica_de_gastos_por_categor_a">Gráfica de gastos por categoría</string>
+    <string name="tu_gasto_m_s_alto_en_este_periodo_es">Tu gasto más alto en este periodo es %1$s.</string>
+    <string name="toca_una_barra_para_ver_el_detalle">Toca una barra para ver el detalle.</string>
+    <string name="te_queda_este_mes">Te queda este mes</string>
+    <string name="ya_usaste_todo_tu_ingreso_del_mes">Ya usaste todo tu ingreso del mes</string>
+    <string name="ingresos_del_mes">Ingresos del mes</string>
+    <string name="gastos_del_mes">Gastos del mes</string>
+    <string name="ver_detalles">Ver detalles ›</string>
+    <string name="ver_gr_ficas">Ver gráficas ›</string>
+    <string name="gr_fica_de_gastos_por_categoria">Gráfica de gastos por categoría</string>
+    <string name="movimientos_recientes">Movimientos recientes</string>
+    <string name="ver_todos">Ver todos ›</string>
+    <string name="no_hay_movimientos_que_coincidan">No hay movimientos que coincidan</string>
+    <string name="filtrar_por_fecha">Filtrar por fecha</string>
+    <string name="estadisticas">Estadisticas</string>
 </resources>
