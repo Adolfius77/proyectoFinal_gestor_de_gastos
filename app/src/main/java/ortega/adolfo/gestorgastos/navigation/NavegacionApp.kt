@@ -17,10 +17,17 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.toRoute
+import ortega.adolfo.gestorgastos.model.domain.data.DatosMock
 import ortega.adolfo.gestorgastos.ui.theme.FondoClaro
 import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
 import ortega.adolfo.gestorgastos.view.components.BarraNavegacion
+import ortega.adolfo.gestorgastos.view.components.screens.AgregarGastoScreen
+import ortega.adolfo.gestorgastos.view.components.screens.CrearGrupoScreen
 import ortega.adolfo.gestorgastos.view.components.screens.DetalleMovimientoScreen
+import ortega.adolfo.gestorgastos.view.components.screens.GrupoDetalleScreen
+import ortega.adolfo.gestorgastos.view.components.screens.GrupoInfoScreen
+import ortega.adolfo.gestorgastos.view.components.screens.GruposScreen
 import ortega.adolfo.gestorgastos.view.components.screens.HomeScreen
 import ortega.adolfo.gestorgastos.view.components.screens.NewMovementScreen
 import ortega.adolfo.gestorgastos.view.components.screens.PresupuestoAgregarCategoriaScreen
@@ -42,7 +49,13 @@ fun NavegacionApp(
             if (destinoActual != null) {
                 BarraNavegacion(
                     actual = destinoActual,
-                    onNavegar = { navController.navegarA(it) }
+                    onNavegar = { destino ->
+                        if (destino == destinoActual) {
+                            navController.popBackStack(destino.ruta, inclusive = false)
+                        } else {
+                            navController.navegarA(destino)
+                        }
+                    }
                 )
             }
         }
@@ -74,6 +87,13 @@ fun NavegacionApp(
 
             composable<Ruta.Graficas> { ResumenSreen() }
 
+            composable<Ruta.Grupos> {
+                GruposScreen(
+                    onCrearGrupo = { navController.navigate(Ruta.CrearGrupo) },
+                    onAbrirGrupo = { navController.navigate(Ruta.DetalleGrupo(it.id)) }
+                )
+            }
+
             composable<Ruta.Presupuesto> {
                 PresupuestoScreen(
                     onAgregarIngreso = { navController.navigate(Ruta.PresupuestoAgregarIngreso) },
@@ -91,12 +111,61 @@ fun NavegacionApp(
                 PresupuestoAgregarCategoriaScreen(onVolver = { navController.popBackStack() })
             }
 
-            composable<Ruta.Grupos> { PantallaPendiente("Grupos") }
             composable<Ruta.Perfil> { PantallaPendiente("Perfil") }
+
+            composable<Ruta.CrearGrupo> {
+                CrearGrupoScreen(
+                    onVolver = { navController.popBackStack() },
+                    onCrear = { nombre, tipo, imagen ->
+                        navController.popBackStack()
+                    }
+                )
+            }
+
+            composable<Ruta.DetalleGrupo> { entrada ->
+                val id = entrada.toRoute<Ruta.DetalleGrupo>().id
+                val grupo = DatosMock.grupos.firstOrNull { it.id == id }
+                if (grupo != null) {
+                    GrupoDetalleScreen(
+                        grupo = grupo,
+                        gastos = DatosMock.gastosGrupo,
+                        onVolver = { navController.popBackStack() },
+                        onAbrirInfo = { navController.navigate(Ruta.InfoGrupo(grupo.id)) },
+                        onAgregarGasto = { navController.navigate(Ruta.AgregarGasto(grupo.id)) }
+                    )
+                }
+            }
+
+            composable<Ruta.InfoGrupo> { entrada ->
+                val id = entrada.toRoute<Ruta.InfoGrupo>().id
+                val grupo = DatosMock.grupos.firstOrNull { it.id == id }
+                if (grupo != null) {
+                    GrupoInfoScreen(
+                        grupo = grupo,
+                        onVolver = { navController.popBackStack() },
+                        onAbandonar = {
+                            navController.popBackStack(Ruta.Grupos, inclusive = false)
+                        }
+                    )
+                }
+            }
+
+            composable<Ruta.AgregarGasto> { entrada ->
+                val id = entrada.toRoute<Ruta.AgregarGasto>().id
+                val grupo = DatosMock.grupos.firstOrNull { it.id == id }
+                if (grupo != null) {
+                    AgregarGastoScreen(
+                        grupo = grupo,
+                        onVolver = { navController.popBackStack() },
+                        onGuardar = { categoria, monto, pagadoPor, fecha ->
+                            navController.popBackStack()
+                        }
+                    )
+                }
+            }
         }
     }
 }
-
 
 private fun seccionDe(pantalla: NavDestination?): Destino? {
     if (pantalla == null) return null
@@ -106,6 +175,11 @@ private fun seccionDe(pantalla: NavDestination?): Destino? {
     return when {
         pantalla.hasRoute(Ruta.DetalleMovimiento::class) ||
             pantalla.hasRoute(Ruta.NuevoMovimiento::class) -> Destino.INICIO
+
+        pantalla.hasRoute(Ruta.CrearGrupo::class) ||
+            pantalla.hasRoute(Ruta.DetalleGrupo::class) ||
+            pantalla.hasRoute(Ruta.InfoGrupo::class) ||
+            pantalla.hasRoute(Ruta.AgregarGasto::class) -> Destino.GRUPOS
 
         pantalla.hasRoute(Ruta.PresupuestoAgregarIngreso::class) ||
             pantalla.hasRoute(Ruta.PresupuestoGastoFijo::class) ||
