@@ -3,6 +3,7 @@ package ortega.adolfo.gestorgastos.view.components.screens
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -12,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.outlined.CalendarToday
 import androidx.compose.material.icons.outlined.LocationOn
 import androidx.compose.material3.AlertDialog
@@ -32,7 +34,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import ortega.adolfo.gestorgastos.R
+import ortega.adolfo.gestorgastos.model.domain.TipoMovimiento
 import ortega.adolfo.gestorgastos.model.domain.data.DatosMock
+import ortega.adolfo.gestorgastos.ui.theme.FondoClaro
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.view.components.BotonPrimario
 import ortega.adolfo.gestorgastos.view.components.CajaRecibo
@@ -43,13 +47,6 @@ import ortega.adolfo.gestorgastos.view.components.EncabezadoPantalla
 import ortega.adolfo.gestorgastos.view.components.EnlaceTexto
 import ortega.adolfo.gestorgastos.view.components.SelectorTipoMovimiento
 import ortega.adolfo.gestorgastos.viewModel.NuevoMovimientoViewModel
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import ortega.adolfo.gestorgastos.model.domain.TipoMovimiento
-import ortega.adolfo.gestorgastos.navigation.Destino
-import ortega.adolfo.gestorgastos.ui.theme.FondoClaro
-import ortega.adolfo.gestorgastos.view.components.BarraNavegacion
 
 @Composable
 fun NuevoMovimientoScreen(
@@ -77,7 +74,6 @@ fun NuevoMovimientoScreen(
         modifier = modifier
             .fillMaxSize()
             .background(FondoClaro)
-            .statusBarsPadding()
     ) {
         Column(
             modifier = Modifier
@@ -224,10 +220,6 @@ fun NuevoMovimientoScreen(
                 Spacer(Modifier.height(16.dp))
             }
         }
-        BarraNavegacion(
-            actual = Destino.INICIO,
-            onNavegar = {}
-        )
     }
 
     if (estado.mostrarDialogoTarjeta) {

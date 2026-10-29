@@ -12,8 +12,6 @@ import ortega.adolfo.gestorgastos.model.domain.data.DatosMock
 import java.math.BigDecimal
 import java.time.LocalDate
 import java.time.LocalTime
-import ortega.adolfo.gestorgastos.model.domain.Tarjeta
-import ortega.adolfo.gestorgastos.model.domain.MetodoPago
 
 class NuevoMovimientoViewModel : ViewModel() {
     private val _estado = MutableStateFlow(NuevoMovimientoState())

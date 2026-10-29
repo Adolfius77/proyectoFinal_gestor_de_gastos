@@ -57,6 +57,7 @@ import ortega.adolfo.gestorgastos.model.domain.MetodoPago
 import ortega.adolfo.gestorgastos.model.domain.Movimiento
 import ortega.adolfo.gestorgastos.model.domain.Tarjeta
 import ortega.adolfo.gestorgastos.model.domain.TipoMovimiento
+
 import ortega.adolfo.gestorgastos.ui.theme.Azul
 import ortega.adolfo.gestorgastos.ui.theme.FondoClaro
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
