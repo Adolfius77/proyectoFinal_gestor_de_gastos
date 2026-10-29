@@ -29,7 +29,9 @@ import ortega.adolfo.gestorgastos.view.components.screens.GrupoDetalleScreen
 import ortega.adolfo.gestorgastos.view.components.screens.GrupoInfoScreen
 import ortega.adolfo.gestorgastos.view.components.screens.GruposScreen
 import ortega.adolfo.gestorgastos.view.components.screens.HomeScreen
-import ortega.adolfo.gestorgastos.view.components.screens.NewMovementScreen
+import ortega.adolfo.gestorgastos.view.components.screens.InformacionPerfilScreen
+import ortega.adolfo.gestorgastos.view.components.screens.PerfilScreen
+import ortega.adolfo.gestorgastos.view.components.screens.NuevoMovimientoScreen
 import ortega.adolfo.gestorgastos.view.components.screens.PresupuestoAgregarCategoriaScreen
 import ortega.adolfo.gestorgastos.view.components.screens.PresupuestoGastoFijoScreen
 import ortega.adolfo.gestorgastos.view.components.screens.PresupuestoIngresoFijoScreen
@@ -73,7 +75,7 @@ fun NavegacionApp(
                 )
             }
             composable<Ruta.NuevoMovimiento> {
-                NewMovementScreen(
+                NuevoMovimientoScreen(
                     onRegresar = { navController.popBackStack() },
                     onGuardado = { navController.popBackStack() }
                 )
@@ -111,7 +113,14 @@ fun NavegacionApp(
                 PresupuestoAgregarCategoriaScreen(onVolver = { navController.popBackStack() })
             }
 
-            composable<Ruta.Perfil> { PantallaPendiente("Perfil") }
+            composable<Ruta.Perfil> {
+                PerfilScreen(
+                    onInformacionPerfil = { navController.navigate(Ruta.InformacionPerfil) }
+                )
+            }
+            composable<Ruta.InformacionPerfil> {
+                InformacionPerfilScreen(onRegresar = { navController.popBackStack() })
+            }
 
             composable<Ruta.CrearGrupo> {
                 CrearGrupoScreen(
@@ -180,6 +189,8 @@ private fun seccionDe(pantalla: NavDestination?): Destino? {
             pantalla.hasRoute(Ruta.DetalleGrupo::class) ||
             pantalla.hasRoute(Ruta.InfoGrupo::class) ||
             pantalla.hasRoute(Ruta.AgregarGasto::class) -> Destino.GRUPOS
+
+        pantalla.hasRoute(Ruta.InformacionPerfil::class) -> Destino.PERFIL
 
         pantalla.hasRoute(Ruta.PresupuestoAgregarIngreso::class) ||
             pantalla.hasRoute(Ruta.PresupuestoGastoFijo::class) ||
