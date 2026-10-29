@@ -85,6 +85,12 @@
     <string name="nueva_categoria_restan">Te quedan %1$s por repartir en categorías</string>
     <string name="nueva_categoria_excedido">Te pasas %1$s del dinero disponible</string>
     <string name="nueva_categoria_guardar">Guardar</string>
+    <!-- Presupuesto botonoes de Editar / eliminar categoria -->
+    <string name="categoria_editar">Editar categoría</string>
+    <string name="categoria_eliminar">Eliminar categoría</string>
+    <string name="categoria_eliminar_titulo">Eliminar categoría</string>
+    <string name="categoria_eliminar_mensaje">¿Seguro que quieres eliminar \"%1$s\"? Esta acción no se puede deshacer.</string>
+    <string name="categoria_eliminar_boton">Eliminar</string>
     <!--String para la barra de navegacion -->
     <string name="nav_grupos">Grupos</string>
     <string name="nav_estadisticas">Estadísticas</string>
