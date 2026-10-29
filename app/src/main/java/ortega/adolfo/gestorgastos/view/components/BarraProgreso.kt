@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import ortega.adolfo.gestorgastos.ui.theme.Naranja
 import ortega.adolfo.gestorgastos.ui.theme.RojoError
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 @Composable
 fun BarraProgreso(
@@ -44,11 +45,13 @@ fun BarraProgreso(
 @Composable
 @Preview(showBackground = true)
 fun BarraProgresoPreview() {
-    Column(Modifier.padding(16.dp)) {
-        BarraProgreso(progreso = 0.61f, color = VerdePrimario)
-        Spacer(Modifier.height(12.dp))
-        BarraProgreso(progreso = 0.85f, color = Naranja)
-        Spacer(Modifier.height(12.dp))
-        BarraProgreso(progreso = 1.08f, color = RojoError)
+    GestorGastosTheme {
+        Column(Modifier.padding(16.dp)) {
+            BarraProgreso(progreso = 0.61f, color = VerdePrimario)
+            Spacer(Modifier.height(12.dp))
+            BarraProgreso(progreso = 0.85f, color = Naranja)
+            Spacer(Modifier.height(12.dp))
+            BarraProgreso(progreso = 1.08f, color = RojoError)
+        }
     }
 }

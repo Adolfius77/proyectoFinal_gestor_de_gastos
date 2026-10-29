@@ -19,6 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ortega.adolfo.gestorgastos.ui.theme.VerdeWacho
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 
 @Composable
@@ -44,5 +45,7 @@ fun ChipColorCategoria(
 @Composable
 @Preview(showBackground = true)
 fun ChipColorCategoriaPreview(){
-    ChipColorCategoria(color = Color.Black)
+    GestorGastosTheme {
+        ChipColorCategoria(color = Color.Black)
+    }
 }

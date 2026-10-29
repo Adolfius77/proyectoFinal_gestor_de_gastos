@@ -42,6 +42,7 @@ import ortega.adolfo.gestorgastos.view.components.BotonPrimario
 import ortega.adolfo.gestorgastos.view.components.CampoDesplegable
 import ortega.adolfo.gestorgastos.view.components.CampoFecha
 import ortega.adolfo.gestorgastos.view.components.CampoTexto
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 @Composable
 fun AgregarGastoScreen(
@@ -191,5 +192,7 @@ fun AgregarGastoScreen(
 @Composable
 @Preview(showBackground = true)
 fun AgregarGastoScreenPreview() {
-    AgregarGastoScreen(grupo = DatosMock.grupos.first())
+    GestorGastosTheme {
+        AgregarGastoScreen(grupo = DatosMock.grupos.first())
+    }
 }

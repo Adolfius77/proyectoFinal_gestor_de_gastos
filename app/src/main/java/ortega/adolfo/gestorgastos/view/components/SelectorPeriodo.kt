@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ortega.adolfo.gestorgastos.model.domain.Periodo
 import ortega.adolfo.gestorgastos.ui.theme.Manrope
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 
 @Composable
@@ -63,6 +64,8 @@ fun SelectorPeriodo(
 @Composable
 @Preview(showBackground = true)
 fun SelectorPeriodoPreview(){
-    var periodo by remember {mutableStateOf(Periodo.MES)}
-    SelectorPeriodo(seleccionado = periodo, onSeleccionar = {periodo = it})
+    GestorGastosTheme {
+        var periodo by remember {mutableStateOf(Periodo.MES)}
+        SelectorPeriodo(seleccionado = periodo, onSeleccionar = {periodo = it})
+    }
 }

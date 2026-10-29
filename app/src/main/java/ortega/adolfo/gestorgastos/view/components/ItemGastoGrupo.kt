@@ -24,6 +24,7 @@ import ortega.adolfo.gestorgastos.model.domain.GastoGrupo
 import ortega.adolfo.gestorgastos.ui.theme.Manrope
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
+import ortega.adolfo.gestorgastos.ui.theme.SpaceGrotesk
 
 fun formatoMonto(monto: Double): String =
     "\$" + "%,.2f".format(Locale.US, monto)
@@ -64,7 +65,7 @@ fun ItemGastoGrupo(
             Column(horizontalAlignment = Alignment.End) {
                 Text(
                     text = formatoMonto(gasto.monto),
-                    fontFamily = Manrope,
+                    fontFamily = SpaceGrotesk,
                     fontWeight = FontWeight.Bold,
                     fontSize = 17.sp,
                     color = TextoPrincipal

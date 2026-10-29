@@ -22,6 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ortega.adolfo.gestorgastos.ui.theme.Manrope
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 val RojoAbandonar = Color(0xFFE53935)
 val RosaAbandonar = Color(0xFFFFB3B3)
@@ -63,5 +64,7 @@ fun BotonAbandonar(
 @Composable
 @Preview(showBackground = true)
 fun BotonAbandonarPreview() {
-    BotonAbandonar(onClick = {})
+    GestorGastosTheme {
+        BotonAbandonar(onClick = {})
+    }
 }

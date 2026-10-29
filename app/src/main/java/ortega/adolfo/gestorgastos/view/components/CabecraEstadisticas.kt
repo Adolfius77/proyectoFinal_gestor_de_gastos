@@ -25,6 +25,7 @@ import ortega.adolfo.gestorgastos.model.domain.data.DatosMock
 import ortega.adolfo.gestorgastos.ui.theme.Nunito
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import java.time.YearMonth
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 
 @Composable
@@ -80,16 +81,18 @@ fun CabeceraEstadisticas(
 @Composable
 @Preview(showBackground = true)
 fun cabeceraEstadisticaPreview() {
-    var periodo by remember { mutableStateOf(Periodo.MES) }
-    var mes by remember { mutableStateOf(YearMonth.of(2026, 10)) }
-    var categoria by remember { mutableStateOf("Todas") }
-    CabeceraEstadisticas(
-        seleccionado = periodo,
-        onSeleccionar = { periodo = it },
-        mes = mes,
-        onSeleccionarMes = { mes = it },
-        categoria = categoria,
-        categorias = DatosMock.categoriasFiltro,
-        onSeleccionarCategoria = { categoria = it }
-    )
+    GestorGastosTheme {
+        var periodo by remember { mutableStateOf(Periodo.MES) }
+        var mes by remember { mutableStateOf(YearMonth.of(2026, 10)) }
+        var categoria by remember { mutableStateOf("Todas") }
+        CabeceraEstadisticas(
+            seleccionado = periodo,
+            onSeleccionar = { periodo = it },
+            mes = mes,
+            onSeleccionarMes = { mes = it },
+            categoria = categoria,
+            categorias = DatosMock.categoriasFiltro,
+            onSeleccionarCategoria = { categoria = it }
+        )
+    }
 }

@@ -50,6 +50,8 @@ import ortega.adolfo.gestorgastos.view.components.FilaOpcion
 import ortega.adolfo.gestorgastos.view.components.FilaSwitch
 import ortega.adolfo.gestorgastos.view.components.FotoPerfil
 import ortega.adolfo.gestorgastos.view.components.TarjetaBase
+import ortega.adolfo.gestorgastos.ui.theme.Nunito
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 @Composable
 fun PerfilScreen(
@@ -104,7 +106,7 @@ fun PerfilScreen(
                 text = nombre,
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center,
-                fontFamily = Manrope,
+                fontFamily = Nunito,
                 fontSize = 24.sp,
                 color = TextoPrincipal
             )
@@ -162,5 +164,7 @@ private fun cargarImagen(context: Context, uri: Uri): ImageBitmap? = try {
 @Composable
 @Preview(showBackground = true, heightDp = 800)
 fun PerfilScreenPreview() {
-    PerfilScreen(onInformacionPerfil = {})
+    GestorGastosTheme {
+        PerfilScreen(onInformacionPerfil = {})
+    }
 }

@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 @Composable
 fun <T> MontoPorcentaje(
@@ -72,12 +73,14 @@ fun <T> MontoPorcentaje(
 @Composable
 @Preview(showBackground = true)
 fun MontoPorcentajePreview() {
-    var seleccion by remember { mutableStateOf("Monto") }
-    MontoPorcentaje(
-        opciones = listOf("Monto", "Porcentaje"),
-        seleccion = seleccion,
-        etiqueta = { it },
-        onSeleccion = { seleccion = it },
-        modifier = Modifier.padding(16.dp)
-    )
+    GestorGastosTheme {
+        var seleccion by remember { mutableStateOf("Monto") }
+        MontoPorcentaje(
+            opciones = listOf("Monto", "Porcentaje"),
+            seleccion = seleccion,
+            etiqueta = { it },
+            onSeleccion = { seleccion = it },
+            modifier = Modifier.padding(16.dp)
+        )
+    }
 }

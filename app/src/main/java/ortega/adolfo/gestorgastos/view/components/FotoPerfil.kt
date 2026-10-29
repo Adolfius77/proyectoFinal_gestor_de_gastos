@@ -19,6 +19,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 @Composable
 fun FotoPerfil(
     onClick: () -> Unit,
@@ -54,5 +55,7 @@ fun FotoPerfil(
 @Composable
 @Preview(showBackground = true)
 fun FotoPerfilPreview() {
-    FotoPerfil(onClick = {})
+    GestorGastosTheme {
+        FotoPerfil(onClick = {})
+    }
 }

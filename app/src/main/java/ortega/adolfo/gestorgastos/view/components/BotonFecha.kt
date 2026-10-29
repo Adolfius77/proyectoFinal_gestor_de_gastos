@@ -36,6 +36,7 @@ import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 import java.time.YearMonth
 import java.time.format.DateTimeFormatter
 import java.util.Locale
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 
 private val formatoMes = DateTimeFormatter.ofPattern("MMMM yyyy", Locale("es", "MX"))
@@ -113,6 +114,8 @@ fun BotonFecha(
 @Composable
 @Preview(showBackground = true)
 fun BotonFechaPreview() {
-    var mes by remember { mutableStateOf(YearMonth.of(2026, 10)) }
-    BotonFecha(mes = mes, onSeleccionar = { mes = it })
+    GestorGastosTheme {
+        var mes by remember { mutableStateOf(YearMonth.of(2026, 10)) }
+        BotonFecha(mes = mes, onSeleccionar = { mes = it })
+    }
 }

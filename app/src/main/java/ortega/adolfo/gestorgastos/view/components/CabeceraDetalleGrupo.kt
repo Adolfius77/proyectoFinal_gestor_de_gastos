@@ -61,7 +61,7 @@ fun CabeceraDetalleGrupo(
                     color = TextoPrincipal
                 )
                 Text(
-                    text = if (grupo.miembros.size == 1) "1 miembro" else "${grupo.miembros.size} miembros",
+                    text = textoConNumeros(if (grupo.miembros.size == 1) "1 miembro" else "${grupo.miembros.size} miembros"),
                     fontFamily = Manrope,
                     fontSize = 11.sp,
                     color = TextoSecundario

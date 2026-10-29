@@ -36,6 +36,7 @@ import androidx.compose.ui.unit.dp
 import ortega.adolfo.gestorgastos.model.domain.data.DatosMock
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 @Composable
 fun SelectorCategoria(
     seleccion: String,
@@ -105,10 +106,12 @@ fun SelectorCategoria(
 @Composable
 @Preview(showBackground = true)
 fun SelectorCategoriaPreview() {
-    var categoria by remember { mutableStateOf("Todas") }
-    SelectorCategoria(
-        seleccion = categoria,
-        opciones = DatosMock.categoriasFiltro,
-        onSeleccion = { categoria = it }
-    )
+    GestorGastosTheme {
+        var categoria by remember { mutableStateOf("Todas") }
+        SelectorCategoria(
+            seleccion = categoria,
+            opciones = DatosMock.categoriasFiltro,
+            onSeleccion = { categoria = it }
+        )
+    }
 }

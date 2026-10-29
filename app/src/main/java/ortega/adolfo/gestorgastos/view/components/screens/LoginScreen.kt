@@ -47,6 +47,7 @@ import ortega.adolfo.gestorgastos.view.components.CampoTexto
 import ortega.adolfo.gestorgastos.view.components.DivisorTexto
 import ortega.adolfo.gestorgastos.viewModel.LoginState
 import ortega.adolfo.gestorgastos.viewModel.LoginViewModel
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 @Composable
 fun LoginScreen(
@@ -184,11 +185,13 @@ fun LoginContenido(
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun LoginScreenPreview(){
-    LoginContenido(
-        estado = LoginState(),
-        onCorreoCambio = {},
-        onPasswordCambio = {},
-        onIniciarSesion = {},
-        onIrARegistro = {}
-    )
+    GestorGastosTheme {
+        LoginContenido(
+            estado = LoginState(),
+            onCorreoCambio = {},
+            onPasswordCambio = {},
+            onIniciarSesion = {},
+            onIrARegistro = {}
+        )
+    }
 }

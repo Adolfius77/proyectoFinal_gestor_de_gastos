@@ -25,6 +25,7 @@ import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 private val formatoFecha = DateTimeFormatter.ofPattern("dd/MM/yyyy")
 
@@ -86,13 +87,15 @@ fun CampoFecha(
 @Composable
 @Preview(showBackground = true)
 fun CampoFechaPreview() {
-    var fecha by remember { mutableStateOf<LocalDate?>(null) }
-    Column(Modifier.padding(16.dp)) {
-        CampoFecha(
-            etiqueta = "Fecha de nacimiento",
-            fecha = fecha,
-            onFechaSeleccionada = { fecha = it }
-        )
-        Spacer(Modifier.height(12.dp))
+    GestorGastosTheme {
+        var fecha by remember { mutableStateOf<LocalDate?>(null) }
+        Column(Modifier.padding(16.dp)) {
+            CampoFecha(
+                etiqueta = "Fecha de nacimiento",
+                fecha = fecha,
+                onFechaSeleccionada = { fecha = it }
+            )
+            Spacer(Modifier.height(12.dp))
+        }
     }
 }

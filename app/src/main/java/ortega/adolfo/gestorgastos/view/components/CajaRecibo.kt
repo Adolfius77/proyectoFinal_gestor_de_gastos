@@ -29,6 +29,7 @@ import ortega.adolfo.gestorgastos.ui.theme.FondoClaro
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 // Caja para adjuntar una imagen (recibo, comprobante, etc.)
 // Con adjunto = true muestra una palomita en lugar del icono de subir
@@ -80,9 +81,11 @@ fun CajaRecibo(
 @Composable
 @Preview(showBackground = true)
 fun CajaReciboPreview() {
-    Column {
-        CajaRecibo(etiqueta = "Foto del recibo (opcional)", onClick = {})
-        Spacer(Modifier.height(12.dp))
-        CajaRecibo(etiqueta = "Foto del recibo (opcional)", onClick = {}, adjunto = true)
+    GestorGastosTheme {
+        Column {
+            CajaRecibo(etiqueta = "Foto del recibo (opcional)", onClick = {})
+            Spacer(Modifier.height(12.dp))
+            CajaRecibo(etiqueta = "Foto del recibo (opcional)", onClick = {}, adjunto = true)
+        }
     }
 }

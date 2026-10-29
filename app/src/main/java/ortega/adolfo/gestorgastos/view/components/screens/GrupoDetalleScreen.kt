@@ -31,6 +31,7 @@ import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 import ortega.adolfo.gestorgastos.view.components.CabeceraDetalleGrupo
 import ortega.adolfo.gestorgastos.view.components.ItemGastoGrupo
 import ortega.adolfo.gestorgastos.view.components.TarjetaDeuda
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 @Composable
 fun GrupoDetalleScreen(
@@ -99,8 +100,10 @@ fun GrupoDetalleScreen(
 @Composable
 @Preview(showBackground = true)
 fun GrupoDetalleScreenPreview() {
-    GrupoDetalleScreen(
-        grupo = DatosMock.grupos.first(),
-        gastos = DatosMock.gastosGrupo
-    )
+    GestorGastosTheme {
+        GrupoDetalleScreen(
+            grupo = DatosMock.grupos.first(),
+            gastos = DatosMock.gastosGrupo
+        )
+    }
 }

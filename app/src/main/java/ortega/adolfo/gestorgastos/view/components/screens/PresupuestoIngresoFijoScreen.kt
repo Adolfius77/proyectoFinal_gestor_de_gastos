@@ -59,6 +59,8 @@ import ortega.adolfo.gestorgastos.view.components.GrupoChips
 import ortega.adolfo.gestorgastos.view.components.TarjetaBase
 import ortega.adolfo.gestorgastos.viewModel.PresupuestoIngresoFijoState
 import ortega.adolfo.gestorgastos.viewModel.PresupuestoIngresoFijoViewModel
+import ortega.adolfo.gestorgastos.ui.theme.SpaceGrotesk
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 @Composable
 fun PresupuestoIngresoFijoScreen(
@@ -271,6 +273,7 @@ private fun ListaIngresos(
             )
             Text(
                 text = "+" + total.comoMoneda(),
+                fontFamily = SpaceGrotesk,
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Bold,
                 color = VerdePrimario
@@ -294,6 +297,7 @@ private fun ListaIngresos(
                 )
                 Text(
                     text = ingreso.monto.comoMoneda(),
+                    fontFamily = SpaceGrotesk,
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Bold,
                     color = TextoPrincipal
@@ -322,20 +326,22 @@ private fun ListaIngresos(
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun PresupuestoIngresoFijoPreview() {
-    PresupuestoIngresoFijoContenido(
-        estado = PresupuestoIngresoFijoState(
-            ingresos = listOf(
-                IngresoFijo(1, "Sueldo", 18000.0, Frecuencia.MENSUAL, 30)
-            )
-        ),
-        onNombreCambio = {},
-        onMontoCambio = {},
-        onFrecuenciaCambio = {},
-        onDiaCobroCambio = {},
-        onAgregarOtro = {},
-        onEditar = {},
-        onEliminar = {},
-        onGuardar = {},
-        onVolver = {}
-    )
+    GestorGastosTheme {
+        PresupuestoIngresoFijoContenido(
+            estado = PresupuestoIngresoFijoState(
+                ingresos = listOf(
+                    IngresoFijo(1, "Sueldo", 18000.0, Frecuencia.MENSUAL, 30)
+                )
+            ),
+            onNombreCambio = {},
+            onMontoCambio = {},
+            onFrecuenciaCambio = {},
+            onDiaCobroCambio = {},
+            onAgregarOtro = {},
+            onEditar = {},
+            onEliminar = {},
+            onGuardar = {},
+            onVolver = {}
+        )
+    }
 }

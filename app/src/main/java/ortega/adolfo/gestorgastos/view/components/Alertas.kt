@@ -26,6 +26,7 @@ import ortega.adolfo.gestorgastos.ui.theme.GrisPlaceholder
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 @Composable
 fun Alertas(
     titulo: String,
@@ -72,13 +73,15 @@ fun Alertas(
 @Composable
 @Preview(showBackground = true)
 fun AlertasPreview() {
-    var activo by remember { mutableStateOf(true) }
-    Column(Modifier.padding(16.dp)) {
-        Alertas(
-            titulo = "Alertas",
-            descripcion = "Avísame al superar el 80% de cada categoría",
-            activo = activo,
-            onCambio = { activo = it }
-        )
+    GestorGastosTheme {
+        var activo by remember { mutableStateOf(true) }
+        Column(Modifier.padding(16.dp)) {
+            Alertas(
+                titulo = "Alertas",
+                descripcion = "Avísame al superar el 80% de cada categoría",
+                activo = activo,
+                onCambio = { activo = it }
+            )
+        }
     }
 }

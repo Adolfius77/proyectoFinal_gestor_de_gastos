@@ -31,6 +31,8 @@ import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 import ortega.adolfo.gestorgastos.util.comoMoneda
 import kotlin.math.roundToInt
+import ortega.adolfo.gestorgastos.ui.theme.SpaceGrotesk
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 // Es lo que hace que la barra se pinte de color cuando llega el 80%
 private const val UMBRAL_ALERTA = 0.8f
@@ -90,6 +92,7 @@ fun TarjetaCategoria(
             )
             Text(
                 text = "$porcentaje%",
+                fontFamily = SpaceGrotesk,
                 fontSize = 14.sp,
                 fontWeight = FontWeight.SemiBold,
                 color = color
@@ -144,18 +147,20 @@ fun TarjetaCategoria(
 @Composable
 @Preview(showBackground = true)
 fun TarjetaCategoriaPreview() {
-    Column(Modifier.padding(16.dp)) {
-        TarjetaCategoria("Comida", gastado = 2975.0, presupuesto = 3500.0, onEditar = {}, onEliminar = {})
-        Spacer(Modifier.height(12.dp))
-        TarjetaCategoria("Transporte", gastado = 1100.0, presupuesto = 1800.0, onEditar = {}, onEliminar = {})
-        Spacer(Modifier.height(12.dp))
-        TarjetaCategoria(
-            "Ocio",
-            gastado = 1620.0,
-            presupuesto = 1500.0,
-            modoPorcentaje = true,
-            onEditar = {},
-            onEliminar = {}
-        )
+    GestorGastosTheme {
+        Column(Modifier.padding(16.dp)) {
+            TarjetaCategoria("Comida", gastado = 2975.0, presupuesto = 3500.0, onEditar = {}, onEliminar = {})
+            Spacer(Modifier.height(12.dp))
+            TarjetaCategoria("Transporte", gastado = 1100.0, presupuesto = 1800.0, onEditar = {}, onEliminar = {})
+            Spacer(Modifier.height(12.dp))
+            TarjetaCategoria(
+                "Ocio",
+                gastado = 1620.0,
+                presupuesto = 1500.0,
+                modoPorcentaje = true,
+                onEditar = {},
+                onEliminar = {}
+            )
+        }
     }
 }

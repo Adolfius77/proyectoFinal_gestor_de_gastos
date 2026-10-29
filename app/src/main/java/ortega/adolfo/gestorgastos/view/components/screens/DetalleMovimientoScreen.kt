@@ -78,6 +78,7 @@ import ortega.adolfo.gestorgastos.view.components.iconoCategoria
 import ortega.adolfo.gestorgastos.viewModel.DetalleMovimientoViewModel
 import java.time.LocalDate
 import java.time.LocalTime
+import ortega.adolfo.gestorgastos.ui.theme.Nunito
 
 
 
@@ -223,7 +224,7 @@ private fun TarjetaEncabezado(movimiento: Movimiento) {
             Spacer(Modifier.height(12.dp))
             Text(
                 text = movimiento.descripcion,
-                fontFamily = Manrope,
+                fontFamily = Nunito,
                 fontWeight = FontWeight.Bold,
                 fontSize = 20.sp,
                 color = TextoPrincipal
@@ -410,7 +411,7 @@ private fun ConfirmarEliminar(
 ) {
     AlertDialog(
         onDismissRequest = onCancelar,
-        title = { Text(stringResource(R.string.eliminar_movimiento), fontFamily = Manrope, fontWeight = FontWeight.Bold) },
+        title = { Text(stringResource(R.string.eliminar_movimiento), fontFamily = Nunito, fontWeight = FontWeight.Bold) },
         text = {
             Text(
                 "Se va a eliminar \"$descripcion\". Esta acción no se puede deshacer.",

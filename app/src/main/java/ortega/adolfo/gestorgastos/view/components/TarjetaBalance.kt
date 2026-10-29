@@ -57,7 +57,7 @@ fun TarjetaBalance(
     ) {
         Text(
             text = stringResource(R.string.te_queda_este_mes),
-            fontFamily = SpaceGrotesk,
+            fontFamily = Manrope,
             fontSize = 14.sp,
             color = Color.White,
             fontWeight = FontWeight.ExtraBold

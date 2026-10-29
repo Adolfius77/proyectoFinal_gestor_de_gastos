@@ -20,6 +20,7 @@ import ortega.adolfo.gestorgastos.model.domain.data.DatosMock
 import ortega.adolfo.gestorgastos.ui.theme.FondoClaro
 import ortega.adolfo.gestorgastos.view.components.CabeceraGrupos
 import ortega.adolfo.gestorgastos.view.components.ItemGrupo
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 @Composable
 fun GruposScreen(
@@ -58,5 +59,7 @@ fun GruposScreen(
 @Composable
 @Preview(showBackground = true)
 fun GruposScreenPreview() {
-    GruposScreen()
+    GestorGastosTheme {
+        GruposScreen()
+    }
 }

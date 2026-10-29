@@ -26,6 +26,7 @@ import ortega.adolfo.gestorgastos.ui.theme.Manrope
 import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 import ortega.adolfo.gestorgastos.ui.theme.VerdeSuave
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 private fun Destino.icono(): ImageVector = when (this) {
     Destino.GRUPOS -> Icons.Outlined.Group
@@ -73,6 +74,8 @@ fun BarraNavegacion(
 @Composable
 @Preview(showBackground = true)
 fun BarraNavegacionPreview() {
-    var actual by remember { mutableStateOf(Destino.GRAFICAS) }
-    BarraNavegacion(actual = actual, onNavegar = { actual = it })
+    GestorGastosTheme {
+        var actual by remember { mutableStateOf(Destino.GRAFICAS) }
+        BarraNavegacion(actual = actual, onNavegar = { actual = it })
+    }
 }

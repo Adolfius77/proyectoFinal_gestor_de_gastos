@@ -31,6 +31,7 @@ import ortega.adolfo.gestorgastos.ui.theme.Manrope
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 import ortega.adolfo.gestorgastos.ui.theme.VerdeSuave
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 // Fila con icono, texto y un switch. Toda la fila es tocable, no solo el switch.
 @Composable
@@ -84,20 +85,22 @@ fun FilaSwitch(
 @Composable
 @Preview(showBackground = true)
 fun FilaSwitchPreview() {
-    var biometria by remember { mutableStateOf(true) }
-    var oscuro by remember { mutableStateOf(false) }
-    Column(Modifier.padding(16.dp)) {
-        FilaSwitch(
-            icono = Icons.Outlined.Fingerprint,
-            titulo = "Biometría",
-            activo = biometria,
-            onCambio = { biometria = it }
-        )
-        FilaSwitch(
-            icono = Icons.Outlined.DarkMode,
-            titulo = "Modo oscuro",
-            activo = oscuro,
-            onCambio = { oscuro = it }
-        )
+    GestorGastosTheme {
+        var biometria by remember { mutableStateOf(true) }
+        var oscuro by remember { mutableStateOf(false) }
+        Column(Modifier.padding(16.dp)) {
+            FilaSwitch(
+                icono = Icons.Outlined.Fingerprint,
+                titulo = "Biometría",
+                activo = biometria,
+                onCambio = { biometria = it }
+            )
+            FilaSwitch(
+                icono = Icons.Outlined.DarkMode,
+                titulo = "Modo oscuro",
+                activo = oscuro,
+                onCambio = { oscuro = it }
+            )
+        }
     }
 }

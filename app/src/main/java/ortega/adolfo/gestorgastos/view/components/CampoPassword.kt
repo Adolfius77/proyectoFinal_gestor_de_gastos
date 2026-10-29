@@ -21,6 +21,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.remember
 import androidx.compose.ui.unit.dp
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 
 //componente para la contrasena del login se puede usar tambien en el registro sin
@@ -60,13 +61,15 @@ fun CampoPassword(
 @Composable
 @Preview(showBackground = true)
 fun CampoPasswordPreview(){
-    var password by remember { mutableStateOf("") }
-    Column(Modifier.padding(16.dp)) {
-        CampoPassword(
-            etiqueta = "Contraseña",
-            valor = password,
-            onValorCambio = { password = it },
-            placeholder = "••••••••"
-        )
+    GestorGastosTheme {
+        var password by remember { mutableStateOf("") }
+        Column(Modifier.padding(16.dp)) {
+            CampoPassword(
+                etiqueta = "Contraseña",
+                valor = password,
+                onValorCambio = { password = it },
+                placeholder = "••••••••"
+            )
+        }
     }
 }

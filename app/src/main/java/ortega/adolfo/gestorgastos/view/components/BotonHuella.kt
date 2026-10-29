@@ -20,6 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ortega.adolfo.gestorgastos.ui.theme.Manrope
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 @Composable
 fun BotonHuella(
@@ -52,5 +53,7 @@ fun BotonHuella(
 @Preview(showBackground = true)
 @Composable
 fun BotonHuellaPreview() {
-    BotonHuella("Entrar con mi huella", onClick = {}, icono = Icons.Filled.Fingerprint)
+    GestorGastosTheme {
+        BotonHuella("Entrar con mi huella", onClick = {}, icono = Icons.Filled.Fingerprint)
+    }
 }

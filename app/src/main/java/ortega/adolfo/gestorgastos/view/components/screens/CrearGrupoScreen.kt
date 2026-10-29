@@ -57,6 +57,7 @@ import ortega.adolfo.gestorgastos.ui.theme.VerdeWacho
 import ortega.adolfo.gestorgastos.view.components.BotonPrimario
 import ortega.adolfo.gestorgastos.view.components.CampoDesplegable
 import ortega.adolfo.gestorgastos.view.components.CampoTexto
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 @Composable
 fun CrearGrupoScreen(
@@ -218,5 +219,7 @@ fun CrearGrupoScreen(
 @Composable
 @Preview(showBackground = true)
 fun CrearGrupoScreenPreview() {
-    CrearGrupoScreen()
+    GestorGastosTheme {
+        CrearGrupoScreen()
+    }
 }

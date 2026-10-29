@@ -13,6 +13,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
+import ortega.adolfo.gestorgastos.ui.theme.Nunito
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 @Composable
 fun EncabezadoPantalla(
@@ -23,6 +25,7 @@ fun EncabezadoPantalla(
     Column(modifier = modifier.fillMaxWidth()) {
         Text(
             text = titulo,
+            fontFamily = Nunito,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
@@ -48,8 +51,10 @@ fun EncabezadoPantalla(
 @Composable
 @Preview(showBackground = true)
 fun EncabezadoPantallaPreview() {
-    EncabezadoPantalla(
-        titulo = "Nuevo movimiento",
-        subtitulo = "Registra tus ingresos y gastos"
-    )
+    GestorGastosTheme {
+        EncabezadoPantalla(
+            titulo = "Nuevo movimiento",
+            subtitulo = "Registra tus ingresos y gastos"
+        )
+    }
 }

@@ -33,6 +33,7 @@ import ortega.adolfo.gestorgastos.ui.theme.RojoError
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 
 //este componente te da el texto y el label para hacer formularios donde recibe el texto
@@ -110,10 +111,12 @@ fun CampoTexto(
 @Composable
 @Preview(showBackground = true)
 fun CampoTextoPreview(){
-    Column(Modifier.padding(16.dp)) {
-        CampoTexto("Correo electrónico", "", {}, "tucorreo@ejemplo.com")
-        Spacer(Modifier.height(12.dp))
+    GestorGastosTheme {
+        Column(Modifier.padding(16.dp)) {
+            CampoTexto("Correo electrónico", "", {}, "tucorreo@ejemplo.com")
+            Spacer(Modifier.height(12.dp))
 
+        }
     }
 }
 

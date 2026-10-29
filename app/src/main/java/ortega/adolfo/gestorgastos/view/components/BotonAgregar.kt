@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 import ortega.adolfo.gestorgastos.ui.theme.VerdeSuave
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 @Composable
 fun BotonAgregar(
@@ -85,8 +86,10 @@ fun BotonAgregar(
 @Composable
 @Preview(showBackground = true)
 fun BotonAgregarPreview() {
-    Column(Modifier.padding(16.dp)) {
-        BotonAgregar(texto = "Agregar categoría", onClick = {})
+    GestorGastosTheme {
+        Column(Modifier.padding(16.dp)) {
+            BotonAgregar(texto = "Agregar categoría", onClick = {})
+        }
     }
 }
 

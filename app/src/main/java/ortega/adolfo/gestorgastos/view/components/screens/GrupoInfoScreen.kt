@@ -44,6 +44,7 @@ import ortega.adolfo.gestorgastos.view.components.BotonAbandonar
 import ortega.adolfo.gestorgastos.view.components.CodigoGrupo
 import ortega.adolfo.gestorgastos.view.components.ItemMiembro
 import ortega.adolfo.gestorgastos.view.components.RojoAbandonar
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 @Composable
 fun GrupoInfoScreen(
@@ -156,5 +157,7 @@ fun GrupoInfoScreen(
 @Composable
 @Preview(showBackground = true)
 fun GrupoInfoScreenPreview() {
-    GrupoInfoScreen(grupo = DatosMock.grupos.first())
+    GestorGastosTheme {
+        GrupoInfoScreen(grupo = DatosMock.grupos.first())
+    }
 }

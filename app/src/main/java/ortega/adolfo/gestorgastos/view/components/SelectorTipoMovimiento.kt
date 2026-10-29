@@ -27,6 +27,7 @@ import ortega.adolfo.gestorgastos.model.domain.TipoMovimiento
 import ortega.adolfo.gestorgastos.ui.theme.FondoClaro
 import ortega.adolfo.gestorgastos.ui.theme.GrisPlaceholder
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 @Composable
 fun SelectorTipoMovimiento(
@@ -66,6 +67,8 @@ fun SelectorTipoMovimiento(
 @Composable
 @Preview(showBackground = true)
 fun SelectorTipoMovimientoPreview() {
-    var tipo by remember { mutableStateOf(TipoMovimiento.GASTO) }
-    SelectorTipoMovimiento(seleccionado = tipo, onSeleccionar = { tipo = it })
+    GestorGastosTheme {
+        var tipo by remember { mutableStateOf(TipoMovimiento.GASTO) }
+        SelectorTipoMovimiento(seleccionado = tipo, onSeleccionar = { tipo = it })
+    }
 }

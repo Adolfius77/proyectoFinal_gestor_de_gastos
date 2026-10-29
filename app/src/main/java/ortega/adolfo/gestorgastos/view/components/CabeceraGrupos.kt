@@ -28,6 +28,7 @@ import ortega.adolfo.gestorgastos.ui.theme.Nunito
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 import ortega.adolfo.gestorgastos.ui.theme.VerdeWacho
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 @Composable
 fun CabeceraGrupos(
@@ -79,5 +80,7 @@ fun CabeceraGrupos(
 @Composable
 @Preview(showBackground = true)
 fun CabeceraGruposPreview() {
-    CabeceraGrupos(onUnirseGrupo = {}, onCrearGrupo = {})
+    GestorGastosTheme {
+        CabeceraGrupos(onUnirseGrupo = {}, onCrearGrupo = {})
+    }
 }

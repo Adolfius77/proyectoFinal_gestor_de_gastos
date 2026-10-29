@@ -52,6 +52,9 @@ import ortega.adolfo.gestorgastos.view.components.EncabezadoPantalla
 import ortega.adolfo.gestorgastos.view.components.GrupoChips
 import ortega.adolfo.gestorgastos.viewModel.PresupuestoAgregarCategoriaState
 import ortega.adolfo.gestorgastos.viewModel.PresupuestoAgregarCategoriaViewModel
+import ortega.adolfo.gestorgastos.view.components.textoConNumeros
+import ortega.adolfo.gestorgastos.ui.theme.SpaceGrotesk
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 @Composable
 fun PresupuestoAgregarCategoriaScreen(
@@ -139,14 +142,14 @@ fun PresupuestoAgregarCategoriaContenido(
 
         if (estado.restante >= 0) {
             Text(
-                text = stringResource(R.string.nueva_categoria_restan, estado.restante.comoMoneda()),
+                text = textoConNumeros(stringResource(R.string.nueva_categoria_restan, estado.restante.comoMoneda())),
                 fontSize = 12.sp,
                 fontWeight = FontWeight.SemiBold,
                 color = VerdePrimario
             )
         } else {
             Text(
-                text = stringResource(R.string.nueva_categoria_excedido, (-estado.restante).comoMoneda()),
+                text = textoConNumeros(stringResource(R.string.nueva_categoria_excedido, (-estado.restante).comoMoneda())),
                 fontSize = 12.sp,
                 fontWeight = FontWeight.SemiBold,
                 color = RojoError
@@ -188,6 +191,7 @@ private fun CampoPresupuesto(
 ) {
     val forma = RoundedCornerShape(12.dp)
     val estiloMonto = TextStyle(
+        fontFamily = SpaceGrotesk,
         fontSize = 24.sp,
         fontWeight = FontWeight.Bold,
         color = TextoPrincipal
@@ -232,16 +236,18 @@ private fun CampoPresupuesto(
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun PresupuestoAgregarCategoriaPreview() {
-    PresupuestoAgregarCategoriaContenido(
-        estado = PresupuestoAgregarCategoriaState(
-            nombre = "Mascotas",
-            presupuesto = "800",
-            ingresosFijos = 18000.0,
-            gastosFijos = 7200.0
-        ),
-        onNombreCambio = {},
-        onPresupuestoCambio = {},
-        onGuardar = {},
-        onVolver = {}
-    )
+    GestorGastosTheme {
+        PresupuestoAgregarCategoriaContenido(
+            estado = PresupuestoAgregarCategoriaState(
+                nombre = "Mascotas",
+                presupuesto = "800",
+                ingresosFijos = 18000.0,
+                gastosFijos = 7200.0
+            ),
+            onNombreCambio = {},
+            onPresupuestoCambio = {},
+            onGuardar = {},
+            onVolver = {}
+        )
+    }
 }

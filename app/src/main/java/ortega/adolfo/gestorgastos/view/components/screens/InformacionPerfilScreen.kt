@@ -35,6 +35,8 @@ import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
 import ortega.adolfo.gestorgastos.view.components.BarraNavegacion
 import ortega.adolfo.gestorgastos.view.components.FilaOpcion
 import ortega.adolfo.gestorgastos.view.components.TarjetaBase
+import ortega.adolfo.gestorgastos.ui.theme.Nunito
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 @Composable
 fun InformacionPerfilScreen(
@@ -72,7 +74,7 @@ fun InformacionPerfilScreen(
                 Spacer(Modifier.height(8.dp))
                 Text(
                     text = "Información de tu perfil",
-                    fontFamily = Manrope,
+                    fontFamily = Nunito,
                     fontSize = 28.sp,
                     color = TextoPrincipal
                 )
@@ -135,5 +137,7 @@ private fun DivisorFila() {
 @Composable
 @Preview(showBackground = true, heightDp = 800)
 fun InformacionPerfilScreenPreview() {
-    InformacionPerfilScreen(onRegresar = {})
+    GestorGastosTheme {
+        InformacionPerfilScreen(onRegresar = {})
+    }
 }

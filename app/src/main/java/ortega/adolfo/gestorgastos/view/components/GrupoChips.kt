@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -75,12 +76,14 @@ fun <T> GrupoChips(
 @Composable
 @Preview(showBackground = true)
 fun GrupoChipsPreview() {
-    var seleccion by remember { mutableStateOf("Mensual") }
-    GrupoChips(
-        opciones = listOf("Mensual", "Quincenal", "Semanal"),
-        seleccion = seleccion,
-        etiqueta = { it },
-        onSeleccion = { seleccion = it },
-        modifier = Modifier.padding(16.dp)
-    )
+    GestorGastosTheme {
+        var seleccion by remember { mutableStateOf("Mensual") }
+        GrupoChips(
+            opciones = listOf("Mensual", "Quincenal", "Semanal"),
+            seleccion = seleccion,
+            etiqueta = { it },
+            onSeleccion = { seleccion = it },
+            modifier = Modifier.padding(16.dp)
+        )
+    }
 }

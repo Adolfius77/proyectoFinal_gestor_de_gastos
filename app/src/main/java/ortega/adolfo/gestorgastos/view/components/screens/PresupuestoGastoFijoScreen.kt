@@ -59,6 +59,9 @@ import ortega.adolfo.gestorgastos.view.components.GrupoChips
 import ortega.adolfo.gestorgastos.view.components.TarjetaBase
 import ortega.adolfo.gestorgastos.viewModel.PresupuestoGastoFijoState
 import ortega.adolfo.gestorgastos.viewModel.PresupuestoGastoFijoViewModel
+import ortega.adolfo.gestorgastos.view.components.textoConNumeros
+import ortega.adolfo.gestorgastos.ui.theme.SpaceGrotesk
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 @Composable
 fun PresupuestoGastoFijoScreen(
@@ -217,7 +220,7 @@ private fun SelectorDiaPago(
             )
             Spacer(Modifier.height(4.dp))
             Text(
-                text = stringResource(R.string.gasto_dia_pago_valor, dia),
+                text = textoConNumeros(stringResource(R.string.gasto_dia_pago_valor, dia)),
                 fontSize = 22.sp,
                 fontWeight = FontWeight.Bold,
                 color = VerdePrimario
@@ -292,6 +295,7 @@ private fun ListaGastos(
             )
             Text(
                 text = total.comoMoneda(),
+                fontFamily = SpaceGrotesk,
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Bold,
                 color = TextoPrincipal
@@ -313,6 +317,7 @@ private fun ListaGastos(
                 )
                 Text(
                     text = gasto.monto.comoMoneda(),
+                    fontFamily = SpaceGrotesk,
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Bold,
                     color = TextoPrincipal
@@ -338,7 +343,7 @@ private fun ListaGastos(
 
         Spacer(Modifier.height(4.dp))
         Text(
-            text = stringResource(R.string.gasto_restan, restante.comoMoneda()),
+            text = textoConNumeros(stringResource(R.string.gasto_restan, restante.comoMoneda())),
             fontSize = 12.sp,
             color = TextoSecundario
         )
@@ -348,23 +353,25 @@ private fun ListaGastos(
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun PresupuestoGastoFijoPreview() {
-    PresupuestoGastoFijoContenido(
-        estado = PresupuestoGastoFijoState(
-            ingresosFijos = 18000.0,
-            gastos = listOf(
-                GastoFijo(1, "Renta", 5500.0, TipoGasto.VIVIENDA, 1, true),
-                GastoFijo(2, "Servicios", 1200.0, TipoGasto.SERVICIOS, 5, true),
-                GastoFijo(3, "Celular", 500.0, TipoGasto.OTRO, 10, false)
-            )
-        ),
-        onNombreCambio = {},
-        onMontoCambio = {},
-        onTipoCambio = {},
-        onDiaPagoCambio = {},
-        onRecordarCambio = {},
-        onEditar = {},
-        onEliminar = {},
-        onGuardar = {},
-        onVolver = {}
-    )
+    GestorGastosTheme {
+        PresupuestoGastoFijoContenido(
+            estado = PresupuestoGastoFijoState(
+                ingresosFijos = 18000.0,
+                gastos = listOf(
+                    GastoFijo(1, "Renta", 5500.0, TipoGasto.VIVIENDA, 1, true),
+                    GastoFijo(2, "Servicios", 1200.0, TipoGasto.SERVICIOS, 5, true),
+                    GastoFijo(3, "Celular", 500.0, TipoGasto.OTRO, 10, false)
+                )
+            ),
+            onNombreCambio = {},
+            onMontoCambio = {},
+            onTipoCambio = {},
+            onDiaPagoCambio = {},
+            onRecordarCambio = {},
+            onEditar = {},
+            onEliminar = {},
+            onGuardar = {},
+            onVolver = {}
+        )
+    }
 }

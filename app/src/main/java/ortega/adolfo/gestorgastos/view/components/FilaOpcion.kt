@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.sp
 import ortega.adolfo.gestorgastos.ui.theme.Manrope
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 // Fila con icono a la izquierda, texto (y subtitulo opcional) y flecha a la derecha
 @Composable
@@ -79,19 +80,21 @@ fun FilaOpcion(
 @Composable
 @Preview(showBackground = true)
 fun FilaOpcionPreview() {
-    Column(Modifier.padding(16.dp)) {
-        FilaOpcion(
-            icono = Icons.Outlined.Badge,
-            titulo = "Andrea Samantha Melendrez Macias",
-            subtitulo = "Nombre y apellido.",
-            onClick = {}
-        )
-        FilaOpcion(
-            icono = Icons.Outlined.Badge,
-            titulo = "Sin flecha",
-            subtitulo = "Fila sin flecha a la derecha",
-            mostrarFlecha = false,
-            onClick = {}
-        )
+    GestorGastosTheme {
+        Column(Modifier.padding(16.dp)) {
+            FilaOpcion(
+                icono = Icons.Outlined.Badge,
+                titulo = "Andrea Samantha Melendrez Macias",
+                subtitulo = "Nombre y apellido.",
+                onClick = {}
+            )
+            FilaOpcion(
+                icono = Icons.Outlined.Badge,
+                titulo = "Sin flecha",
+                subtitulo = "Fila sin flecha a la derecha",
+                mostrarFlecha = false,
+                onClick = {}
+            )
+        }
     }
 }

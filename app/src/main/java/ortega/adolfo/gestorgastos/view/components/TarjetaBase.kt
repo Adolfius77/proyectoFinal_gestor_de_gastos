@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 @Composable
 fun TarjetaBase(
     modifier: Modifier = Modifier,
@@ -34,9 +35,11 @@ fun TarjetaBase(
 @Composable
 @Preview(showBackground = true)
 fun TarjetaBasePreview() {
-    Column(Modifier.padding(16.dp)) {
-        TarjetaBase {
-            Text("Contenido de ejemplo")
+    GestorGastosTheme {
+        Column(Modifier.padding(16.dp)) {
+            TarjetaBase {
+                Text("Contenido de ejemplo")
+            }
         }
     }
 }

@@ -9,6 +9,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 
 @Composable
@@ -30,5 +31,7 @@ fun EnlaceTexto(
 @Composable
 @Preview(showBackground = true)
 fun EnlaceTextoPreview() {
-    EnlaceTexto(texto = "Agregar nueva tarjeta +", onClick = {})
+    GestorGastosTheme {
+        EnlaceTexto(texto = "Agregar nueva tarjeta +", onClick = {})
+    }
 }

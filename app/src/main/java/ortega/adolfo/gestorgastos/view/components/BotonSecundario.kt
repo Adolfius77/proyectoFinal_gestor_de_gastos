@@ -16,6 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 @Composable
 fun BotonSecundario(
     texto: String,
@@ -42,7 +43,9 @@ fun BotonSecundario(
 @Composable
 @Preview(showBackground = true)
 fun BotonSecundarioPreview() {
-    Box(Modifier.background(VerdePrimario).padding(16.dp)) {
-        BotonSecundario(texto = "+ Ingreso", onClick = {})
+    GestorGastosTheme {
+        Box(Modifier.background(VerdePrimario).padding(16.dp)) {
+            BotonSecundario(texto = "+ Ingreso", onClick = {})
+        }
     }
 }

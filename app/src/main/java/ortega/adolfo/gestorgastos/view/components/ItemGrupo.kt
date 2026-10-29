@@ -45,6 +45,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 import ortega.adolfo.gestorgastos.ui.theme.VerdeSuave
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 @Composable
 fun AvatarGrupo(
@@ -133,8 +134,10 @@ fun ItemGrupo(
 @Composable
 @Preview(showBackground = true)
 fun ItemGrupoPreview() {
-    ItemGrupo(
-        grupo = Grupo(1, "Vicam 2026", "Dana Chavez: Pago \$5000.00 MXN"),
-        onClick = {}
-    )
+    GestorGastosTheme {
+        ItemGrupo(
+            grupo = Grupo(1, "Vicam 2026", "Dana Chavez: Pago \$5000.00 MXN"),
+            onClick = {}
+        )
+    }
 }

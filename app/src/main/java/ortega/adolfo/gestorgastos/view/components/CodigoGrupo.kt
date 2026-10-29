@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ortega.adolfo.gestorgastos.ui.theme.Manrope
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 @Composable
 fun CodigoGrupo(
@@ -69,5 +70,7 @@ fun CodigoGrupo(
 @Composable
 @Preview(showBackground = true)
 fun CodigoGrupoPreview() {
-    CodigoGrupo("34RY6")
+    GestorGastosTheme {
+        CodigoGrupo("34RY6")
+    }
 }

@@ -25,6 +25,8 @@ import androidx.compose.ui.unit.sp
 import ortega.adolfo.gestorgastos.R
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 import ortega.adolfo.gestorgastos.util.comoMoneda
+import ortega.adolfo.gestorgastos.ui.theme.SpaceGrotesk
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 @Composable
 fun ResumenPresupuesto(
@@ -96,6 +98,7 @@ private fun FilaMonto(etiqueta: String, monto: String) {
         Text(text = etiqueta, fontSize = 14.sp, color = Color.White.copy(alpha = 0.85f))
         Text(
             text = monto,
+            fontFamily = SpaceGrotesk,
             fontSize = 14.sp,
             fontWeight = FontWeight.Bold,
             color = Color.White
@@ -106,13 +109,15 @@ private fun FilaMonto(etiqueta: String, monto: String) {
 @Composable
 @Preview(showBackground = true)
 fun ResumenPresupuestoPreview() {
-    Column(Modifier.padding(16.dp)) {
-        ResumenPresupuesto(
-            disponible = 12800.0,
-            ingresosFijos = 20000.0,
-            gastosFijos = 7200.0,
-            onAgregarIngreso = {},
-            onAgregarGastoFijo = {}
-        )
+    GestorGastosTheme {
+        Column(Modifier.padding(16.dp)) {
+            ResumenPresupuesto(
+                disponible = 12800.0,
+                ingresosFijos = 20000.0,
+                gastosFijos = 7200.0,
+                onAgregarIngreso = {},
+                onAgregarGastoFijo = {}
+            )
+        }
     }
 }

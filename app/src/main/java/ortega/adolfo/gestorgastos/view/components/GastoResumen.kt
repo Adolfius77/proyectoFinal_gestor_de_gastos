@@ -26,6 +26,7 @@ import ortega.adolfo.gestorgastos.R
 import ortega.adolfo.gestorgastos.ui.theme.Manrope
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 @Composable
 fun GastoResumen(
@@ -83,7 +84,9 @@ fun GastoResumen(
 @Composable
 @Preview(showBackground = true)
 fun GastoResumenPreview(){
-    Column(modifier = Modifier.padding(16.dp)) {
-        GastoResumen()
+    GestorGastosTheme {
+        Column(modifier = Modifier.padding(16.dp)) {
+            GastoResumen()
+        }
     }
 }

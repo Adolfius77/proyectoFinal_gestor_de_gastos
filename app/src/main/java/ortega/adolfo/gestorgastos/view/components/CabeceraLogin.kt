@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.sp
 import ortega.adolfo.gestorgastos.R
 import ortega.adolfo.gestorgastos.ui.theme.Nunito
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 @Composable
 fun CabeceraLogin(modifier: Modifier = Modifier){
@@ -47,5 +48,7 @@ fun CabeceraLogin(modifier: Modifier = Modifier){
 @Composable
 @Preview(showBackground = true)
 fun CabeceraPreview(){
-    CabeceraLogin(modifier = Modifier.padding(16.dp))
+    GestorGastosTheme {
+        CabeceraLogin(modifier = Modifier.padding(16.dp))
+    }
 }

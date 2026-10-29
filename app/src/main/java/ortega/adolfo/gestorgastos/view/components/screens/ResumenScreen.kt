@@ -30,6 +30,7 @@ import ortega.adolfo.gestorgastos.view.components.PanelResumen
 import ortega.adolfo.gestorgastos.viewModel.ResumenState
 import ortega.adolfo.gestorgastos.viewModel.ResumenViewModel
 import java.time.YearMonth
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 
 @Composable
@@ -92,10 +93,12 @@ fun ResumenContenido(
 @Composable
 @Preview(showBackground = true)
 fun ResumenScreenPreview(){
-    ResumenContenido(
-        estado = ResumenState(),
-        onPeriodoCambio = {},
-        onMesCambio = {},
-        onCategoriaCambio = {}
-    )
+    GestorGastosTheme {
+        ResumenContenido(
+            estado = ResumenState(),
+            onPeriodoCambio = {},
+            onMesCambio = {},
+            onCategoriaCambio = {}
+        )
+    }
 }

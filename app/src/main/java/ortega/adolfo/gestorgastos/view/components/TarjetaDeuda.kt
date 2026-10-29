@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ortega.adolfo.gestorgastos.ui.theme.Manrope
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
+import ortega.adolfo.gestorgastos.ui.theme.SpaceGrotesk
 
 @Composable
 fun TarjetaDeuda(
@@ -61,7 +62,7 @@ fun TarjetaDeuda(
             )
             Text(
                 text = formatoMonto(monto),
-                fontFamily = Manrope,
+                fontFamily = SpaceGrotesk,
                 fontWeight = FontWeight.Bold,
                 fontSize = 20.sp,
                 color = Color.White

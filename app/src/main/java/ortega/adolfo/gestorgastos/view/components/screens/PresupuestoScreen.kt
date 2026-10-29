@@ -43,6 +43,7 @@ import ortega.adolfo.gestorgastos.view.components.SelectorCategoria
 import ortega.adolfo.gestorgastos.view.components.TarjetaCategoria
 import ortega.adolfo.gestorgastos.viewModel.PresupuestoState
 import ortega.adolfo.gestorgastos.viewModel.PresupuestoViewModel
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 @Composable
 fun PresupuestoScreen(
@@ -205,21 +206,23 @@ fun PresupuestoContenido(
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun PresupuestoScreenPreview() {
-    PresupuestoContenido(
-        estado = PresupuestoState(
-            ingresosFijos = 20000.0,
-            gastosFijos = 7200.0,
-            categorias = DatosMock.categorias.toList()
-        ),
-        onMesCambio = {},
-        onModoCambio = {},
-        onAlertasCambio = {},
-        onAgregarIngreso = {},
-        onAgregarGastoFijo = {},
-        onAgregarCategoria = {},
-        onEditarCategoria = {},
-        onEliminarCategoria = {},
-        onEliminarConfirmado = {},
-        onEliminarCancelado = {}
-    )
+    GestorGastosTheme {
+        PresupuestoContenido(
+            estado = PresupuestoState(
+                ingresosFijos = 20000.0,
+                gastosFijos = 7200.0,
+                categorias = DatosMock.categorias.toList()
+            ),
+            onMesCambio = {},
+            onModoCambio = {},
+            onAlertasCambio = {},
+            onAgregarIngreso = {},
+            onAgregarGastoFijo = {},
+            onAgregarCategoria = {},
+            onEditarCategoria = {},
+            onEliminarCategoria = {},
+            onEliminarConfirmado = {},
+            onEliminarCancelado = {}
+        )
+    }
 }

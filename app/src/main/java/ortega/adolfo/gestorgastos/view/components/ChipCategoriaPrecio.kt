@@ -18,6 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ortega.adolfo.gestorgastos.ui.theme.VerdeWacho
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 
 @Composable
@@ -36,7 +37,7 @@ fun ChipCategoriaPrecio(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Text(
-                text = "$categoria · $precio",
+                text = textoConNumeros("$categoria · $precio"),
                 style = MaterialTheme.typography.labelLarge,
                 color = Color.White,
                 textAlign = TextAlign.Center,
@@ -49,5 +50,7 @@ fun ChipCategoriaPrecio(
 @Composable
 @Preview
 fun ChipCategoriaPrecioPreview(){
-    ChipCategoriaPrecio(categoria = "Vivienda", precio = "$4,500")
+    GestorGastosTheme {
+        ChipCategoriaPrecio(categoria = "Vivienda", precio = "$4,500")
+    }
 }

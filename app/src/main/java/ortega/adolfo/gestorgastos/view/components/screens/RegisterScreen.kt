@@ -38,6 +38,7 @@ import ortega.adolfo.gestorgastos.view.components.CampoTexto
 import ortega.adolfo.gestorgastos.viewModel.RegisterState
 import ortega.adolfo.gestorgastos.viewModel.RegisterViewModel
 import java.time.LocalDate
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 @Composable
 fun RegisterScreen(
@@ -178,14 +179,16 @@ fun RegisterContenido(
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun RegisterScreenPreview() {
-    RegisterContenido(
-        estado = RegisterState(),
-        onNombreCambio = {},
-        onCorreoCambio = {},
-        onFechaCambio = {},
-        onGeneroCambio = {},
-        onPasswordCambio = {},
-        onConfirmarCambio = {},
-        onRegistrar = {}
-    )
+    GestorGastosTheme {
+        RegisterContenido(
+            estado = RegisterState(),
+            onNombreCambio = {},
+            onCorreoCambio = {},
+            onFechaCambio = {},
+            onGeneroCambio = {},
+            onPasswordCambio = {},
+            onConfirmarCambio = {},
+            onRegistrar = {}
+        )
+    }
 }

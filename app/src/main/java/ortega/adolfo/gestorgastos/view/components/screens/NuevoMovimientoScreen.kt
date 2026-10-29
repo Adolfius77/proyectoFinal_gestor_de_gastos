@@ -47,6 +47,7 @@ import ortega.adolfo.gestorgastos.view.components.EncabezadoPantalla
 import ortega.adolfo.gestorgastos.view.components.EnlaceTexto
 import ortega.adolfo.gestorgastos.view.components.SelectorTipoMovimiento
 import ortega.adolfo.gestorgastos.viewModel.NuevoMovimientoViewModel
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 @Composable
 fun NuevoMovimientoScreen(
@@ -250,5 +251,7 @@ fun NuevoMovimientoScreen(
 @Composable
 @Preview(showBackground = true, heightDp = 1100)
 fun NuevoMovimientoScreenPreview() {
-    NuevoMovimientoScreen(onRegresar = {}, onGuardado = {})
+    GestorGastosTheme {
+        NuevoMovimientoScreen(onRegresar = {}, onGuardado = {})
+    }
 }

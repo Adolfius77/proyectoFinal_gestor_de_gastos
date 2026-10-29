@@ -31,6 +31,7 @@ import ortega.adolfo.gestorgastos.model.domain.Miembro
 import ortega.adolfo.gestorgastos.ui.theme.Manrope
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
+import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 
 @Composable
 fun AvatarMiembro(
@@ -93,5 +94,7 @@ fun ItemMiembro(
 @Composable
 @Preview(showBackground = true)
 fun ItemMiembroPreview() {
-    ItemMiembro(Miembro(1, "Dana Chavez Gutierrez"))
+    GestorGastosTheme {
+        ItemMiembro(Miembro(1, "Dana Chavez Gutierrez"))
+    }
 }

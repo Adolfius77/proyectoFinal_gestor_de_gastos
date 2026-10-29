@@ -122,9 +122,7 @@ fun HomeContenido(
                     Text(
                         text = "Tus movimientos",
                         style = MaterialTheme.typography.headlineMedium,
-                        color = TextoPrincipal,
-                        fontFamily = Manrope,
-                        fontWeight = FontWeight.SemiBold
+                        color = TextoPrincipal
                     )
                     Spacer(Modifier.height(12.dp))
                     SelectorGastosIngresos(
