@@ -61,7 +61,7 @@ object DatosMock {
         GastoGrupo(4, "Transporte", "22 de noviembre 2025", "transporte", 8500.0)
     )
 
-    val categoriasGasto = listOf(
+    val categoriasGastoGrupo = listOf(
         "Transporte", "Hospedaje", "Comida", "Entretenimiento", "Salud", "Otros"
     )
 

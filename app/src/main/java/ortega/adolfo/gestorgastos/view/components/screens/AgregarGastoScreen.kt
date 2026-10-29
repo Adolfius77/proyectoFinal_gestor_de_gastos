@@ -47,7 +47,7 @@ import ortega.adolfo.gestorgastos.view.components.CampoTexto
 fun AgregarGastoScreen(
     grupo: Grupo,
     modifier: Modifier = Modifier,
-    categorias: List<String> = DatosMock.categoriasGasto,
+    categorias: List<String> = DatosMock.categoriasGastoGrupo,
     onVolver: () -> Unit = {},
     onGuardar: (categoria: String, monto: Double, pagadoPor: Miembro, fecha: LocalDate) -> Unit =
         { _, _, _, _ -> }
