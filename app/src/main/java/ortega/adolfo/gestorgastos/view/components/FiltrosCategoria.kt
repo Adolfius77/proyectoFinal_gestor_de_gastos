@@ -27,6 +27,8 @@ import ortega.adolfo.gestorgastos.ui.theme.Manrope
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.BordeControl
+import ortega.adolfo.gestorgastos.ui.theme.Superficie
 
 
 @Composable
@@ -47,8 +49,8 @@ fun FiltrosCategoria(
                 modifier = Modifier
                     .height(36.dp)
                     .clip(forma)
-                    .background(if (activo) VerdePrimario else Color.White)
-                    .then(if (activo) Modifier else Modifier.border(1.dp, TextoPrincipal, forma))
+                    .background(if (activo) VerdePrimario else Superficie)
+                    .then(if (activo) Modifier else Modifier.border(1.dp, BordeControl, forma))
                     .clickable { onSeleccionar(opcion) }
                     .padding(horizontal = 20.dp),
                 contentAlignment = Alignment.Center

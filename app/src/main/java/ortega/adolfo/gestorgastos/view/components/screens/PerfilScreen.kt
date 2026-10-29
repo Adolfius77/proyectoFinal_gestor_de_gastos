@@ -52,18 +52,20 @@ import ortega.adolfo.gestorgastos.view.components.FotoPerfil
 import ortega.adolfo.gestorgastos.view.components.TarjetaBase
 import ortega.adolfo.gestorgastos.ui.theme.Nunito
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.BordeGris
 
 @Composable
 fun PerfilScreen(
     onInformacionPerfil: () -> Unit,
     modifier: Modifier = Modifier,
     nombre: String = "Andrea Samantha Melendrez Macias",
-    correo: String = "andrea.melendrez@gmail.com"
+    correo: String = "andrea.melendrez@gmail.com",
+    modoOscuro: Boolean = false,
+    onModoOscuroCambio: (Boolean) -> Unit = {}
 ) {
     val context = LocalContext.current
     var fotoUri by rememberSaveable { mutableStateOf<Uri?>(null) }
     var biometria by rememberSaveable { mutableStateOf(true) }
-    var modoOscuro by rememberSaveable { mutableStateOf(false) }
 
     val foto by produceState<ImageBitmap?>(initialValue = null, fotoUri) {
         value = fotoUri?.let { uri ->
@@ -137,12 +139,12 @@ fun PerfilScreen(
                     activo = biometria,
                     onCambio = { biometria = it }
                 )
-                HorizontalDivider(color = Color(0xFFDADDD9))
+                HorizontalDivider(color = BordeGris)
                 FilaSwitch(
                     icono = Icons.Outlined.DarkMode,
                     titulo = "Modo oscuro",
                     activo = modoOscuro,
-                    onCambio = { modoOscuro = it }
+                    onCambio = onModoOscuroCambio
                 )
             }
 

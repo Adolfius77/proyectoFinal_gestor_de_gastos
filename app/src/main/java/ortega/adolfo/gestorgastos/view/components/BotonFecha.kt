@@ -37,6 +37,8 @@ import java.time.YearMonth
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.BordeGris
+import ortega.adolfo.gestorgastos.ui.theme.Superficie
 
 
 private val formatoMes = DateTimeFormatter.ofPattern("MMMM yyyy", Locale("es", "MX"))
@@ -66,8 +68,8 @@ fun BotonFecha(
                 .fillMaxWidth()
                 .height(40.dp)
                 .clip(RoundedCornerShape(10.dp))
-                .background(Color.White)
-                .border(1.dp, Color(0xFFDADDD9), RoundedCornerShape(10.dp))
+                .background(Superficie)
+                .border(1.dp, BordeGris, RoundedCornerShape(10.dp))
                 .clickable { expandido = true }
                 .padding(horizontal = 12.dp),
             verticalAlignment = Alignment.CenterVertically

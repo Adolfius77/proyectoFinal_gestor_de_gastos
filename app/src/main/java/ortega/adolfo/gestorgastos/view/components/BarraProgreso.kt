@@ -19,6 +19,7 @@ import ortega.adolfo.gestorgastos.ui.theme.Naranja
 import ortega.adolfo.gestorgastos.ui.theme.RojoError
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.SuperficieAlta
 
 @Composable
 fun BarraProgreso(
@@ -31,7 +32,7 @@ fun BarraProgreso(
             .fillMaxWidth()
             .height(8.dp)
             .clip(RoundedCornerShape(50))
-            .background(Color(0xFFE4E6E3))
+            .background(SuperficieAlta)
     ) {
         Box(
             modifier = Modifier

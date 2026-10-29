@@ -26,6 +26,8 @@ import androidx.compose.ui.unit.sp
 import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.BordeGris
+import ortega.adolfo.gestorgastos.ui.theme.Superficie
 
 @Composable
 fun <T> MontoPorcentaje(
@@ -40,8 +42,8 @@ fun <T> MontoPorcentaje(
     Row(
         modifier = modifier
             .clip(forma)
-            .background(Color.White)
-            .border(1.dp, Color(0xFFDADDD9), forma)
+            .background(Superficie)
+            .border(1.dp, BordeGris, forma)
             .padding(2.dp)
             .selectableGroup()
     ) {

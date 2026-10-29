@@ -48,6 +48,7 @@ import ortega.adolfo.gestorgastos.view.components.DivisorTexto
 import ortega.adolfo.gestorgastos.viewModel.LoginState
 import ortega.adolfo.gestorgastos.viewModel.LoginViewModel
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.VerdeAcento
 
 @Composable
 fun LoginScreen(
@@ -135,7 +136,7 @@ fun LoginContenido(
             ) {
                 Text(
                     stringResource(R.string.olvidaste_tu_contrase_a),
-                    color = VerdePrimario,
+                    color = VerdeAcento,
                     fontSize = 13.sp,
                     fontWeight = FontWeight.SemiBold,
                     fontFamily = Manrope
@@ -174,7 +175,7 @@ fun LoginContenido(
                 stringResource(R.string.crea_tu_cuenta),
                 fontSize = 14.sp,
                 fontWeight = FontWeight.Bold,
-                color = VerdePrimario,
+                color = VerdeAcento,
                 fontFamily = Manrope,
                 modifier = Modifier.clickable(onClick = onIrARegistro),
             )

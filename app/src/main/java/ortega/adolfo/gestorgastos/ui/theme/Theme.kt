@@ -1,49 +1,69 @@
 package ortega.adolfo.gestorgastos.ui.theme
 
 import android.app.Activity
-import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalView
+import androidx.core.view.WindowCompat
 
-private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
-)
-
-private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-)
+private fun esquemaMaterial(c: ColoresApp): ColorScheme {
+    val base = if (c.esOscuro) darkColorScheme() else lightColorScheme()
+    return base.copy(
+        primary = c.verdePrimario,
+        onPrimary = Color.White,
+        primaryContainer = c.verdeSuave,
+        onPrimaryContainer = c.verdeAcento,
+        secondaryContainer = c.indicadorNav,
+        onSecondaryContainer = c.iconoNavActivo,
+        background = c.fondo,
+        onBackground = c.textoPrincipal,
+        surface = c.superficie,
+        onSurface = c.textoPrincipal,
+        surfaceVariant = c.superficieAlta,
+        onSurfaceVariant = c.textoSecundario,
+        surfaceContainerLowest = c.superficie,
+        surfaceContainerLow = c.superficie,
+        surfaceContainer = c.superficie,
+        surfaceContainerHigh = c.superficie,
+        surfaceContainerHighest = c.superficieAlta,
+        outline = c.bordeControl,
+        outlineVariant = c.borde,
+        error = c.rojoError,
+        errorContainer = c.rojoSuave,
+        onError = Color.White
+    )
+}
 
 @Composable
 fun GestorGastosTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
-    val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
+    val colores = if (darkTheme) ColoresOscuros else ColoresClaros
 
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
+    val vista = LocalView.current
+    if (!vista.isInEditMode) {
+        SideEffect {
+            val ventana = (vista.context as? Activity)?.window ?: return@SideEffect
+            WindowCompat.getInsetsController(ventana, vista).apply {
+                isAppearanceLightStatusBars = !darkTheme
+                isAppearanceLightNavigationBars = !darkTheme
+            }
+        }
     }
 
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
-        content = content
-    )
+    CompositionLocalProvider(LocalColoresApp provides colores) {
+        MaterialTheme(
+            colorScheme = esquemaMaterial(colores),
+            typography = Typography,
+            content = content
+        )
+    }
 }

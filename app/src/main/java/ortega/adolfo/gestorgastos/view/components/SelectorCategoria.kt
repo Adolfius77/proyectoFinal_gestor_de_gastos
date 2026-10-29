@@ -37,6 +37,8 @@ import ortega.adolfo.gestorgastos.model.domain.data.DatosMock
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.BordeGris
+import ortega.adolfo.gestorgastos.ui.theme.Superficie
 @Composable
 fun SelectorCategoria(
     seleccion: String,
@@ -52,8 +54,8 @@ fun SelectorCategoria(
                 .fillMaxWidth()
                 .height(40.dp)
                 .clip(RoundedCornerShape(10.dp))
-                .background(Color.White)
-                .border(1.dp, Color(0xFFDADDD9), RoundedCornerShape(10.dp))
+                .background(Superficie)
+                .border(1.dp, BordeGris, RoundedCornerShape(10.dp))
                 .clickable { expandido = true }
                 .padding(start = 12.dp, end = 6.dp),
 

@@ -45,6 +45,8 @@ import ortega.adolfo.gestorgastos.view.components.CodigoGrupo
 import ortega.adolfo.gestorgastos.view.components.ItemMiembro
 import ortega.adolfo.gestorgastos.view.components.RojoAbandonar
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.BordeGris
+import ortega.adolfo.gestorgastos.ui.theme.SuperficieAlta
 
 @Composable
 fun GrupoInfoScreen(
@@ -131,11 +133,11 @@ fun GrupoInfoScreen(
             }
 
             itemsIndexed(grupo.miembros, key = { _, m -> m.id }) { index, miembro ->
-                Box(modifier = Modifier.background(Color.Black.copy(alpha = 0.08f))) {
+                Box(modifier = Modifier.background(SuperficieAlta)) {
                     ItemMiembro(miembro = miembro)
                 }
                 if (index < grupo.miembros.lastIndex) {
-                    HorizontalDivider(color = Color.Black.copy(alpha = 0.1f))
+                    HorizontalDivider(color = BordeGris)
                 }
             }
         }

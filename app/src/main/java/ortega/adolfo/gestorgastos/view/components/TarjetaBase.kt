@@ -14,6 +14,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.BordeGris
+import ortega.adolfo.gestorgastos.ui.theme.Colores
+import ortega.adolfo.gestorgastos.ui.theme.Superficie
+import androidx.compose.foundation.BorderStroke
 @Composable
 fun TarjetaBase(
     modifier: Modifier = Modifier,
@@ -22,7 +26,8 @@ fun TarjetaBase(
     Card(
         modifier = modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
+        colors = CardDefaults.cardColors(containerColor = Superficie),
+        border = if (Colores.esOscuro) BorderStroke(1.dp, BordeGris) else null,
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column(

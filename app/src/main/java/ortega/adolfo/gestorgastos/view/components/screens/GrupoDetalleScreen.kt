@@ -32,6 +32,7 @@ import ortega.adolfo.gestorgastos.view.components.CabeceraDetalleGrupo
 import ortega.adolfo.gestorgastos.view.components.ItemGastoGrupo
 import ortega.adolfo.gestorgastos.view.components.TarjetaDeuda
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.BordeGris
 
 @Composable
 fun GrupoDetalleScreen(
@@ -55,7 +56,7 @@ fun GrupoDetalleScreen(
             onVolver = onVolver,
             onAbrirInfo = onAbrirInfo
         )
-        HorizontalDivider(color = Color.Black.copy(alpha = 0.08f))
+        HorizontalDivider(color = BordeGris)
 
         Box(
             modifier = Modifier

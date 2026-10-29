@@ -37,6 +37,7 @@ import ortega.adolfo.gestorgastos.view.components.FilaOpcion
 import ortega.adolfo.gestorgastos.view.components.TarjetaBase
 import ortega.adolfo.gestorgastos.ui.theme.Nunito
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.BordeGris
 
 @Composable
 fun InformacionPerfilScreen(
@@ -130,7 +131,7 @@ fun InformacionPerfilScreen(
 private fun DivisorFila() {
     HorizontalDivider(
         modifier = Modifier.padding(start = 44.dp),
-        color = Color(0xFFDADDD9)
+        color = BordeGris
     )
 }
 

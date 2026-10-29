@@ -29,6 +29,7 @@ import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 import ortega.adolfo.gestorgastos.ui.theme.VerdeWacho
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.VerdeAcento
 
 @Composable
 fun CabeceraGrupos(
@@ -54,7 +55,7 @@ fun CabeceraGrupos(
                 Icon(
                     imageVector = Icons.Filled.Groups,
                     contentDescription = "Unirse a un grupo",
-                    tint = VerdePrimario,
+                    tint = VerdeAcento,
                     modifier = Modifier.size(30.dp)
                 )
             }
@@ -62,7 +63,7 @@ fun CabeceraGrupos(
             Surface(
                 onClick = onCrearGrupo,
                 shape = CircleShape,
-                color = VerdePrimario,
+                color = VerdeAcento,
                 border = BorderStroke(1.5.dp, VerdeWacho),
                 modifier = Modifier.size(30.dp)
             ) {

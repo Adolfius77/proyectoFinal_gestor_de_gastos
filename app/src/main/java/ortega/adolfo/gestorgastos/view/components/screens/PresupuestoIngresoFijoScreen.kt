@@ -61,6 +61,9 @@ import ortega.adolfo.gestorgastos.viewModel.PresupuestoIngresoFijoState
 import ortega.adolfo.gestorgastos.viewModel.PresupuestoIngresoFijoViewModel
 import ortega.adolfo.gestorgastos.ui.theme.SpaceGrotesk
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.BordeGris
+import ortega.adolfo.gestorgastos.ui.theme.Superficie
+import ortega.adolfo.gestorgastos.ui.theme.VerdeAcento
 
 @Composable
 fun PresupuestoIngresoFijoScreen(
@@ -216,8 +219,8 @@ private fun SelectorDiaCobro(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(52.dp)
-                .background(Color.White, forma)
-                .border(1.dp, Color(0xFFDADDD9), forma)
+                .background(Superficie, forma)
+                .border(1.dp, BordeGris, forma)
                 .clickable { expandido = true }
                 .padding(horizontal = 16.dp),
             verticalAlignment = Alignment.CenterVertically,
@@ -276,11 +279,11 @@ private fun ListaIngresos(
                 fontFamily = SpaceGrotesk,
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Bold,
-                color = VerdePrimario
+                color = VerdeAcento
             )
         }
         Spacer(Modifier.height(8.dp))
-        HorizontalDivider(color = Color(0xFFE4E6E3))
+        HorizontalDivider(color = BordeGris)
 
         ingresos.forEach { ingreso ->
             Row(

@@ -55,6 +55,9 @@ import ortega.adolfo.gestorgastos.viewModel.PresupuestoAgregarCategoriaViewModel
 import ortega.adolfo.gestorgastos.view.components.textoConNumeros
 import ortega.adolfo.gestorgastos.ui.theme.SpaceGrotesk
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.BordeGris
+import ortega.adolfo.gestorgastos.ui.theme.Superficie
+import ortega.adolfo.gestorgastos.ui.theme.VerdeAcento
 
 @Composable
 fun PresupuestoAgregarCategoriaScreen(
@@ -145,7 +148,7 @@ fun PresupuestoAgregarCategoriaContenido(
                 text = textoConNumeros(stringResource(R.string.nueva_categoria_restan, estado.restante.comoMoneda())),
                 fontSize = 12.sp,
                 fontWeight = FontWeight.SemiBold,
-                color = VerdePrimario
+                color = VerdeAcento
             )
         } else {
             Text(
@@ -201,8 +204,8 @@ private fun CampoPresupuesto(
         modifier = modifier
             .fillMaxWidth()
             .height(64.dp)
-            .background(Color.White, forma)
-            .border(1.dp, Color(0xFFDADDD9), forma)
+            .background(Superficie, forma)
+            .border(1.dp, BordeGris, forma)
             .padding(horizontal = 16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {

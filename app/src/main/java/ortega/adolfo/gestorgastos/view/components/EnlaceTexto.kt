@@ -10,6 +10,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.VerdeAcento
 
 
 @Composable
@@ -20,7 +21,7 @@ fun EnlaceTexto(
 ) {
     Text(
         text = texto,
-        color = VerdePrimario,
+        color = VerdeAcento,
         fontSize = 13.sp,
         modifier = modifier
             .clickable { onClick() }

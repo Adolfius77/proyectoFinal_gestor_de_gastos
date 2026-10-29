@@ -30,6 +30,7 @@ import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.BordeGris
 
 // Caja para adjuntar una imagen (recibo, comprobante, etc.)
 // Con adjunto = true muestra una palomita en lugar del icono de subir
@@ -56,7 +57,7 @@ fun CajaRecibo(
                 .height(130.dp)
                 .clip(forma)
                 .background(FondoClaro)
-                .border(1.dp, Color(0xFFDADDD9), forma)
+                .border(1.dp, BordeGris, forma)
                 .clickable { onClick() },
             contentAlignment = Alignment.Center
         ) {

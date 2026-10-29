@@ -62,6 +62,8 @@ import ortega.adolfo.gestorgastos.viewModel.PresupuestoGastoFijoViewModel
 import ortega.adolfo.gestorgastos.view.components.textoConNumeros
 import ortega.adolfo.gestorgastos.ui.theme.SpaceGrotesk
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.BordeGris
+import ortega.adolfo.gestorgastos.ui.theme.VerdeAcento
 
 @Composable
 fun PresupuestoGastoFijoScreen(
@@ -223,7 +225,7 @@ private fun SelectorDiaPago(
                 text = textoConNumeros(stringResource(R.string.gasto_dia_pago_valor, dia)),
                 fontSize = 22.sp,
                 fontWeight = FontWeight.Bold,
-                color = VerdePrimario
+                color = VerdeAcento
             )
         }
         DropdownMenu(
@@ -304,7 +306,7 @@ private fun ListaGastos(
 
         gastos.forEach { gasto ->
             Spacer(Modifier.height(4.dp))
-            HorizontalDivider(color = Color(0xFFE4E6E3))
+            HorizontalDivider(color = BordeGris)
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically

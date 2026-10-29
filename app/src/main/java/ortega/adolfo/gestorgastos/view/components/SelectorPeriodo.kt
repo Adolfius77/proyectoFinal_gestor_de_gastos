@@ -24,6 +24,8 @@ import androidx.compose.ui.unit.sp
 import ortega.adolfo.gestorgastos.model.domain.Periodo
 import ortega.adolfo.gestorgastos.ui.theme.Manrope
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.SuperficieAlta
+import ortega.adolfo.gestorgastos.ui.theme.Superficie
 
 
 @Composable
@@ -36,7 +38,7 @@ fun SelectorPeriodo(
         modifier = modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(12.dp))
-            .background(Color(0xFFE4E6E3))
+            .background(SuperficieAlta)
             .padding(4.dp)
     ) {
         Periodo.entries.forEach { periodo ->
@@ -45,7 +47,7 @@ fun SelectorPeriodo(
                 modifier = Modifier
                     .weight(1f)
                     .clip(RoundedCornerShape(10.dp))
-                    .background(if(activo) Color.White else Color.Transparent)
+                    .background(if (activo) Superficie else Color.Transparent)
                     .clickable{onSeleccionar(periodo)}
                     .padding(vertical = 8.dp),
                 contentAlignment = Alignment.Center

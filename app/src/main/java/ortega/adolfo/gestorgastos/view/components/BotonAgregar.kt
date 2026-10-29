@@ -42,6 +42,8 @@ fun BotonAgregar(
 ) {
     val forma = RoundedCornerShape(12.dp)
 
+    // Se lee aqui porque dentro de drawBehind no se puede leer el tema
+    val colorBorde = VerdePrimario
     Row(
         modifier = modifier
             .fillMaxWidth()
@@ -52,7 +54,7 @@ fun BotonAgregar(
             .drawBehind {
                 val grosor = 1.5.dp.toPx()
                 drawRoundRect(
-                    color = VerdePrimario,
+                    color = colorBorde,
                     topLeft = Offset(grosor / 2, grosor / 2),
                     size = Size(size.width - grosor, size.height - grosor),
                     cornerRadius = CornerRadius(12.dp.toPx()),

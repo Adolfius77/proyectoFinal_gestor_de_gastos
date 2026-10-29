@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.sp
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.Superficie
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -49,7 +50,7 @@ fun <T> GrupoChips(
             Box(
                 modifier = Modifier
                     .clip(RoundedCornerShape(50))
-                    .background(if (activo) VerdePrimario else Color.White)
+                    .background(if (activo) VerdePrimario else Superficie)
                     .border(
                         border = BorderStroke(1.dp, if (activo) VerdePrimario else TextoPrincipal),
                         shape = RoundedCornerShape(50)

@@ -79,6 +79,11 @@ import ortega.adolfo.gestorgastos.viewModel.DetalleMovimientoViewModel
 import java.time.LocalDate
 import java.time.LocalTime
 import ortega.adolfo.gestorgastos.ui.theme.Nunito
+import ortega.adolfo.gestorgastos.ui.theme.BordeGris
+import ortega.adolfo.gestorgastos.ui.theme.Colores
+import ortega.adolfo.gestorgastos.ui.theme.Superficie
+import ortega.adolfo.gestorgastos.ui.theme.VerdeAcento
+import androidx.compose.foundation.BorderStroke
 
 
 
@@ -169,8 +174,8 @@ fun DetalleMovimientoContenido(
                 shape = RoundedCornerShape(14.dp),
                 border = androidx.compose.foundation.BorderStroke(1.5.dp, VerdePrimario),
                 colors = ButtonDefaults.outlinedButtonColors(
-                    containerColor = Color.White,
-                    contentColor = VerdePrimario
+                    containerColor = Superficie,
+                    contentColor = VerdeAcento
                 ),
                 modifier = Modifier
                     .weight(1f)
@@ -241,7 +246,7 @@ private fun TarjetaEncabezado(movimiento: Movimiento) {
                     fontFamily = Manrope,
                     fontSize = 12.sp,
                     fontWeight = FontWeight.SemiBold,
-                    color = VerdePrimario
+                    color = VerdeAcento
                 )
             }
             Spacer(Modifier.height(12.dp))
@@ -358,7 +363,7 @@ private fun TarjetaRecibo(foto: String?, onVerFoto: () -> Unit) {
                         fontFamily = Manrope,
                         fontSize = 13.sp,
                         fontWeight = FontWeight.SemiBold,
-                        color = VerdePrimario,
+                        color = VerdeAcento,
                         modifier = Modifier.clickable(onClick = onVerFoto)
                     )
                 }
@@ -396,7 +401,8 @@ private fun TarjetaBlanca(content: @Composable () -> Unit) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
+        colors = CardDefaults.cardColors(containerColor = Superficie),
+        border = if (Colores.esOscuro) BorderStroke(1.dp, BordeGris) else null,
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         content()
@@ -428,7 +434,7 @@ private fun ConfirmarEliminar(
                 Text("Cancelar", color = TextoPrincipal)
             }
         },
-        containerColor = Color.White
+        containerColor = Superficie
     )
 }
 
@@ -450,7 +456,7 @@ private fun MovimientoNoEncontrado(onRegresar: () -> Unit, modifier: Modifier = 
         )
         Spacer(Modifier.height(12.dp))
         TextButton(onClick = onRegresar) {
-            Text(stringResource(R.string.regresar), color = VerdePrimario, fontWeight = FontWeight.Bold)
+            Text(stringResource(R.string.regresar), color = VerdeAcento, fontWeight = FontWeight.Bold)
         }
     }
 }

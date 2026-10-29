@@ -28,6 +28,7 @@ import ortega.adolfo.gestorgastos.ui.theme.FondoClaro
 import ortega.adolfo.gestorgastos.ui.theme.GrisPlaceholder
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.BordeGris
 
 @Composable
 fun SelectorTipoMovimiento(
@@ -49,7 +50,7 @@ fun SelectorTipoMovimiento(
                     .height(48.dp)
                     .clip(forma)
                     .background(if (activo) VerdePrimario else FondoClaro)
-                    .border(2.dp, if (activo) VerdePrimario else Color(0xFFDADDD9), forma)
+                    .border(2.dp, if (activo) VerdePrimario else BordeGris, forma)
                     .clickable { onSeleccionar(tipo) },
                 contentAlignment = Alignment.Center
             ) {

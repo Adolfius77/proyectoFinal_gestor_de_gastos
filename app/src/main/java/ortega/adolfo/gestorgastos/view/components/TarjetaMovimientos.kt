@@ -32,6 +32,11 @@ import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.BordeGris
+import ortega.adolfo.gestorgastos.ui.theme.Colores
+import ortega.adolfo.gestorgastos.ui.theme.Superficie
+import ortega.adolfo.gestorgastos.ui.theme.VerdeAcento
+import androidx.compose.foundation.BorderStroke
 
 
 @Composable
@@ -45,7 +50,8 @@ fun TarjetaMovimientos(
     Card(
         modifier = modifier.fillMaxWidth(),
         shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
+        colors = CardDefaults.cardColors(containerColor = Superficie),
+        border = if (Colores.esOscuro) BorderStroke(1.dp, BordeGris) else null,
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 14.dp)) {
@@ -66,7 +72,7 @@ fun TarjetaMovimientos(
                     fontFamily = Manrope,
                     fontSize = 13.sp,
                     fontWeight = FontWeight.SemiBold,
-                    color = VerdePrimario,
+                    color = VerdeAcento,
                     modifier = Modifier.clickable(onClick = onVerTodos)
                 )
             }

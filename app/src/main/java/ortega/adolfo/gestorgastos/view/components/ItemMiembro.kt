@@ -32,6 +32,7 @@ import ortega.adolfo.gestorgastos.ui.theme.Manrope
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.SuperficieAlta
 
 @Composable
 fun AvatarMiembro(
@@ -53,7 +54,7 @@ fun AvatarMiembro(
             modifier = modifier
                 .size(tamano)
                 .clip(CircleShape)
-                .background(Color.Black.copy(alpha = 0.12f)),
+                .background(SuperficieAlta),
             contentAlignment = Alignment.Center
         ) {
             Icon(

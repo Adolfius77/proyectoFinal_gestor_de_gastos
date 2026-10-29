@@ -20,6 +20,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -41,9 +42,15 @@ import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 import ortega.adolfo.gestorgastos.utilities.formatoPorcentaje
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.BordeGris
+import ortega.adolfo.gestorgastos.ui.theme.Colores
+import ortega.adolfo.gestorgastos.ui.theme.Superficie
+import ortega.adolfo.gestorgastos.ui.theme.VerdeAcento
+import androidx.compose.foundation.BorderStroke
 
 
-private val colores = listOf(Azul, VerdePrimario, Naranja, GrisPlaceholder)
+private val colores: List<Color>
+    @Composable @ReadOnlyComposable get() = listOf(Azul, VerdePrimario, Naranja, GrisPlaceholder)
 
 
 @Composable
@@ -55,7 +62,8 @@ fun TarjetaCategorias(
     Card(
         modifier = modifier.fillMaxWidth(),
         shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
+        colors = CardDefaults.cardColors(containerColor = Superficie),
+        border = if (Colores.esOscuro) BorderStroke(1.dp, BordeGris) else null,
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Row(
@@ -87,7 +95,7 @@ fun TarjetaCategorias(
                     fontFamily = Manrope,
                     fontSize = 13.sp,
                     fontWeight = FontWeight.SemiBold,
-                    color = VerdePrimario,
+                    color = VerdeAcento,
                     modifier = Modifier.clickable(onClick = onVerGraficas)
                 )
             }

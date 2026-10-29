@@ -20,6 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.BordeControl
 @Composable
 fun FotoPerfil(
     onClick: () -> Unit,
@@ -30,7 +31,7 @@ fun FotoPerfil(
         modifier = modifier
             .size(96.dp)
             .clip(CircleShape)
-            .border(2.dp, TextoPrincipal, CircleShape)
+            .border(2.dp, BordeControl, CircleShape)
             .clickable(onClick = onClick),
         contentAlignment = Alignment.Center
     ) {

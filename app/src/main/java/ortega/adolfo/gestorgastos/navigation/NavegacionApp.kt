@@ -41,6 +41,8 @@ import ortega.adolfo.gestorgastos.view.components.screens.ResumenSreen
 @Composable
 fun NavegacionApp(
     navController: NavHostController = rememberNavController(),
+    modoOscuro: Boolean = false,
+    onModoOscuroCambio: (Boolean) -> Unit = {},
     onCerrarSesion: () -> Unit = {}
 ) {
     val entradaActual by navController.currentBackStackEntryAsState()
@@ -116,7 +118,9 @@ fun NavegacionApp(
 
             composable<Ruta.Perfil> {
                 PerfilScreen(
-                    onInformacionPerfil = { navController.navigate(Ruta.InformacionPerfil) }
+                    onInformacionPerfil = { navController.navigate(Ruta.InformacionPerfil) },
+                    modoOscuro = modoOscuro,
+                    onModoOscuroCambio = onModoOscuroCambio
                 )
             }
             composable<Ruta.InformacionPerfil> {

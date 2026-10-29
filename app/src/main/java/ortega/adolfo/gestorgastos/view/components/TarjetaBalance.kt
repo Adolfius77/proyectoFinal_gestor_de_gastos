@@ -33,6 +33,7 @@ import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 import ortega.adolfo.gestorgastos.ui.theme.VerdeSuave
 import ortega.adolfo.gestorgastos.utilities.formatoDinero
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.Colores
 
 
 
@@ -76,7 +77,7 @@ fun TarjetaBalance(
             modifier = Modifier
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(50))
-                .background(Color.White.copy(alpha = 0.15f))
+                .background(Colores.pildoraBalance)
                 .padding(vertical = 8.dp),
             contentAlignment = Alignment.Center
         ) {
@@ -99,15 +100,15 @@ fun TarjetaBalance(
             MiniTarjeta(
                 titulo = stringResource(R.string.ingresos_del_mes),
                 monto = "+${formatoDinero(ingresos)}",
-                fondo = VerdeSuave,
-                colorTexto = VerdePrimario,
+                fondo = Colores.miniIngresoFondo,
+                colorTexto = Colores.miniIngresoTexto,
                 modifier = Modifier.weight(1f)
             )
             MiniTarjeta(
                 titulo = stringResource(R.string.gastos_del_mes),
                 monto = "-${formatoDinero(gastos)}",
-                fondo = NaranjaSuave,
-                colorTexto = RojoError,
+                fondo = Colores.miniGastoFondo,
+                colorTexto = Colores.miniGastoTexto,
                 modifier = Modifier.weight(1f)
             )
         }

@@ -28,6 +28,7 @@ import ortega.adolfo.gestorgastos.ui.theme.SpaceGrotesk
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.Superficie
 
 @Composable
 fun PanelResumen(
@@ -99,7 +100,7 @@ fun PanelResumenPreview() {
             totalGastado = "$9,550",
             categoriaMayor = "Vivienda",
             precioMayor = "$4,500",
-            modifier = Modifier.background(Color.White)
+            modifier = Modifier.background(Superficie)
         )
     }
 }

@@ -58,6 +58,7 @@ import ortega.adolfo.gestorgastos.view.components.BotonPrimario
 import ortega.adolfo.gestorgastos.view.components.CampoDesplegable
 import ortega.adolfo.gestorgastos.view.components.CampoTexto
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.BordeGris
 
 @Composable
 fun CrearGrupoScreen(
@@ -124,7 +125,7 @@ fun CrearGrupoScreen(
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
         )
-        HorizontalDivider(color = Color.Black.copy(alpha = 0.08f))
+        HorizontalDivider(color = BordeGris)
 
         Column(
             modifier = Modifier

@@ -31,6 +31,10 @@ import ortega.adolfo.gestorgastos.viewModel.ResumenState
 import ortega.adolfo.gestorgastos.viewModel.ResumenViewModel
 import java.time.YearMonth
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.BordeGris
+import ortega.adolfo.gestorgastos.ui.theme.Colores
+import ortega.adolfo.gestorgastos.ui.theme.Superficie
+import androidx.compose.foundation.BorderStroke
 
 
 @Composable
@@ -74,7 +78,8 @@ fun ResumenContenido(
         Card(
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(20.dp),
-            colors = CardDefaults.cardColors(containerColor = Color.White),
+            colors = CardDefaults.cardColors(containerColor = Superficie),
+            border = if (Colores.esOscuro) BorderStroke(1.dp, BordeGris) else null,
             elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
         ) {
             PanelResumen(

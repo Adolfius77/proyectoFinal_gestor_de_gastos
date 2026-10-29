@@ -27,6 +27,10 @@ import ortega.adolfo.gestorgastos.ui.theme.Manrope
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.BordeGris
+import ortega.adolfo.gestorgastos.ui.theme.Colores
+import ortega.adolfo.gestorgastos.ui.theme.Superficie
+import androidx.compose.foundation.BorderStroke
 
 @Composable
 fun GastoResumen(
@@ -35,7 +39,8 @@ fun GastoResumen(
     Card(
         modifier = modifier.fillMaxWidth(),
         shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
+        colors = CardDefaults.cardColors(containerColor = Superficie),
+        border = if (Colores.esOscuro) BorderStroke(1.dp, BordeGris) else null,
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column(
@@ -52,7 +57,7 @@ fun GastoResumen(
             Row(
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                ChipColorCategoria(color = Color.Black)
+                ChipColorCategoria(color = TextoPrincipal)
                 Spacer(Modifier.width(6.dp))
                 Text(
                     text = "Gastado",

@@ -35,6 +35,7 @@ import ortega.adolfo.gestorgastos.ui.theme.GrisPlaceholder
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.Superficie
 
 
 
@@ -60,8 +61,8 @@ fun BarraBusqueda(
             singleLine = true,
             shape = forma,
             colors = OutlinedTextFieldDefaults.colors(
-                focusedContainerColor = Color.White,
-                unfocusedContainerColor = Color.White,
+                focusedContainerColor = Superficie,
+                unfocusedContainerColor = Superficie,
                 focusedBorderColor = VerdePrimario,
                 unfocusedBorderColor = BordeGris,
                 cursorColor = VerdePrimario
@@ -73,7 +74,7 @@ fun BarraBusqueda(
             modifier = Modifier
                 .size(56.dp)
                 .clip(forma)
-                .background(Color.White)
+                .background(Superficie)
                 .border(1.dp, BordeGris, forma)
                 .clickable(onClick = onCalendario),
             contentAlignment = Alignment.Center

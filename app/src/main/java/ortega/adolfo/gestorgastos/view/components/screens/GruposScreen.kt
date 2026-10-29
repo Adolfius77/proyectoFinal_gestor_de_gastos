@@ -21,6 +21,7 @@ import ortega.adolfo.gestorgastos.ui.theme.FondoClaro
 import ortega.adolfo.gestorgastos.view.components.CabeceraGrupos
 import ortega.adolfo.gestorgastos.view.components.ItemGrupo
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.BordeGris
 
 @Composable
 fun GruposScreen(
@@ -41,7 +42,7 @@ fun GruposScreen(
             modifier = Modifier.padding(start = 24.dp, end = 16.dp, top = 24.dp)
         )
         Spacer(Modifier.height(12.dp))
-        HorizontalDivider(color = Color.Black.copy(alpha = 0.08f))
+        HorizontalDivider(color = BordeGris)
 
         LazyColumn(
             contentPadding = PaddingValues(horizontal = 24.dp)
@@ -49,7 +50,7 @@ fun GruposScreen(
             itemsIndexed(grupos, key = { _, g -> g.id }) { index, grupo ->
                 ItemGrupo(grupo = grupo, onClick = { onAbrirGrupo(grupo) })
                 if (index < grupos.lastIndex) {
-                    HorizontalDivider(color = Color.Black.copy(alpha = 0.08f))
+                    HorizontalDivider(color = BordeGris)
                 }
             }
         }

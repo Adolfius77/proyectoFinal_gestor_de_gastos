@@ -27,6 +27,8 @@ import ortega.adolfo.gestorgastos.ui.theme.TextoSecundario
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 import ortega.adolfo.gestorgastos.ui.theme.VerdeSuave
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.Superficie
+import ortega.adolfo.gestorgastos.ui.theme.Colores
 
 private fun Destino.icono(): ImageVector = when (this) {
     Destino.GRUPOS -> Icons.Outlined.Group
@@ -44,7 +46,7 @@ fun BarraNavegacion(
 ) {
     NavigationBar(
         modifier = modifier,
-        containerColor = Color.White
+        containerColor = Superficie
     ) {
         Destino.entries.forEach { destino ->
             NavigationBarItem(
@@ -60,9 +62,9 @@ fun BarraNavegacion(
                     )
                 },
                 colors = NavigationBarItemDefaults.colors(
-                    selectedIconColor = VerdePrimario,
-                    selectedTextColor = VerdePrimario,
-                    indicatorColor = VerdeSuave,
+                    selectedIconColor = Colores.iconoNavActivo,
+                    selectedTextColor = Colores.iconoNavActivo,
+                    indicatorColor = Colores.indicadorNav,
                     unselectedIconColor = TextoSecundario,
                     unselectedTextColor = TextoSecundario
                 )

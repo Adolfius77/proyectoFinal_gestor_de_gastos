@@ -28,6 +28,8 @@ import ortega.adolfo.gestorgastos.ui.theme.Manrope
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
 import ortega.adolfo.gestorgastos.ui.theme.VerdePrimario
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.BordeControl
+import ortega.adolfo.gestorgastos.ui.theme.Superficie
 
 private fun TipoMovimiento.etiquetaLista(): String = when (this) {
     TipoMovimiento.GASTO -> "Gastos"
@@ -53,8 +55,8 @@ fun SelectorGastosIngresos(
                     .weight(1f)
                     .height(44.dp)
                     .clip(forma)
-                    .background(if (activo) VerdePrimario else Color.White)
-                    .then(if (activo) Modifier else Modifier.border(1.dp, TextoPrincipal, forma))
+                    .background(if (activo) VerdePrimario else Superficie)
+                    .then(if (activo) Modifier else Modifier.border(1.dp, BordeControl, forma))
                     .clickable { onSeleccionar(tipo) }
                     .padding(horizontal = 8.dp),
                 contentAlignment = Alignment.Center

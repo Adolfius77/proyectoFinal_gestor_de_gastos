@@ -44,6 +44,7 @@ import ortega.adolfo.gestorgastos.view.components.TarjetaCategoria
 import ortega.adolfo.gestorgastos.viewModel.PresupuestoState
 import ortega.adolfo.gestorgastos.viewModel.PresupuestoViewModel
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
+import ortega.adolfo.gestorgastos.ui.theme.Superficie
 
 @Composable
 fun PresupuestoScreen(
@@ -88,7 +89,7 @@ fun PresupuestoContenido(
     estado.categoriaPorEliminar?.let { categoria ->
         AlertDialog(
             onDismissRequest = onEliminarCancelado,
-            containerColor = Color.White,
+            containerColor = Superficie,
             title = {
                 Text(
                     text = stringResource(R.string.categoria_eliminar_titulo),
