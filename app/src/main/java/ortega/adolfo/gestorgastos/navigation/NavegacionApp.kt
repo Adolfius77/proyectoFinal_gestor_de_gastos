@@ -29,6 +29,7 @@ import ortega.adolfo.gestorgastos.view.components.screens.GrupoDetalleScreen
 import ortega.adolfo.gestorgastos.view.components.screens.GrupoInfoScreen
 import ortega.adolfo.gestorgastos.view.components.screens.GruposScreen
 import ortega.adolfo.gestorgastos.view.components.screens.HomeScreen
+import ortega.adolfo.gestorgastos.view.components.screens.NewMovementScreen
 import ortega.adolfo.gestorgastos.view.components.screens.PresupuestoAgregarCategoriaScreen
 import ortega.adolfo.gestorgastos.view.components.screens.PresupuestoGastoFijoScreen
 import ortega.adolfo.gestorgastos.view.components.screens.PresupuestoIngresoFijoScreen
@@ -67,8 +68,14 @@ fun NavegacionApp(
             composable<Ruta.Inicio> {
                 HomeScreen(
                     onVerGraficas = { navController.navegarA(Destino.GRAFICAS) },
-                    onAgregar = {},
+                    onAgregar = { navController.navigate(Ruta.NuevoMovimiento) },
                     onVerMovimiento = { id -> navController.navigate(Ruta.DetalleMovimiento(id)) }
+                )
+            }
+            composable<Ruta.NuevoMovimiento> {
+                NewMovementScreen(
+                    onRegresar = { navController.popBackStack() },
+                    onGuardado = { navController.popBackStack() }
                 )
             }
             composable<Ruta.DetalleMovimiento> {
@@ -166,7 +173,8 @@ private fun seccionDe(pantalla: NavDestination?): Destino? {
     Destino.entries.find { pantalla.hasRoute(it.ruta::class) }?.let { return it }
 
     return when {
-        pantalla.hasRoute(Ruta.DetalleMovimiento::class) -> Destino.INICIO
+        pantalla.hasRoute(Ruta.DetalleMovimiento::class) ||
+            pantalla.hasRoute(Ruta.NuevoMovimiento::class) -> Destino.INICIO
 
         pantalla.hasRoute(Ruta.CrearGrupo::class) ||
             pantalla.hasRoute(Ruta.DetalleGrupo::class) ||

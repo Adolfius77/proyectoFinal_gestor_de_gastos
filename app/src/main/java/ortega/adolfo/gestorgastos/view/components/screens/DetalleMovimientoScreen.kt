@@ -23,6 +23,7 @@ import androidx.compose.material.icons.outlined.CreditCard
 import androidx.compose.material.icons.outlined.DeleteOutline
 import androidx.compose.material.icons.outlined.Edit
 import androidx.compose.material.icons.outlined.Payments
+import androidx.compose.material.icons.outlined.SwapHoriz
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -60,6 +61,7 @@ import ortega.adolfo.gestorgastos.ui.theme.Azul
 import ortega.adolfo.gestorgastos.ui.theme.FondoClaro
 import ortega.adolfo.gestorgastos.ui.theme.GestorGastosTheme
 import ortega.adolfo.gestorgastos.ui.theme.Manrope
+import ortega.adolfo.gestorgastos.ui.theme.Morado
 import ortega.adolfo.gestorgastos.ui.theme.RojoError
 import ortega.adolfo.gestorgastos.ui.theme.RojoSuave
 import ortega.adolfo.gestorgastos.ui.theme.SpaceGrotesk
@@ -262,12 +264,16 @@ private fun TarjetaEncabezado(movimiento: Movimiento) {
 @Composable
 private fun TarjetaDatos(movimiento: Movimiento) {
     val sinDato = "—"
-    val esTarjeta = movimiento.metodoPago == MetodoPago.TARJETA
-    val textoPago = when {
-        esTarjeta && movimiento.tarjeta != null ->
-            "${movimiento.tarjeta.tipo} •••• ${movimiento.tarjeta.terminacion}"
-        esTarjeta -> "Tarjeta"
-        else -> "Efectivo"
+    val textoPago = when (movimiento.metodoPago) {
+        MetodoPago.TARJETA -> movimiento.tarjeta?.let { t ->
+            if (t.terminacion.isBlank()) t.tipo else "${t.tipo} •••• ${t.terminacion}"
+        } ?: "Tarjeta"
+        else -> movimiento.metodoPago.etiqueta
+    }
+    val (iconoPago, colorPago) = when (movimiento.metodoPago) {
+        MetodoPago.TARJETA -> Icons.Outlined.CreditCard to Azul
+        MetodoPago.EFECTIVO -> Icons.Outlined.Payments to VerdePrimario
+        MetodoPago.TRANSFERENCIA -> Icons.Outlined.SwapHoriz to Morado
     }
 
     val filas = listOf(
@@ -282,8 +288,8 @@ private fun TarjetaDatos(movimiento: Movimiento) {
             FilaDato(
                 etiqueta = "Método de pago",
                 valor = textoPago,
-                icono = if (esTarjeta) Icons.Outlined.CreditCard else Icons.Outlined.Payments,
-                colorIcono = if (esTarjeta) Azul else VerdePrimario
+                icono = iconoPago,
+                colorIcono = colorPago
             )
             filas.forEach { (etiqueta, valor) ->
                 HorizontalDivider(color = FondoClaro)

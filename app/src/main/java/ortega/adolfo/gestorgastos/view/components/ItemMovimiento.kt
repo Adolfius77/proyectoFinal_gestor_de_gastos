@@ -14,6 +14,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.CreditCard
 import androidx.compose.material.icons.outlined.Payments
+import androidx.compose.material.icons.outlined.SwapHoriz
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -31,6 +32,7 @@ import ortega.adolfo.gestorgastos.model.domain.TipoMovimiento
 import ortega.adolfo.gestorgastos.ui.theme.Azul
 import ortega.adolfo.gestorgastos.ui.theme.FondoClaro
 import ortega.adolfo.gestorgastos.ui.theme.Manrope
+import ortega.adolfo.gestorgastos.ui.theme.Morado
 import ortega.adolfo.gestorgastos.ui.theme.RojoError
 import ortega.adolfo.gestorgastos.ui.theme.SpaceGrotesk
 import ortega.adolfo.gestorgastos.ui.theme.TextoPrincipal
@@ -48,7 +50,8 @@ fun iconoCategoria(categoria: String): String = when (categoria) {
     "Transporte" -> "🚗"
     "Entretenimiento" -> "🎬"
     "Salud" -> "💊"
-    "Sueldo" -> "💼"
+    "Sueldo", "Salario" -> "💼"
+    "Inversiones" -> "📈"
     "Freelance" -> "💻"
     else -> "🛍️"
 }
@@ -99,11 +102,15 @@ fun ItemMovimiento(
                     color = TextoSecundario
                 )
                 Spacer(Modifier.width(6.dp))
-                val esTarjeta = movimiento.metodoPago == MetodoPago.TARJETA
+                val (iconoPago, colorPago) = when (movimiento.metodoPago) {
+                    MetodoPago.TARJETA -> Icons.Outlined.CreditCard to Azul
+                    MetodoPago.EFECTIVO -> Icons.Outlined.Payments to VerdePrimario
+                    MetodoPago.TRANSFERENCIA -> Icons.Outlined.SwapHoriz to Morado
+                }
                 Icon(
-                    imageVector = if (esTarjeta) Icons.Outlined.CreditCard else Icons.Outlined.Payments,
-                    contentDescription = if (esTarjeta) "Tarjeta" else "Efectivo",
-                    tint = if (esTarjeta) Azul else VerdePrimario,
+                    imageVector = iconoPago,
+                    contentDescription = movimiento.metodoPago.etiqueta,
+                    tint = colorPago,
                     modifier = Modifier.size(16.dp)
                 )
             }
