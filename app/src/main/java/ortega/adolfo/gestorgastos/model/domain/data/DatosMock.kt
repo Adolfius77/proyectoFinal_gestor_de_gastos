@@ -11,7 +11,6 @@ import ortega.adolfo.gestorgastos.model.domain.Tarjeta
 import ortega.adolfo.gestorgastos.model.domain.TipoMovimiento
 import ortega.adolfo.gestorgastos.model.domain.Usuario
 import java.time.LocalDate
-import ortega.adolfo.gestorgastos.model.domain.Movimiento
 import java.time.LocalTime
 import java.time.YearMonth
 
@@ -40,8 +39,6 @@ object DatosMock {
     val tarjetas = mutableListOf("BBVA 7789")
 
     const val UBICACION_MOCK = "Villa Fontana 85098"
-
-    val movimientos = mutableListOf<Movimiento>()
 
 
     // Opciones para filtrar el resumen por categoria

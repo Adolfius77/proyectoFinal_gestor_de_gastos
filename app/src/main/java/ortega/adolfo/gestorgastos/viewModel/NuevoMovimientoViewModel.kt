@@ -6,11 +6,14 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import ortega.adolfo.gestorgastos.model.domain.MetodoPago
 import ortega.adolfo.gestorgastos.model.domain.Movimiento
+import ortega.adolfo.gestorgastos.model.domain.Tarjeta
 import ortega.adolfo.gestorgastos.model.domain.TipoMovimiento
 import ortega.adolfo.gestorgastos.model.domain.data.DatosMock
 import java.math.BigDecimal
 import java.time.LocalDate
+import java.time.LocalTime
 import java.util.UUID
 
 class NuevoMovimientoViewModel : ViewModel() {
@@ -19,7 +22,6 @@ class NuevoMovimientoViewModel : ViewModel() {
 
     fun onTipoCambio(valor: TipoMovimiento) {
         if (valor == _estado.value.tipo) return
-        // Las categorias cambian segun el tipo, asi que se limpia la elegida
         _estado.update { it.copy(tipo = valor, categoria = "", errorCategoria = null) }
     }
 
@@ -61,8 +63,6 @@ class NuevoMovimientoViewModel : ViewModel() {
     fun onFechaCambio(valor: LocalDate) {
         _estado.update { it.copy(fecha = valor, errorFecha = null) }
     }
-
-    // ---------- Dialogo para agregar tarjeta ----------
 
     fun abrirDialogoTarjeta() {
         _estado.update { it.copy(mostrarDialogoTarjeta = true, nuevaTarjeta = "", errorNuevaTarjeta = null) }
@@ -129,18 +129,20 @@ class NuevoMovimientoViewModel : ViewModel() {
             }
             return
         }
+        val nuevoId = (DatosMock.movimientos.maxOfOrNull { it.id } ?: 0) + 1
 
         val movimiento = Movimiento(
-            id = UUID.randomUUID().toString(),
-            movimiento = actual.tipo,
-            monto = BigDecimal(actual.monto),
+            id = nuevoId,
             descripcion = actual.descripcion.trim(),
+            monto = actual.monto.toDouble(),
+            fecha = requireNotNull(actual.fecha),
             categoria = actual.categoria,
-            tipoPago = actual.tipoPago,
-            tarjeta = if (actual.pagaConTarjeta) actual.tarjeta else null,
+            tipo = actual.tipo,
+            metodoPago = if (actual.pagaConTarjeta) MetodoPago.TARJETA else MetodoPago.EFECTIVO,
+            tarjeta = if (actual.pagaConTarjeta) aTarjeta(actual.tarjeta) else null,
+            hora = LocalTime.now(),
             ubicacion = actual.ubicacion.trim().ifBlank { null },
-            reciboUri = actual.reciboUri,
-            fecha = requireNotNull(actual.fecha)
+            fotoRecibo = actual.reciboUri
         )
         DatosMock.movimientos.add(movimiento)
 
@@ -167,4 +169,10 @@ class NuevoMovimientoViewModel : ViewModel() {
         else -> null
     }
 
+    // Convierte "BBVA 7789" en Tarjeta(tipo = "BBVA", terminacion = "7789")
+    private fun aTarjeta(texto: String): Tarjeta {
+        val terminacion = texto.takeLast(4)
+        val tipo = texto.dropLast(4).trim().ifBlank { "Tarjeta" }
+        return Tarjeta(tipo, terminacion)
+    }
 }
